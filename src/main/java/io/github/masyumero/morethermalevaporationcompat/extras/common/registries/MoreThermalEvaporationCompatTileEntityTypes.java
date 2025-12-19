@@ -1,0 +1,33 @@
+package io.github.masyumero.morethermalevaporationcompat.extras.common.registries;
+
+import io.github.masyumero.morethermalevaporationcompat.MoreThermalEvaporationCompat;
+import io.github.masyumero.morethermalevaporationcompat.extras.common.tile.multiblock.*;
+import mekanism.common.registration.impl.TileEntityTypeDeferredRegister;
+import mekanism.common.registration.impl.TileEntityTypeRegistryObject;
+import mekanism.common.tile.base.TileEntityMekanism;
+
+public class MoreThermalEvaporationCompatTileEntityTypes {
+    public static final TileEntityTypeDeferredRegister TILE_ENTITY_TYPES = new TileEntityTypeDeferredRegister(MoreThermalEvaporationCompat.MODID);
+
+    // Absolute
+    public static final TileEntityTypeRegistryObject<TileEntityAbsoluteThermalEvaporationBlock> ABSOLUTE_THERMAL_EVAPORATION_BLOCK = TILE_ENTITY_TYPES.register(MoreThermalEvaporationCompatBlocks.ABSOLUTE_THERMAL_EVAPORATION_BLOCK, TileEntityAbsoluteThermalEvaporationBlock::new, TileEntityMekanism::tickServer, TileEntityMekanism::tickClient);
+    public static final TileEntityTypeRegistryObject<TileEntityAbsoluteThermalEvaporationValve> ABSOLUTE_THERMAL_EVAPORATION_VALVE = TILE_ENTITY_TYPES.register(MoreThermalEvaporationCompatBlocks.ABSOLUTE_THERMAL_EVAPORATION_VALVE, TileEntityAbsoluteThermalEvaporationValve::new, TileEntityMekanism::tickServer, TileEntityMekanism::tickClient);
+    public static final TileEntityTypeRegistryObject<TileEntityAbsoluteThermalEvaporationController> ABSOLUTE_THERMAL_EVAPORATION_CONTROLLER = TILE_ENTITY_TYPES.register(MoreThermalEvaporationCompatBlocks.ABSOLUTE_THERMAL_EVAPORATION_CONTROLLER, TileEntityAbsoluteThermalEvaporationController::new, TileEntityMekanism::tickServer, TileEntityMekanism::tickClient);
+
+    // Supreme
+    public static final TileEntityTypeRegistryObject<TileEntitySupremeThermalEvaporationBlock> SUPREME_THERMAL_EVAPORATION_BLOCK = TILE_ENTITY_TYPES.register(MoreThermalEvaporationCompatBlocks.SUPREME_THERMAL_EVAPORATION_BLOCK, TileEntitySupremeThermalEvaporationBlock::new, TileEntityMekanism::tickServer, TileEntityMekanism::tickClient);
+    public static final TileEntityTypeRegistryObject<TileEntitySupremeThermalEvaporationValve> SUPREME_THERMAL_EVAPORATION_VALVE = TILE_ENTITY_TYPES.register(MoreThermalEvaporationCompatBlocks.SUPREME_THERMAL_EVAPORATION_VALVE, TileEntitySupremeThermalEvaporationValve::new, TileEntityMekanism::tickServer, TileEntityMekanism::tickClient);
+    public static final TileEntityTypeRegistryObject<TileEntitySupremeThermalEvaporationController> SUPREME_THERMAL_EVAPORATION_CONTROLLER = TILE_ENTITY_TYPES.register(MoreThermalEvaporationCompatBlocks.SUPREME_THERMAL_EVAPORATION_CONTROLLER, TileEntitySupremeThermalEvaporationController::new, TileEntityMekanism::tickServer, TileEntityMekanism::tickClient);
+
+    // Cosmic
+    public static final TileEntityTypeRegistryObject<TileEntityCosmicThermalEvaporationBlock> COSMIC_THERMAL_EVAPORATION_BLOCK = TILE_ENTITY_TYPES.register(MoreThermalEvaporationCompatBlocks.COSMIC_THERMAL_EVAPORATION_BLOCK, TileEntityCosmicThermalEvaporationBlock::new, TileEntityMekanism::tickServer, TileEntityMekanism::tickClient);
+    public static final TileEntityTypeRegistryObject<TileEntityCosmicThermalEvaporationValve> COSMIC_THERMAL_EVAPORATION_VALVE = TILE_ENTITY_TYPES.register(MoreThermalEvaporationCompatBlocks.COSMIC_THERMAL_EVAPORATION_VALVE, TileEntityCosmicThermalEvaporationValve::new, TileEntityMekanism::tickServer, TileEntityMekanism::tickClient);
+    public static final TileEntityTypeRegistryObject<TileEntityCosmicThermalEvaporationController> COSMIC_THERMAL_EVAPORATION_CONTROLLER = TILE_ENTITY_TYPES.register(MoreThermalEvaporationCompatBlocks.COSMIC_THERMAL_EVAPORATION_CONTROLLER, TileEntityCosmicThermalEvaporationController::new, TileEntityMekanism::tickServer, TileEntityMekanism::tickClient);
+
+    // Infinite
+    public static final TileEntityTypeRegistryObject<TileEntityInfiniteThermalEvaporationBlock> INFINITE_THERMAL_EVAPORATION_BLOCK = TILE_ENTITY_TYPES.register(MoreThermalEvaporationCompatBlocks.INFINITE_THERMAL_EVAPORATION_BLOCK, TileEntityInfiniteThermalEvaporationBlock::new, TileEntityMekanism::tickServer, TileEntityMekanism::tickClient);
+    public static final TileEntityTypeRegistryObject<TileEntityInfiniteThermalEvaporationValve> INFINITE_THERMAL_EVAPORATION_VALVE = TILE_ENTITY_TYPES.register(MoreThermalEvaporationCompatBlocks.INFINITE_THERMAL_EVAPORATION_VALVE, TileEntityInfiniteThermalEvaporationValve::new, TileEntityMekanism::tickServer, TileEntityMekanism::tickClient);
+    public static final TileEntityTypeRegistryObject<TileEntityInfiniteThermalEvaporationController> INFINITE_THERMAL_EVAPORATION_CONTROLLER = TILE_ENTITY_TYPES.register(MoreThermalEvaporationCompatBlocks.INFINITE_THERMAL_EVAPORATION_CONTROLLER, TileEntityInfiniteThermalEvaporationController::new, TileEntityMekanism::tickServer, TileEntityMekanism::tickClient);
+
+}
+

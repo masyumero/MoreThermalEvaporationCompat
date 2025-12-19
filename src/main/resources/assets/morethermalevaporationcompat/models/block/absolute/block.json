@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "morethermalevaporationcompat:block/absolute/absolute_thermal_evaporation_block",
+    "bottom": "morethermalevaporationcompat:block/absolute/absolute_thermal_evaporation_block",
+    "side": "morethermalevaporationcompat:block/absolute/absolute_thermal_evaporation_block"
+  }
+}

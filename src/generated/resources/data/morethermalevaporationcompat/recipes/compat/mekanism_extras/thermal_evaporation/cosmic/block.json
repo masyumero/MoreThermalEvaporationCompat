@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "morethermalevaporationcompat:supreme_thermal_evaporation_block"
+    },
+    "A": {
+      "item": "mekanism_extras:alloy_shining"
+    },
+    "C": {
+      "item": "mekanism_extras:cosmic_control_circuit"
+    }
+  },
+  "pattern": [
+    "A#A",
+    "#C#",
+    "A#A"
+  ],
+  "result": {
+    "count": 4,
+    "item": "morethermalevaporationcompat:cosmic_thermal_evaporation_block"
+  }
+}

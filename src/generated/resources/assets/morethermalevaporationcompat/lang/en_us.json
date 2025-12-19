@@ -1,0 +1,15 @@
+{
+  "block.morethermalevaporationcompat.absolute_thermal_evaporation_block": "Absolute Thermal Evaporation Block",
+  "block.morethermalevaporationcompat.absolute_thermal_evaporation_controller": "Absolute Thermal Evaporation Controller",
+  "block.morethermalevaporationcompat.absolute_thermal_evaporation_valve": "Absolute Thermal Evaporation Valve",
+  "block.morethermalevaporationcompat.cosmic_thermal_evaporation_block": "Cosmic Thermal Evaporation Block",
+  "block.morethermalevaporationcompat.cosmic_thermal_evaporation_controller": "Cosmic Thermal Evaporation Controller",
+  "block.morethermalevaporationcompat.cosmic_thermal_evaporation_valve": "Cosmic Thermal Evaporation Valve",
+  "block.morethermalevaporationcompat.infinite_thermal_evaporation_block": "Infinite Thermal Evaporation Block",
+  "block.morethermalevaporationcompat.infinite_thermal_evaporation_controller": "Infinite Thermal Evaporation Controller",
+  "block.morethermalevaporationcompat.infinite_thermal_evaporation_valve": "Infinite Thermal Evaporation Valve",
+  "block.morethermalevaporationcompat.supreme_thermal_evaporation_block": "Supreme Thermal Evaporation Block",
+  "block.morethermalevaporationcompat.supreme_thermal_evaporation_controller": "Supreme Thermal Evaporation Controller",
+  "block.morethermalevaporationcompat.supreme_thermal_evaporation_valve": "Supreme Thermal Evaporation Valve",
+  "creativetab.morethermalevaporationcompat.tab": "More Thermal Evaporation Compat"
+}
