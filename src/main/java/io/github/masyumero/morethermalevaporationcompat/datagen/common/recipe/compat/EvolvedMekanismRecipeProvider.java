@@ -5,7 +5,7 @@ import io.github.masyumero.morethermalevaporationcompat.MoreThermalEvaporationCo
 import io.github.masyumero.morethermalevaporationcompat.datagen.common.recipe.builder.ExtendedShapedRecipeBuilder;
 import io.github.masyumero.morethermalevaporationcompat.datagen.common.recipe.impl.MTECompatRecipeProvider;
 import io.github.masyumero.morethermalevaporationcompat.datagen.common.recipe.pattern.Pattern;
-import io.github.masyumero.morethermalevaporationcompat.evolved.common.registries.MoreThermalEvaporationCompatBlocks;
+import io.github.masyumero.morethermalevaporationcompat.common.registries.MoreThermalEvaporationCompatBlocks;
 import mekanism.api.annotations.NothingNullByDefault;
 import morethermalevaporation.common.registries.MoreThermalEvaporationBlocks;
 import net.minecraft.data.recipes.FinishedRecipe;

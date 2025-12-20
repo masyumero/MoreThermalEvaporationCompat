@@ -5,8 +5,7 @@ import io.github.masyumero.morethermalevaporationcompat.MoreThermalEvaporationCo
 import mekanism.api.providers.IBlockProvider;
 import net.minecraft.data.PackOutput;
 
-import static io.github.masyumero.morethermalevaporationcompat.evolved.common.registries.MoreThermalEvaporationCompatBlocks.*;
-import static io.github.masyumero.morethermalevaporationcompat.extras.common.registries.MoreThermalEvaporationCompatBlocks.*;
+import static io.github.masyumero.morethermalevaporationcompat.common.registries.MoreThermalEvaporationCompatBlocks.*;
 
 public class MTECompatLangProvider extends BaseLanguageProvider {
 

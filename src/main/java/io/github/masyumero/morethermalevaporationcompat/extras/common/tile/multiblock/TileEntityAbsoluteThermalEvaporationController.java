@@ -1,7 +1,7 @@
 package io.github.masyumero.morethermalevaporationcompat.extras.common.tile.multiblock;
 
+import io.github.masyumero.morethermalevaporationcompat.common.registries.MoreThermalEvaporationCompatBlocks;
 import io.github.masyumero.morethermalevaporationcompat.extras.common.content.evaporation.AbsoluteThermalEvaporationMultiblockData;
-import io.github.masyumero.morethermalevaporationcompat.extras.common.registries.MoreThermalEvaporationCompatBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.state.BlockState;
 

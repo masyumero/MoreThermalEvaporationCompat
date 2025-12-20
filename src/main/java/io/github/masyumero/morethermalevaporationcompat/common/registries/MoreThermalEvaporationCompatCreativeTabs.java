@@ -2,6 +2,8 @@ package io.github.masyumero.morethermalevaporationcompat.common.registries;
 
 import io.github.masyumero.morethermalevaporationcompat.MoreThermalEvaporationCompat;
 import io.github.masyumero.morethermalevaporationcompat.MoreThermalEvaporationCompatLang;
+import io.github.masyumero.morethermalevaporationcompat.evolved.EvolvedModule;
+import io.github.masyumero.morethermalevaporationcompat.extras.ExtrasModule;
 import mekanism.common.registries.MekanismBlocks;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
@@ -10,8 +12,7 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 
-import static io.github.masyumero.morethermalevaporationcompat.evolved.common.registries.MoreThermalEvaporationCompatBlocks.*;
-import static io.github.masyumero.morethermalevaporationcompat.extras.common.registries.MoreThermalEvaporationCompatBlocks.*;
+import static io.github.masyumero.morethermalevaporationcompat.common.registries.MoreThermalEvaporationCompatBlocks.*;
 
 public class MoreThermalEvaporationCompatCreativeTabs {
 
@@ -22,15 +23,15 @@ public class MoreThermalEvaporationCompatCreativeTabs {
             CreativeModeTab.builder()
                     .title(Component.translatable(MoreThermalEvaporationCompatLang.CREATIVE_TAB.getTranslationKey()))
                     .icon(() -> {
-                        if (MoreThermalEvaporationCompat.ExtrasLoaded) {
+                        if (ExtrasModule.ExtrasLoaded) {
                             return ABSOLUTE_THERMAL_EVAPORATION_CONTROLLER.getItemStack();
-                        } else if (MoreThermalEvaporationCompat.EvolvedLoaded) {
+                        } else if (EvolvedModule.EvolvedLoaded) {
                             return OVERCLOCKED_THERMAL_EVAPORATION_CONTROLLER.getItemStack();
                         }
                         return MekanismBlocks.THERMAL_EVAPORATION_CONTROLLER.getItemStack();
                     } )
                     .displayItems((parameters, output) -> {
-                        if (MoreThermalEvaporationCompat.EvolvedLoaded) {
+                        if (EvolvedModule.EvolvedLoaded) {
                             output.accept(OVERCLOCKED_THERMAL_EVAPORATION_BLOCK.getBlock());
                             output.accept(OVERCLOCKED_THERMAL_EVAPORATION_VALVE.getBlock());
                             output.accept(OVERCLOCKED_THERMAL_EVAPORATION_CONTROLLER.getBlock());
@@ -44,7 +45,7 @@ public class MoreThermalEvaporationCompatCreativeTabs {
                             output.accept(MULTIVERSAL_THERMAL_EVAPORATION_VALVE.getBlock());
                             output.accept(MULTIVERSAL_THERMAL_EVAPORATION_CONTROLLER.getBlock());
                         }
-                        if (MoreThermalEvaporationCompat.ExtrasLoaded) {
+                        if (ExtrasModule.ExtrasLoaded) {
                             output.accept(ABSOLUTE_THERMAL_EVAPORATION_BLOCK.getBlock());
                             output.accept(ABSOLUTE_THERMAL_EVAPORATION_VALVE.getBlock());
                             output.accept(ABSOLUTE_THERMAL_EVAPORATION_CONTROLLER.getBlock());

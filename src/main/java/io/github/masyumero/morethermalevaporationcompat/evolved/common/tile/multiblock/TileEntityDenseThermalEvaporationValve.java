@@ -1,6 +1,6 @@
 package io.github.masyumero.morethermalevaporationcompat.evolved.common.tile.multiblock;
 
-import io.github.masyumero.morethermalevaporationcompat.evolved.common.registries.MoreThermalEvaporationCompatBlocks;
+import io.github.masyumero.morethermalevaporationcompat.common.registries.MoreThermalEvaporationCompatBlocks;
 import mekanism.api.Action;
 import mekanism.api.IContentsListener;
 import mekanism.common.capabilities.heat.CachedAmbientTemperature;

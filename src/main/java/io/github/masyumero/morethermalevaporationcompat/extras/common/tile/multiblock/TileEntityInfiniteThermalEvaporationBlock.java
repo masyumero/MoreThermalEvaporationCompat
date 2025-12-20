@@ -1,8 +1,8 @@
 package io.github.masyumero.morethermalevaporationcompat.extras.common.tile.multiblock;
 
+import io.github.masyumero.morethermalevaporationcompat.common.registries.MoreThermalEvaporationCompatBlocks;
 import io.github.masyumero.morethermalevaporationcompat.extras.ExtrasModule;
 import io.github.masyumero.morethermalevaporationcompat.extras.common.content.evaporation.InfiniteThermalEvaporationMultiblockData;
-import io.github.masyumero.morethermalevaporationcompat.extras.common.registries.MoreThermalEvaporationCompatBlocks;
 import mekanism.api.providers.IBlockProvider;
 import mekanism.common.lib.multiblock.MultiblockManager;
 import mekanism.common.tile.prefab.TileEntityMultiblock;

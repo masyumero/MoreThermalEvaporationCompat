@@ -2,7 +2,7 @@ package io.github.masyumero.morethermalevaporationcompat.evolved.common.tile.mul
 
 import io.github.masyumero.morethermalevaporationcompat.evolved.EvolvedModule;
 import io.github.masyumero.morethermalevaporationcompat.evolved.common.content.evaporation.MultiversalThermalEvaporationMultiblockData;
-import io.github.masyumero.morethermalevaporationcompat.evolved.common.registries.MoreThermalEvaporationCompatBlocks;
+import io.github.masyumero.morethermalevaporationcompat.common.registries.MoreThermalEvaporationCompatBlocks;
 import mekanism.api.providers.IBlockProvider;
 import mekanism.common.lib.multiblock.MultiblockManager;
 import mekanism.common.tile.prefab.TileEntityMultiblock;

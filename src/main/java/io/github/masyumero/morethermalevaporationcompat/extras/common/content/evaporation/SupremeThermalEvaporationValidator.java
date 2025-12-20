@@ -1,6 +1,6 @@
 package io.github.masyumero.morethermalevaporationcompat.extras.common.content.evaporation;
 
-import io.github.masyumero.morethermalevaporationcompat.extras.common.registries.MoreThermalEvaporationCompatBlockTypes;
+import io.github.masyumero.morethermalevaporationcompat.common.registries.MoreThermalEvaporationCompatBlockTypes;
 import io.github.masyumero.morethermalevaporationcompat.extras.common.tile.multiblock.TileEntitySupremeThermalEvaporationController;
 import it.unimi.dsi.fastutil.longs.Long2ObjectMap;
 import mekanism.common.MekanismLang;

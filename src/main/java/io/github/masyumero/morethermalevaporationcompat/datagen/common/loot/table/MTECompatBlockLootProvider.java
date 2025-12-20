@@ -1,14 +1,12 @@
 package io.github.masyumero.morethermalevaporationcompat.datagen.common.loot.table;
 
-import io.github.masyumero.morethermalevaporationcompat.evolved.common.registries.MoreThermalEvaporationCompatBlocks;
-
-import static io.github.masyumero.morethermalevaporationcompat.extras.common.registries.MoreThermalEvaporationCompatBlocks.BLOCKS;
+import io.github.masyumero.morethermalevaporationcompat.common.registries.MoreThermalEvaporationCompatBlocks;
 
 public class MTECompatBlockLootProvider extends BaseBlockLootTables {
 
     @Override
     protected void generate() {
-        dropSelfWithContents(BLOCKS.getAllBlocks());
-        dropSelfWithContents(MoreThermalEvaporationCompatBlocks.BLOCKS.getAllBlocks());
+        dropSelfWithContents(MoreThermalEvaporationCompatBlocks.EVOLVED_BLOCKS.getAllBlocks());
+        dropSelfWithContents(MoreThermalEvaporationCompatBlocks.EXTRAS_BLOCKS.getAllBlocks());
     }
 }

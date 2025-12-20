@@ -7,7 +7,6 @@ import io.github.masyumero.morethermalevaporationcompat.extras.ExtrasModule;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
@@ -18,8 +17,6 @@ public class MoreThermalEvaporationCompat {
 
     public static final String MODID = "morethermalevaporationcompat";
     public static final Logger LOGGER = LogUtils.getLogger();
-    public static boolean ExtrasLoaded = ModList.get().isLoaded("mekanism_extras");
-    public static boolean EvolvedLoaded = ModList.get().isLoaded("evolvedmekanism");
 
     @SuppressWarnings("removal")
     public static ResourceLocation rl(String id) {
@@ -29,10 +26,10 @@ public class MoreThermalEvaporationCompat {
     @SuppressWarnings("removal")
     public MoreThermalEvaporationCompat() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
-        if (ExtrasLoaded) {
+        if (ExtrasModule.ExtrasLoaded) {
             ExtrasModule.init(modEventBus);
         }
-        if (EvolvedLoaded) {
+        if (EvolvedModule.EvolvedLoaded) {
             EvolvedModule.init(modEventBus);
         }
         MoreThermalEvaporationCompatCreativeTabs.register(modEventBus);
