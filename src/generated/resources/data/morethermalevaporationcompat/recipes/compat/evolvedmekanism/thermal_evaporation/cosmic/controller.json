@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "morethermalevaporationcompat:dense_thermal_evaporation_block"
+    },
+    "C": {
+      "item": "evolvedmekanism:dense_control_circuit"
+    },
+    "G": {
+      "tag": "forge:glass_panes"
+    },
+    "O": {
+      "item": "morethermalevaporationcompat:quantum_thermal_evaporation_controller"
+    }
+  },
+  "pattern": [
+    "CGC",
+    "#O#",
+    "###"
+  ],
+  "result": {
+    "item": "morethermalevaporationcompat:dense_thermal_evaporation_controller"
+  }
+}

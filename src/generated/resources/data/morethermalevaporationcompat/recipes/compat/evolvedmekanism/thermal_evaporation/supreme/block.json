@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "morethermalevaporationcompat:overclocked_thermal_evaporation_block"
+    },
+    "A": {
+      "item": "evolvedmekanism:alloy_subatomic"
+    },
+    "C": {
+      "item": "evolvedmekanism:quantum_control_circuit"
+    }
+  },
+  "pattern": [
+    "A#A",
+    "#C#",
+    "A#A"
+  ],
+  "result": {
+    "count": 4,
+    "item": "morethermalevaporationcompat:quantum_thermal_evaporation_block"
+  }
+}

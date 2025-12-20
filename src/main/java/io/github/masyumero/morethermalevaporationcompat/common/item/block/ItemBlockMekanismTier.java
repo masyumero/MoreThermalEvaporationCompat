@@ -1,4 +1,4 @@
-package io.github.masyumero.morethermalevaporationcompat.extras.common.item.block;
+package io.github.masyumero.morethermalevaporationcompat.common.item.block;
 
 import com.jerry.mekanism_extras.api.tier.AdvancedTier;
 import mekanism.api.text.TextComponentUtil;

@@ -2,9 +2,8 @@ package io.github.masyumero.morethermalevaporationcompat.extras.common.registrie
 
 import com.jerry.mekanism_extras.api.tier.AdvancedTier;
 import io.github.masyumero.morethermalevaporationcompat.MoreThermalEvaporationCompat;
-import io.github.masyumero.morethermalevaporationcompat.extras.common.item.block.ItemBlockMekanismTier;
+import io.github.masyumero.morethermalevaporationcompat.common.item.block.ItemBlockMekanismTier;
 import io.github.masyumero.morethermalevaporationcompat.extras.common.tile.multiblock.*;
-import mekanism.api.tier.BaseTier;
 import mekanism.common.block.interfaces.IHasDescription;
 import mekanism.common.block.prefab.BlockBasicMultiblock;
 import mekanism.common.registration.impl.BlockDeferredRegister;
@@ -42,14 +41,6 @@ public class MoreThermalEvaporationCompatBlocks {
             String name,
             Supplier<? extends BLOCK> blockSupplier,
             AdvancedTier tier) {
-
-        return BLOCKS.registerDefaultProperties(name, blockSupplier, (block, props) -> new ItemBlockMekanismTier<>(block, props, tier));
-    }
-
-    private static <BLOCK extends Block & IHasDescription> BlockRegistryObject<BLOCK, ItemBlockMekanismTier<BLOCK>> registerEvolvedBlock(
-            String name,
-            Supplier<? extends BLOCK> blockSupplier,
-            BaseTier tier) {
 
         return BLOCKS.registerDefaultProperties(name, blockSupplier, (block, props) -> new ItemBlockMekanismTier<>(block, props, tier));
     }

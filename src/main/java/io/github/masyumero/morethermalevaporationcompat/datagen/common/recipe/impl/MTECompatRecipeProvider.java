@@ -3,6 +3,7 @@ package io.github.masyumero.morethermalevaporationcompat.datagen.common.recipe.i
 import io.github.masyumero.morethermalevaporationcompat.MoreThermalEvaporationCompat;
 import io.github.masyumero.morethermalevaporationcompat.datagen.common.recipe.BaseRecipeProvider;
 import io.github.masyumero.morethermalevaporationcompat.datagen.common.recipe.ISubRecipeProvider;
+import io.github.masyumero.morethermalevaporationcompat.datagen.common.recipe.compat.EvolvedMekanismRecipeProvider;
 import io.github.masyumero.morethermalevaporationcompat.datagen.common.recipe.compat.MekanismExtrasRecipeProvider;
 import mekanism.api.annotations.NothingNullByDefault;
 import net.minecraft.data.PackOutput;
@@ -26,6 +27,7 @@ public class MTECompatRecipeProvider extends BaseRecipeProvider {
         super(output, existingFileHelper, MoreThermalEvaporationCompat.MODID);
 
         checkCompat("mekanism_extras", MekanismExtrasRecipeProvider::new);
+        checkCompat("evolvedmekanism", EvolvedMekanismRecipeProvider::new);
     }
 
     private void checkCompat(String modid, Function<String, ISubRecipeProvider> providerCreator) {

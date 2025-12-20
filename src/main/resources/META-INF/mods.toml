@@ -66,5 +66,5 @@ side = "BOTH"
 modId = "mekanism"
 mandatory = true
 versionRange = "[10.4.10,]"
-ordering = "NONE"
+ordering = "AFTER"
 side = "BOTH"

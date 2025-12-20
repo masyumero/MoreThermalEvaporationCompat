@@ -20,18 +20,7 @@ public class MoreThermalEvaporationCompatCreativeTabs {
                     .title(Component.translatable(MoreThermalEvaporationCompatLang.CREATIVE_TAB.getTranslationKey()))
                     .icon(() -> new ItemStack(MoreThermalEvaporationCompatBlocks.ABSOLUTE_THERMAL_EVAPORATION_BLOCK.asItem()))
                     .displayItems((parameters, output) -> {
-                        output.accept(MoreThermalEvaporationCompatBlocks.ABSOLUTE_THERMAL_EVAPORATION_BLOCK.getBlock());
-                        output.accept(MoreThermalEvaporationCompatBlocks.ABSOLUTE_THERMAL_EVAPORATION_VALVE.getBlock());
-                        output.accept(MoreThermalEvaporationCompatBlocks.ABSOLUTE_THERMAL_EVAPORATION_CONTROLLER.getBlock());
-                        output.accept(MoreThermalEvaporationCompatBlocks.SUPREME_THERMAL_EVAPORATION_BLOCK.getBlock());
-                        output.accept(MoreThermalEvaporationCompatBlocks.SUPREME_THERMAL_EVAPORATION_VALVE.getBlock());
-                        output.accept(MoreThermalEvaporationCompatBlocks.SUPREME_THERMAL_EVAPORATION_CONTROLLER.getBlock());
-                        output.accept(MoreThermalEvaporationCompatBlocks.COSMIC_THERMAL_EVAPORATION_BLOCK.getBlock());
-                        output.accept(MoreThermalEvaporationCompatBlocks.COSMIC_THERMAL_EVAPORATION_VALVE.getBlock());
-                        output.accept(MoreThermalEvaporationCompatBlocks.COSMIC_THERMAL_EVAPORATION_CONTROLLER.getBlock());
-                        output.accept(MoreThermalEvaporationCompatBlocks.INFINITE_THERMAL_EVAPORATION_BLOCK.getBlock());
-                        output.accept(MoreThermalEvaporationCompatBlocks.INFINITE_THERMAL_EVAPORATION_VALVE.getBlock());
-                        output.accept(MoreThermalEvaporationCompatBlocks.INFINITE_THERMAL_EVAPORATION_CONTROLLER.getBlock());
+
 
                     })
                     .build()

@@ -3,6 +3,8 @@ package io.github.masyumero.morethermalevaporationcompat.datagen.common.recipe.b
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import io.github.masyumero.morethermalevaporationcompat.datagen.DataGenJsonConstants;
+import io.github.masyumero.morethermalevaporationcompat.datagen.common.recipe.impl.MTECompatRecipeProvider;
+import io.github.masyumero.morethermalevaporationcompat.datagen.common.recipe.pattern.Pattern;
 import io.github.masyumero.morethermalevaporationcompat.datagen.common.recipe.pattern.RecipePattern;
 import it.unimi.dsi.fastutil.chars.Char2ObjectArrayMap;
 import it.unimi.dsi.fastutil.chars.Char2ObjectMap;
@@ -21,6 +23,21 @@ import net.minecraft.world.level.ItemLike;
 @NothingNullByDefault
 public class ExtendedShapedRecipeBuilder extends BaseRecipeBuilder<ExtendedShapedRecipeBuilder> {
 
+    private static final RecipePattern BLOCK_PATTERN = RecipePattern.createPattern(
+            RecipePattern.TripleLine.of(Pattern.ALLOY, Pattern.CONSTANT, Pattern.ALLOY),
+            RecipePattern.TripleLine.of(Pattern.CONSTANT, Pattern.CIRCUIT, Pattern.CONSTANT),
+            RecipePattern.TripleLine.of(Pattern.ALLOY, Pattern.CONSTANT, Pattern.ALLOY));
+
+    private static final RecipePattern CONTROLLER_PATTERN = RecipePattern.createPattern(
+            RecipePattern.TripleLine.of(Pattern.CIRCUIT, MTECompatRecipeProvider.GLASS_CHAR, Pattern.CIRCUIT),
+            RecipePattern.TripleLine.of(Pattern.CONSTANT, Pattern.OTHER, Pattern.CONSTANT),
+            RecipePattern.TripleLine.of(Pattern.CONSTANT, Pattern.CONSTANT, Pattern.CONSTANT));
+
+    private static final RecipePattern VALVE_PATTERN = RecipePattern.createPattern(
+            RecipePattern.TripleLine.of(Pattern.EMPTY, Pattern.CONSTANT, Pattern.EMPTY),
+            RecipePattern.TripleLine.of(Pattern.CONSTANT, Pattern.OTHER, Pattern.CONSTANT),
+            RecipePattern.TripleLine.of(Pattern.EMPTY, Pattern.CONSTANT, Pattern.EMPTY));
+
     private final Char2ObjectMap<Ingredient> key = new Char2ObjectArrayMap<>(9);
     private final List<String> pattern = new ArrayList<>();
 
@@ -38,6 +55,18 @@ public class ExtendedShapedRecipeBuilder extends BaseRecipeBuilder<ExtendedShape
 
     public static ExtendedShapedRecipeBuilder shapedRecipe(ItemLike result, int count) {
         return new ExtendedShapedRecipeBuilder(result, count);
+    }
+
+    public ExtendedShapedRecipeBuilder blockPattern() {
+        return pattern(BLOCK_PATTERN);
+    }
+
+    public ExtendedShapedRecipeBuilder controllerPattern() {
+        return pattern(CONTROLLER_PATTERN);
+    }
+
+    public ExtendedShapedRecipeBuilder valvePattern() {
+        return pattern(VALVE_PATTERN);
     }
 
     public ExtendedShapedRecipeBuilder pattern(RecipePattern pattern) {

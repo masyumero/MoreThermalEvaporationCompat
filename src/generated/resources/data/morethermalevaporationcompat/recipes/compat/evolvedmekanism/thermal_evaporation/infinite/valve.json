@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "morethermalevaporationcompat:multiversal_thermal_evaporation_block"
+    },
+    "O": {
+      "item": "morethermalevaporationcompat:dense_thermal_evaporation_valve"
+    }
+  },
+  "pattern": [
+    " # ",
+    "#O#",
+    " # "
+  ],
+  "result": {
+    "item": "morethermalevaporationcompat:multiversal_thermal_evaporation_valve"
+  }
+}

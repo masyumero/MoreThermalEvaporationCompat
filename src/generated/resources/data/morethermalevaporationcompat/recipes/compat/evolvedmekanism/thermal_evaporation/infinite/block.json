@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "morethermalevaporationcompat:dense_thermal_evaporation_block"
+    },
+    "A": {
+      "item": "evolvedmekanism:alloy_exoversal"
+    },
+    "C": {
+      "item": "evolvedmekanism:multiversal_control_circuit"
+    }
+  },
+  "pattern": [
+    "A#A",
+    "#C#",
+    "A#A"
+  ],
+  "result": {
+    "count": 4,
+    "item": "morethermalevaporationcompat:multiversal_thermal_evaporation_block"
+  }
+}

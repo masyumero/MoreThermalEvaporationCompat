@@ -1,10 +1,9 @@
 package io.github.masyumero.morethermalevaporationcompat;
 
 import com.mojang.logging.LogUtils;
+import io.github.masyumero.morethermalevaporationcompat.common.registries.MoreThermalEvaporationCompatCreativeTabs;
+import io.github.masyumero.morethermalevaporationcompat.evolved.EvolvedModule;
 import io.github.masyumero.morethermalevaporationcompat.extras.ExtrasModule;
-import io.github.masyumero.morethermalevaporationcompat.extras.common.content.evaporation.*;
-import mekanism.common.lib.multiblock.MultiblockCache;
-import mekanism.common.lib.multiblock.MultiblockManager;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -20,11 +19,7 @@ public class MoreThermalEvaporationCompat {
     public static final String MODID = "morethermalevaporationcompat";
     public static final Logger LOGGER = LogUtils.getLogger();
     public static boolean ExtrasLoaded = ModList.get().isLoaded("mekanism_extras");
-
-    public static final MultiblockManager<AbsoluteThermalEvaporationMultiblockData> AbsoluteThermalEvaporationManager = new MultiblockManager<>("AbsoluteThermalEvaporation", MultiblockCache::new, AbsoluteThermalEvaporationValidator::new);
-    public static final MultiblockManager<SupremeThermalEvaporationMultiblockData> SupremeThermalEvaporationManager = new MultiblockManager<>("SupremeThermalEvaporation", MultiblockCache::new, SupremeThermalEvaporationValidator::new);
-    public static final MultiblockManager<CosmicThermalEvaporationMultiblockData> CosmicThermalEvaporationManager = new MultiblockManager<>("CosmicThermalEvaporation", MultiblockCache::new, CosmicThermalEvaporationValidator::new);
-    public static final MultiblockManager<InfiniteThermalEvaporationMultiblockData> InfiniteThermalEvaporationManager = new MultiblockManager<>("InfiniteThermalEvaporation", MultiblockCache::new, InfiniteThermalEvaporationValidator::new);
+    public static boolean EvolvedLoaded = ModList.get().isLoaded("evolvedmekanism");
 
     @SuppressWarnings("removal")
     public static ResourceLocation rl(String id) {
@@ -37,6 +32,10 @@ public class MoreThermalEvaporationCompat {
         if (ExtrasLoaded) {
             ExtrasModule.init(modEventBus);
         }
+        if (EvolvedLoaded) {
+            EvolvedModule.init(modEventBus);
+        }
+        MoreThermalEvaporationCompatCreativeTabs.register(modEventBus);
         MinecraftForge.EVENT_BUS.register(this);
     }
 }

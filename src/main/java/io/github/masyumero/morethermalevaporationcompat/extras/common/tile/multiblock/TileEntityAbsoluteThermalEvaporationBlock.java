@@ -1,6 +1,6 @@
 package io.github.masyumero.morethermalevaporationcompat.extras.common.tile.multiblock;
 
-import io.github.masyumero.morethermalevaporationcompat.MoreThermalEvaporationCompat;
+import io.github.masyumero.morethermalevaporationcompat.extras.ExtrasModule;
 import io.github.masyumero.morethermalevaporationcompat.extras.common.content.evaporation.AbsoluteThermalEvaporationMultiblockData;
 import io.github.masyumero.morethermalevaporationcompat.extras.common.registries.MoreThermalEvaporationCompatBlocks;
 import mekanism.api.providers.IBlockProvider;
@@ -40,7 +40,7 @@ public class TileEntityAbsoluteThermalEvaporationBlock extends TileEntityMultibl
 
     @Override
     public MultiblockManager<AbsoluteThermalEvaporationMultiblockData> getManager() {
-        return MoreThermalEvaporationCompat.AbsoluteThermalEvaporationManager;
+        return ExtrasModule.AbsoluteThermalEvaporationManager;
     }
 
     @Override
