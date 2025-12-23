@@ -1,0 +1,35 @@
+{
+  "block.morethermalevaporationcompat.absolute_thermal_evaporation_block": "絶対加温蒸発濃縮ブロック",
+  "block.morethermalevaporationcompat.absolute_thermal_evaporation_controller": "絶対加温蒸発濃縮コントローラー",
+  "block.morethermalevaporationcompat.absolute_thermal_evaporation_valve": "絶対加温蒸発濃縮バルブ",
+
+  "block.morethermalevaporationcompat.cosmic_thermal_evaporation_block": "宇宙加温蒸発濃縮ブロック",
+  "block.morethermalevaporationcompat.cosmic_thermal_evaporation_controller": "宇宙加温蒸発濃縮コントローラー",
+  "block.morethermalevaporationcompat.cosmic_thermal_evaporation_valve": "宇宙加温蒸発濃縮バルブ",
+
+  "block.morethermalevaporationcompat.dense_thermal_evaporation_block": "高密加温蒸発濃縮ブロック",
+  "block.morethermalevaporationcompat.dense_thermal_evaporation_controller": "高密加温蒸発濃縮コントローラー",
+  "block.morethermalevaporationcompat.dense_thermal_evaporation_valve": "高密加温蒸発濃縮バルブ",
+
+  "block.morethermalevaporationcompat.infinite_thermal_evaporation_block": "無限加温蒸発濃縮ブロック",
+  "block.morethermalevaporationcompat.infinite_thermal_evaporation_controller": "無限加温蒸発濃縮コントローラー",
+  "block.morethermalevaporationcompat.infinite_thermal_evaporation_valve": "無限加温蒸発濃縮バルブ",
+
+  "block.morethermalevaporationcompat.multiversal_thermal_evaporation_block": "多元加温蒸発濃縮ブロック",
+  "block.morethermalevaporationcompat.multiversal_thermal_evaporation_controller": "多元加温蒸発濃縮コントローラー",
+  "block.morethermalevaporationcompat.multiversal_thermal_evaporation_valve": "多元加温蒸発濃縮バルブ",
+
+  "block.morethermalevaporationcompat.overclocked_thermal_evaporation_block": "超速加温蒸発濃縮ブロック",
+  "block.morethermalevaporationcompat.overclocked_thermal_evaporation_controller": "超速加温蒸発濃縮コントローラー",
+  "block.morethermalevaporationcompat.overclocked_thermal_evaporation_valve": "超速加温蒸発濃縮バルブ",
+
+  "block.morethermalevaporationcompat.quantum_thermal_evaporation_block": "量子加温蒸発濃縮ブロック",
+  "block.morethermalevaporationcompat.quantum_thermal_evaporation_controller": "量子加温蒸発濃縮コントローラー",
+  "block.morethermalevaporationcompat.quantum_thermal_evaporation_valve": "量子加温蒸発濃縮バルブ",
+
+  "block.morethermalevaporationcompat.supreme_thermal_evaporation_block": "至高加温蒸発濃縮ブロック",
+  "block.morethermalevaporationcompat.supreme_thermal_evaporation_controller": "至高加温蒸発濃縮コントローラー",
+  "block.morethermalevaporationcompat.supreme_thermal_evaporation_valve": "至高加温蒸発濃縮バルブ",
+  
+  "creativetab.morethermalevaporationcompat.tab": "More Thermal Evaporation Compat"
+}
