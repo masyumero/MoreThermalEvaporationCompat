@@ -1,5 +1,6 @@
 package io.github.masyumero.morethermalevaporationcompat.extras.common.content.evaporation;
 
+import io.github.masyumero.morethermalevaporationcompat.api.IThermalEvaporationMultiblockData;
 import io.github.masyumero.morethermalevaporationcompat.extras.common.tile.multiblock.TileEntitySupremeThermalEvaporationBlock;
 import it.unimi.dsi.fastutil.ints.Int2ObjectArrayMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
@@ -54,7 +55,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.function.BooleanSupplier;
 
-public class SupremeThermalEvaporationMultiblockData extends MultiblockData implements IValveHandler, ISingleRecipeLookupHandler.FluidRecipeLookupHandler<FluidToFluidRecipe> {
+public class SupremeThermalEvaporationMultiblockData extends MultiblockData implements IThermalEvaporationMultiblockData, IValveHandler, ISingleRecipeLookupHandler.FluidRecipeLookupHandler<FluidToFluidRecipe> {
 
     public static final int MAX_HEIGHT = 18;
     public static final double MAX_MULTIPLIER_TEMP = 192_000;
@@ -97,6 +98,7 @@ public class SupremeThermalEvaporationMultiblockData extends MultiblockData impl
     private double biomeAmbientTemp;
     private double tempMultiplier;
     private int inputTankCapacity;
+    private int upgradeCount;
 
     public SupremeThermalEvaporationMultiblockData(TileEntitySupremeThermalEvaporationBlock tile) {
         super(tile);
@@ -165,7 +167,7 @@ public class SupremeThermalEvaporationMultiblockData extends MultiblockData impl
     public double simulateEnvironment() {
         double currentTemperature = getTemperature();
         double heatCapacity = heatCapacitor.getHeatCapacity();
-        heatCapacitor.handleHeat(getActiveSolars() * MekanismConfig.general.evaporationSolarMultiplier.get() * heatCapacity);
+        heatCapacitor.handleHeat(getActiveSolars() * (upgradeCount + 1) * MekanismConfig.general.evaporationSolarMultiplier.get() * heatCapacity);
         if (Math.abs(currentTemperature - biomeAmbientTemp) < 0.001) {
             heatCapacitor.handleHeat(biomeAmbientTemp * heatCapacity - heatCapacitor.getHeat());
         } else {
@@ -307,6 +309,11 @@ public class SupremeThermalEvaporationMultiblockData extends MultiblockData impl
     public void remove(Level world) {
         cachedSolar.clear();
         super.remove(world);
+    }
+
+    @Override
+    public void mteCompat$setUpgradeCount(int count) {
+        upgradeCount = count;
     }
 
     private static class RefreshListener implements NonNullConsumer<LazyOptional<IEvaporationSolar>> {

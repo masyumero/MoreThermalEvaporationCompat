@@ -1,5 +1,7 @@
 package io.github.masyumero.morethermalevaporationcompat.evolved.common.content.evaporation;
 
+import fr.iglee42.evolvedmekanism.tiers.EMBaseTier;
+import io.github.masyumero.morethermalevaporationcompat.common.config.LoadConfig;
 import io.github.masyumero.morethermalevaporationcompat.common.registries.MoreThermalEvaporationCompatBlockTypes;
 import io.github.masyumero.morethermalevaporationcompat.evolved.common.tile.multiblock.TileEntityQuantumThermalEvaporationController;
 import it.unimi.dsi.fastutil.longs.Long2ObjectMap;
@@ -24,7 +26,7 @@ import java.util.EnumSet;
 public class QuantumThermalEvaporationValidator extends CuboidStructureValidator<QuantumThermalEvaporationMultiblockData> {
 
     private static final VoxelCuboid MIN_CUBOID = new VoxelCuboid(4, 3, 4);
-    private static final VoxelCuboid MAX_CUBOID = new VoxelCuboid(4, 1026, 4);
+    private static final VoxelCuboid MAX_CUBOID = new VoxelCuboid(4, LoadConfig.MTE_COMPAT_CONFIG.getHeight(EMBaseTier.QUANTUM), 4);
 
     private boolean foundController = false;
 
