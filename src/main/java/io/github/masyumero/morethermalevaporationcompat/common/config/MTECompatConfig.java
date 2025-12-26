@@ -1,15 +1,12 @@
 package io.github.masyumero.morethermalevaporationcompat.common.config;
 
 import com.jerry.mekanism_extras.api.tier.AdvancedTier;
-import fr.iglee42.evolvedmekanism.tiers.EMBaseTier;
 import mekanism.api.tier.BaseTier;
 import mekanism.common.config.BaseMekanismConfig;
 import mekanism.common.config.value.CachedIntValue;
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.config.ModConfig;
-
-import java.util.function.Function;
 
 public class MTECompatConfig extends BaseMekanismConfig {
 
@@ -34,107 +31,95 @@ public class MTECompatConfig extends BaseMekanismConfig {
     public MTECompatConfig() {
         ForgeConfigSpec.Builder builder = new ForgeConfigSpec.Builder();
 
-        Function<Object, String> heightConfigComment = o -> {
-            if (o instanceof AdvancedTier tier) return "Buildable Height (in blocks) for the %s Evaporation Plant.".formatted(tier.getSimpleName());
-            if (o instanceof BaseTier tier) return "Buildable Height (in blocks) for the %s Evaporation Plant.".formatted(tier.getSimpleName());
-            return null;
-        };
-
-        Function<Object, String> TankCapacityConfigComment = o -> {
-            if (o instanceof AdvancedTier tier) return "Amount of output fluid (mB) that the %s Evaporation Plant can store.".formatted(tier.getSimpleName());
-            if (o instanceof BaseTier tier) return "Amount of output fluid (mB) that the %s Evaporation Plant can store.".formatted(tier.getSimpleName());
-            return null;
-        };
-
         builder.comment("More Thermal Evaporation Compat Settings");
         builder.push("Tier");
         builder.push("Absolute");
         builder.comment("Settings for the Absolute Tier");
 
         absoluteOutputTankCapacity = CachedIntValue.wrap(this, builder
-                .comment(TankCapacityConfigComment.apply(AdvancedTier.ABSOLUTE))
-                .defineInRange("%sEvaporationOutputTankCapacity".formatted(AdvancedTier.ABSOLUTE.getSimpleName()), 20480000, 1, Integer.MAX_VALUE));
+                .comment("Amount of output fluid (mB) that the Absolute Evaporation Plant can store.")
+                .defineInRange("AbsoluteEvaporationOutputTankCapacity", 20480000, 1, Integer.MAX_VALUE));
 
         absoluteHeight = CachedIntValue.wrap(this, builder
-                .comment(heightConfigComment.apply(AdvancedTier.ABSOLUTE))
-                .defineInRange("%sEvaporationOutputTankCapacity".formatted(AdvancedTier.ABSOLUTE.getSimpleName()), 18, 18, 514));
+                .comment("Buildable Height (in blocks) for the Absolute Evaporation Plant.")
+                .defineInRange("AbsoluteEvaporationPlantHeight", 18, 18, 514));
 
         builder.pop();
         builder.push("Supreme");
         builder.comment("Settings for the Supreme Tier");
         supremeOutputTankCapacity = CachedIntValue.wrap(this, builder
-                .comment(TankCapacityConfigComment.apply(AdvancedTier.SUPREME))
-                .defineInRange("%sEvaporationOutputTankCapacity".formatted(AdvancedTier.SUPREME.getSimpleName()), 40960000, 1, Integer.MAX_VALUE));
+                .comment("Amount of output fluid (mB) that the Supreme Evaporation Plant can store.")
+                .defineInRange("SupremeEvaporationOutputTankCapacity", 40960000, 1, Integer.MAX_VALUE));
 
         supremeHeight = CachedIntValue.wrap(this, builder
-                .comment(heightConfigComment.apply(AdvancedTier.SUPREME))
-                .defineInRange("%sEvaporationOutputTankCapacity".formatted(AdvancedTier.SUPREME.getSimpleName()), 18, 18, 1026));
+                .comment("Buildable Height (in blocks) for the Supreme Evaporation Plant.")
+                .defineInRange("SupremeEvaporationPlantHeight", 18, 18, 1026));
 
         builder.pop();
         builder.push("Cosmic");
         builder.comment("Settings for the Cosmic Tier");
         cosmicOutputTankCapacity = CachedIntValue.wrap(this, builder
-                .comment(TankCapacityConfigComment.apply(AdvancedTier.COSMIC))
-                .defineInRange("%sEvaporationOutputTankCapacity".formatted(AdvancedTier.COSMIC.getSimpleName()), 81920000, 1, Integer.MAX_VALUE));
+                .comment("Amount of output fluid (mB) that the Cosmic Evaporation Plant can store.")
+                .defineInRange("CosmicEvaporationOutputTankCapacity", 81920000, 1, Integer.MAX_VALUE));
 
         cosmicHeight = CachedIntValue.wrap(this, builder
-                .comment(heightConfigComment.apply(AdvancedTier.COSMIC))
-                .defineInRange("%sEvaporationOutputTankCapacity".formatted(AdvancedTier.COSMIC.getSimpleName()), 18, 18, 2050));
+                .comment("Buildable Height (in blocks) for the Cosmic Evaporation Plant.")
+                .defineInRange("CosmicEvaporationPlantHeight", 18, 18, 2050));
 
         builder.pop();
         builder.push("Infinite");
         builder.comment("Settings for the Infinite Tier");
         infiniteOutputTankCapacity = CachedIntValue.wrap(this, builder
-                .comment(TankCapacityConfigComment.apply(AdvancedTier.INFINITE))
-                .defineInRange("%sEvaporationOutputTankCapacity".formatted(AdvancedTier.INFINITE.getSimpleName()), 163840000, 1, Integer.MAX_VALUE));
+                .comment("Amount of output fluid (mB) that the Infinite Evaporation Plant can store.")
+                .defineInRange("InfiniteEvaporationOutputTankCapacity", 163840000, 1, Integer.MAX_VALUE));
 
         infiniteHeight = CachedIntValue.wrap(this, builder
-                .comment(heightConfigComment.apply(AdvancedTier.INFINITE))
-                .defineInRange("%sEvaporationOutputTankCapacity".formatted(AdvancedTier.INFINITE.getSimpleName()), 18, 18, 4098));
+                .comment("Buildable Height (in blocks) for the Infinite Evaporation Plant.")
+                .defineInRange("InfiniteEvaporationPlantHeight", 18, 18, 4098));
 
         builder.pop();
         builder.push("Overclocked");
         builder.comment("Settings for the Overclocked Tier");
         overclockedOutputTankCapacity = CachedIntValue.wrap(this, builder
-                .comment(TankCapacityConfigComment.apply(EMBaseTier.OVERCLOCKED))
-                .defineInRange("%sEvaporationOutputTankCapacity".formatted(EMBaseTier.OVERCLOCKED.getSimpleName()), 20480000, 1, Integer.MAX_VALUE));
+                .comment("Amount of output fluid (mB) that the Overclocked Evaporation Plant can store.")
+                .defineInRange("OverclockedEvaporationOutputTankCapacity", 20480000, 1, Integer.MAX_VALUE));
 
         overclockedHeight = CachedIntValue.wrap(this, builder
-                .comment(heightConfigComment.apply(EMBaseTier.OVERCLOCKED))
-                .defineInRange("%sEvaporationOutputTankCapacity".formatted(EMBaseTier.OVERCLOCKED.getSimpleName()), 18, 18, 514));
+                .comment("Buildable Height (in blocks) for the Overclocked Evaporation Plant.")
+                .defineInRange("OverclockedEvaporationPlantHeight", 18, 18, 514));
 
         builder.pop();
         builder.push("Quantum");
         builder.comment("Settings for the Quantum Tier");
         quantumOutputTankCapacity = CachedIntValue.wrap(this, builder
-                .comment(TankCapacityConfigComment.apply(EMBaseTier.QUANTUM))
-                .defineInRange("%sEvaporationOutputTankCapacity".formatted(EMBaseTier.QUANTUM.getSimpleName()), 40960000, 1, Integer.MAX_VALUE));
+                .comment("Amount of output fluid (mB) that the Quantum Evaporation Plant can store.")
+                .defineInRange("QuantumEvaporationOutputTankCapacity", 40960000, 1, Integer.MAX_VALUE));
 
         quantumHeight = CachedIntValue.wrap(this, builder
-                .comment(heightConfigComment.apply(EMBaseTier.QUANTUM))
-                .defineInRange("%sEvaporationOutputTankCapacity".formatted(EMBaseTier.QUANTUM.getSimpleName()), 18, 18, 1026));
+                .comment("Buildable Height (in blocks) for the Quantum Evaporation Plant.")
+                .defineInRange("QuantumEvaporationPlantHeight", 18, 18, 1026));
 
         builder.pop();
         builder.push("Dense");
         builder.comment("Settings for the Dense Tier");
         denseOutputTankCapacity = CachedIntValue.wrap(this, builder
-                .comment(TankCapacityConfigComment.apply(EMBaseTier.DENSE))
-                .defineInRange("%sEvaporationOutputTankCapacity".formatted(EMBaseTier.DENSE.getSimpleName()), 81920000, 1, Integer.MAX_VALUE));
+                .comment("Amount of output fluid (mB) that the Dense Evaporation Plant can store.")
+                .defineInRange("DenseEvaporationOutputTankCapacity", 81920000, 1, Integer.MAX_VALUE));
 
         denseHeight = CachedIntValue.wrap(this, builder
-                .comment(heightConfigComment.apply(EMBaseTier.DENSE))
-                .defineInRange("%sEvaporationOutputTankCapacity".formatted(EMBaseTier.DENSE.getSimpleName()), 18, 18, 2050));
+                .comment("Buildable Height (in blocks) for the Dense Evaporation Plant.")
+                .defineInRange("DenseEvaporationPlantHeight", 18, 18, 2050));
 
         builder.pop();
         builder.push("Multiversal");
         builder.comment("Settings for the Multiversal Tier");
         multiversalOutputTankCapacity = CachedIntValue.wrap(this, builder
-                .comment(TankCapacityConfigComment.apply(EMBaseTier.MULTIVERSAL))
-                .defineInRange("%sEvaporationOutputTankCapacity".formatted(EMBaseTier.MULTIVERSAL.getSimpleName()), 163840000, 1, Integer.MAX_VALUE));
+                .comment("Amount of output fluid (mB) that the Multiversal Evaporation Plant can store.")
+                .defineInRange("MultiversalEvaporationOutputTankCapacity", 163840000, 1, Integer.MAX_VALUE));
 
         multiversalHeight = CachedIntValue.wrap(this, builder
-                .comment(heightConfigComment.apply(EMBaseTier.MULTIVERSAL))
-                .defineInRange("%sEvaporationOutputTankCapacity".formatted(EMBaseTier.MULTIVERSAL.getSimpleName()), 18, 18, 4098));
+                .comment("Buildable Height (in blocks) for the Multiversal Evaporation Plant.")
+                .defineInRange("MultiversalEvaporationPlantHeight", 18, 18, 4098));
 
         builder.pop().pop();
         this.configSpec = builder.build();

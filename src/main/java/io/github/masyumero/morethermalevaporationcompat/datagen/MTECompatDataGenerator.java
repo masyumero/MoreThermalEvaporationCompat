@@ -8,8 +8,11 @@ import io.github.masyumero.morethermalevaporationcompat.MoreThermalEvaporationCo
 import io.github.masyumero.morethermalevaporationcompat.datagen.client.lang.MTECompatLangProvider;
 import io.github.masyumero.morethermalevaporationcompat.datagen.common.loot.MTECompatLootProvider;
 import io.github.masyumero.morethermalevaporationcompat.datagen.common.recipe.impl.MTECompatRecipeProvider;
+import io.github.masyumero.morethermalevaporationcompat.datagen.common.registries.MTECompatDatapackRegistryProvider;
+import io.github.masyumero.morethermalevaporationcompat.datagen.common.tag.MTECompatTagProvider;
 import mekanism.common.Mekanism;
 import net.minecraft.Util;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.data.CachedOutput;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.DataProvider;
@@ -37,12 +40,15 @@ public class MTECompatDataGenerator {
         DataGenerator gen = event.getGenerator();
         PackOutput output = gen.getPackOutput();
         ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
+        MTECompatDatapackRegistryProvider drProvider = new MTECompatDatapackRegistryProvider(output, event.getLookupProvider());
+        CompletableFuture<HolderLookup.Provider> lookupProvider = drProvider.getRegistryProvider();
         //Client side data generators
         addProvider(gen, event.includeClient(), MTECompatLangProvider::new);
 
         //Server side data generators
         MTECompatRecipeProvider recipeProvider = new MTECompatRecipeProvider(output, existingFileHelper);
         gen.addProvider(event.includeServer(), recipeProvider);
+        gen.addProvider(event.includeServer(), new MTECompatTagProvider(output, lookupProvider, existingFileHelper));
         addProvider(gen, event.includeServer(), MTECompatLootProvider::new);
     }
 

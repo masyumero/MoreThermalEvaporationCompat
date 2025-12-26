@@ -11,6 +11,19 @@
       "entries": [
         {
           "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:copy_nbt",
+              "ops": [
+                {
+                  "op": "replace",
+                  "source": "componentUpgrade",
+                  "target": "mekData.componentUpgrade"
+                }
+              ],
+              "source": "block_entity"
+            }
+          ],
           "name": "morethermalevaporationcompat:infinite_thermal_evaporation_controller"
         }
       ],
