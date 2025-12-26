@@ -13,7 +13,9 @@
     "MixinTileEntityBasicThermalEvaporationController",
     "MixinTileEntityEliteThermalEvaporationController",
     "MixinTileEntityUltimatehermalEvaporationController",
-    "MixinUltimateThermalEvaporationMultiblockData"
+    "MixinUltimateThermalEvaporationMultiblockData",
+    "tier.MixinAdvancedTier",
+    "tier.MixinBaseTier"
   ],
   "client": [
   ],

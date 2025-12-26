@@ -75,3 +75,17 @@ mandatory = true
 versionRange = "[1.2,]"
 ordering = "AFTER"
 side = "BOTH"
+
+[[dependencies."${mod_id}"]]
+modId = "mekanism_extras"
+mandatory = false
+versionRange = "[1.4.0,]"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies."${mod_id}"]]
+modId = "evolvedmekanism"
+mandatory = false
+versionRange = "[1.2,]"
+ordering = "AFTER"
+side = "BOTH"

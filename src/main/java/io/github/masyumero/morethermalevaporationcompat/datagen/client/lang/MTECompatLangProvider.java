@@ -30,6 +30,7 @@ public class MTECompatLangProvider extends BaseLanguageProvider {
 
     private void addMisc() {
         add(MoreThermalEvaporationCompatLang.CREATIVE_TAB, "More Thermal Evaporation Compat");
+        add(MoreThermalEvaporationCompatLang.ABSOLUTEEVAPORATION, "Absolute Thermal Evaporation");
     }
 
     private void addExtraTiered(IBlockProvider absolute, IBlockProvider supreme, IBlockProvider cosmic, IBlockProvider infinite, String name) {

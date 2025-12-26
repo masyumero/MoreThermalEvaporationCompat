@@ -1,11 +1,9 @@
 package io.github.masyumero.morethermalevaporationcompat.common.config;
 
-import com.jerry.mekanism_extras.api.tier.AdvancedTier;
-import mekanism.api.tier.BaseTier;
+import io.github.masyumero.morethermalevaporationcompat.api.tier.ITier;
 import mekanism.common.config.BaseMekanismConfig;
 import mekanism.common.config.value.CachedIntValue;
 import net.minecraftforge.common.ForgeConfigSpec;
-import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.config.ModConfig;
 
 public class MTECompatConfig extends BaseMekanismConfig {
@@ -126,47 +124,35 @@ public class MTECompatConfig extends BaseMekanismConfig {
     }
 
     public int getHeight(Object tiers) {
-        if (tiers instanceof AdvancedTier tier) {
-            return switch (tier) {
-                case ABSOLUTE -> this.absoluteHeight.get();
-                case SUPREME -> this.supremeHeight.get();
-                case COSMIC -> this.cosmicHeight.get();
-                case INFINITE -> this.infiniteHeight.get();
+        if (tiers instanceof ITier tier) {
+            return switch (tier.getSimpleName()) {
+                case "Absolute" -> this.absoluteHeight.get();
+                case "Supreme" -> this.supremeHeight.get();
+                case "Cosmic" -> this.cosmicHeight.get();
+                case "Infinite" -> this.infiniteHeight.get();
+                case "Overclocked" -> this.overclockedHeight.get();
+                case "Quantum" -> this.quantumHeight.get();
+                case "Dense" -> this.denseHeight.get();
+                case "Multiversal" -> this.multiversalHeight.get();
+                default -> 18;
             };
-        }
-        if (tiers instanceof BaseTier tier) {
-            if (ModList.get().isLoaded("evolvedmekanism")) {
-                return switch (tier.getSimpleName()) {
-                    case "Overclocked" -> this.overclockedHeight.get();
-                    case "Quantum" -> this.quantumHeight.get();
-                    case "Dense" -> this.denseHeight.get();
-                    case "Multiversal" -> this.multiversalHeight.get();
-                    default -> 18;
-                };
-            }
         }
         return 18;
     }
 
     public int getTankCapacity(Object tiers) {
-        if (tiers instanceof AdvancedTier tier) {
-            return switch (tier) {
-                case ABSOLUTE -> this.absoluteOutputTankCapacity.get();
-                case SUPREME -> this.supremeOutputTankCapacity.get();
-                case COSMIC -> this.cosmicOutputTankCapacity.get();
-                case INFINITE -> this.infiniteOutputTankCapacity.get();
+        if (tiers instanceof ITier tier) {
+            return switch (tier.getSimpleName()) {
+                case "Absolute" -> this.absoluteOutputTankCapacity.get();
+                case "Supreme" -> this.supremeOutputTankCapacity.get();
+                case "Cosmic" -> this.cosmicOutputTankCapacity.get();
+                case "Infinite" -> this.infiniteOutputTankCapacity.get();
+                case "Overclocked" -> this.overclockedOutputTankCapacity.get();
+                case "Quantum" -> this.quantumOutputTankCapacity.get();
+                case "Dense" -> this.denseOutputTankCapacity.get();
+                case "Multiversal" -> this.multiversalOutputTankCapacity.get();
+                default -> 20000;
             };
-        }
-        if (tiers instanceof BaseTier tier) {
-            if (ModList.get().isLoaded("evolvedmekanism")) {
-                return switch (tier.getSimpleName()) {
-                    case "Overclocked" -> this.overclockedOutputTankCapacity.get();
-                    case "Quantum" -> this.quantumOutputTankCapacity.get();
-                    case "Dense" -> this.denseOutputTankCapacity.get();
-                    case "Multiversal" -> this.multiversalOutputTankCapacity.get();
-                    default -> 20000;
-                };
-            }
         }
         return 20000;
     }
