@@ -40,5 +40,6 @@ public class RenderCosmicThermalEvaporationPlant extends MultiblockTileEntityRen
     @Override
     protected boolean shouldRender(TileEntityCosmicThermalEvaporationController tile, CosmicThermalEvaporationMultiblockData multiblock, Vec3 camera) {
         return super.shouldRender(tile, multiblock, camera) && !multiblock.inputTank.isEmpty();
+//                && MoreThermalEvaporationConfig.RenderFluid.get();
     }
 }

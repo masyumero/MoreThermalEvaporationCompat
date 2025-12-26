@@ -6,18 +6,14 @@
   "refmap": "morethermalevaporationcompat.refmap.json",
   "mixins": [
     "MixinAdvancedThermalEvaporationMultiblockData",
-    "MixinAdvancedThermalEvaporationValidator",
     "MixinBasicThermalEvaporationMultiblockData",
-    "MixinBasicThermalEvaporationValidator",
     "MixinEliteThermalEvaporationMultiblockData",
-    "MixinEliteThermalEvaporationValidator",
     "MixinMoreThermalEvaporationBlockTypes",
     "MixinTileEntityAdvancedThermalEvaporationController",
     "MixinTileEntityBasicThermalEvaporationController",
     "MixinTileEntityEliteThermalEvaporationController",
     "MixinTileEntityUltimatehermalEvaporationController",
-    "MixinUltimateThermalEvaporationMultiblockData",
-    "MixinUltimateThermalEvaporationValidator"
+    "MixinUltimateThermalEvaporationMultiblockData"
   ],
   "client": [
   ],

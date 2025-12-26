@@ -40,5 +40,6 @@ public class RenderOverclockedThermalEvaporationPlant extends MultiblockTileEnti
     @Override
     protected boolean shouldRender(TileEntityOverclockedThermalEvaporationController tile, OverclockedThermalEvaporationMultiblockData multiblock, Vec3 camera) {
         return super.shouldRender(tile, multiblock, camera) && !multiblock.inputTank.isEmpty();
+//                && MoreThermalEvaporationConfig.RenderFluid.get();
     }
 }

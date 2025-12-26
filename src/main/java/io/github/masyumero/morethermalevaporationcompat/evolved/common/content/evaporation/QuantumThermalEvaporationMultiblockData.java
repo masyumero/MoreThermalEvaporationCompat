@@ -1,6 +1,8 @@
 package io.github.masyumero.morethermalevaporationcompat.evolved.common.content.evaporation;
 
+import fr.iglee42.evolvedmekanism.tiers.EMBaseTier;
 import io.github.masyumero.morethermalevaporationcompat.api.IThermalEvaporationMultiblockData;
+import io.github.masyumero.morethermalevaporationcompat.common.config.LoadConfig;
 import io.github.masyumero.morethermalevaporationcompat.evolved.common.tile.multiblock.TileEntityQuantumThermalEvaporationBlock;
 import it.unimi.dsi.fastutil.ints.Int2ObjectArrayMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
@@ -106,7 +108,7 @@ public class QuantumThermalEvaporationMultiblockData extends MultiblockData impl
         recheckAllRecipeErrors = TileEntityRecipeMachine.shouldRecheckAllErrors(tile);
         biomeAmbientTemp = HeatAPI.getAmbientTemp(tile.getLevel(), tile.getTilePos());
         fluidTanks.add(inputTank = VariableCapacityFluidTank.input(this, this::getMaxFluid, this::containsRecipe, createSaveAndComparator(recipeCacheLookupMonitor)));
-        fluidTanks.add(outputTank = VariableCapacityFluidTank.output(this, () -> this.getMaxFluid() / 2, BasicFluidTank.alwaysTrue, this));
+        fluidTanks.add(outputTank = VariableCapacityFluidTank.output(this, () -> LoadConfig.MTE_COMPAT_CONFIG.getTankCapacity(EMBaseTier.MULTIVERSAL), BasicFluidTank.alwaysTrue, this));
         inputHandler = InputHelper.getInputHandler(inputTank, CachedRecipe.OperationTracker.RecipeError.NOT_ENOUGH_INPUT);
         outputHandler = OutputHelper.getOutputHandler(outputTank, CachedRecipe.OperationTracker.RecipeError.NOT_ENOUGH_OUTPUT_SPACE);
         inventorySlots.add(inputInputSlot = FluidInventorySlot.fill(inputTank, this, 28, 20));
