@@ -1,7 +1,8 @@
 package io.github.masyumero.morethermalevaporationcompat.datagen.client.lang;
 
 import io.github.masyumero.morethermalevaporationcompat.MoreThermalEvaporationCompat;
-import io.github.masyumero.morethermalevaporationcompat.MoreThermalEvaporationCompatLang;
+import io.github.masyumero.morethermalevaporationcompat.MTECompatLang;
+import io.github.masyumero.morethermalevaporationcompat.api.lang.MTECompatLangType;
 import io.github.masyumero.morethermalevaporationcompat.common.content.blocktype.MTECompatMultiPartType;
 import io.github.masyumero.morethermalevaporationcompat.common.registries.MoreThermalEvaporationCompatBlocks;
 import io.github.masyumero.morethermalevaporationcompat.common.tier.TETier;
@@ -28,14 +29,12 @@ public class MTECompatLangProvider extends BaseLanguageProvider {
     }
 
     private void addMisc() {
-        add(MoreThermalEvaporationCompatLang.CREATIVE_TAB, "More Thermal Evaporation Compat");
-        add(MoreThermalEvaporationCompatLang.ABSOLUTE_EVAPORATION, "Absolute Thermal Evaporation");
-        add(MoreThermalEvaporationCompatLang.SUPREME_EVAPORATION, "Supreme Thermal Evaporation");
-        add(MoreThermalEvaporationCompatLang.COSMIC_EVAPORATION, "Cosmic Thermal Evaporation");
-        add(MoreThermalEvaporationCompatLang.INFINITE_EVAPORATION, "Infinite Thermal Evaporation");
-        add(MoreThermalEvaporationCompatLang.OVERCLOCKED_EVAPORATION, "Overclocked Thermal Evaporation");
-        add(MoreThermalEvaporationCompatLang.QUANTUM_EVAPORATION, "Quantum Thermal Evaporation");
-        add(MoreThermalEvaporationCompatLang.DENSE_EVAPORATION, "Dense Thermal Evaporation");
-        add(MoreThermalEvaporationCompatLang.MULTIVERSAL_EVAPORATION, "Multiversal Thermal Evaporation");
+        add(MTECompatLang.CREATIVE_TAB, "More Thermal Evaporation Compat");
+        for (TETier tier : TETier.values()) {
+            add(MTECompatLang.getLang(tier, MTECompatLangType.TITLE),           "%s Thermal Evaporation".formatted(tier.getSimpleName()));
+            add(MTECompatLang.getLang(tier, MTECompatLangType.DESC_BLOCK),      "A copper-alloyed casing used in the structure of a %s Thermal Evaporation Plant, using its advanced material to conduct the great amounts of heat necessary for processing.".formatted(tier.getSimpleName()));
+            add(MTECompatLang.getLang(tier, MTECompatLangType.DESC_VALVE),      "A valve that can be placed on a %s Thermal Evaporation Plant multiblock, allowing for fluids to be inserted and extracted via external piping.".formatted(tier.getSimpleName()));
+            add(MTECompatLang.getLang(tier, MTECompatLangType.DESC_CONTROLLER), "The controller for a %s Thermal Evaporation Plant, acting as the master block of the structure. Only one of these should be placed on a multiblock.".formatted(tier.getSimpleName()));
+        }
     }
 }

@@ -46,16 +46,16 @@ public class MoreThermalEvaporationCompat {
 
     private void registerCommands(RegisterCommandsEvent event) {
         if (ExtrasModule.ExtrasLoaded) {
-            BuildCommand.register("absolute_evaporation", MoreThermalEvaporationCompatLang.ABSOLUTE_EVAPORATION, new Builders.EvaporationBuilder(TETier.ABSOLUTE));
-            BuildCommand.register("supreme_evaporation", MoreThermalEvaporationCompatLang.SUPREME_EVAPORATION, new Builders.EvaporationBuilder(TETier.SUPREME));
-            BuildCommand.register("cosmic_evaporation", MoreThermalEvaporationCompatLang.COSMIC_EVAPORATION, new Builders.EvaporationBuilder(TETier.COSMIC));
-            BuildCommand.register("infinite_evaporation", MoreThermalEvaporationCompatLang.INFINITE_EVAPORATION, new Builders.EvaporationBuilder(TETier.INFINITE));
+            BuildCommand.register("evaporation_absolute", MTECompatLang.ABSOLUTE_EVAPORATION, new Builders.EvaporationBuilder(TETier.ABSOLUTE));
+            BuildCommand.register("evaporation_supreme", MTECompatLang.SUPREME_EVAPORATION, new Builders.EvaporationBuilder(TETier.SUPREME));
+            BuildCommand.register("evaporation_cosmic", MTECompatLang.COSMIC_EVAPORATION, new Builders.EvaporationBuilder(TETier.COSMIC));
+            BuildCommand.register("evaporation_infinite", MTECompatLang.INFINITE_EVAPORATION, new Builders.EvaporationBuilder(TETier.INFINITE));
         }
         if (EvolvedModule.EvolvedLoaded) {
-            BuildCommand.register("overclocked_evaporation", MoreThermalEvaporationCompatLang.OVERCLOCKED_EVAPORATION, new Builders.EvaporationBuilder(TETier.OVERCLOCKED));
-            BuildCommand.register("quantum_evaporation", MoreThermalEvaporationCompatLang.QUANTUM_EVAPORATION, new Builders.EvaporationBuilder(TETier.QUANTUM));
-            BuildCommand.register("dense_evaporation", MoreThermalEvaporationCompatLang.DENSE_EVAPORATION, new Builders.EvaporationBuilder(TETier.DENSE));
-            BuildCommand.register("multiversal_evaporation", MoreThermalEvaporationCompatLang.MULTIVERSAL_EVAPORATION, new Builders.EvaporationBuilder(TETier.MULTIVERSAL));
+            BuildCommand.register("evaporation_overclocked", MTECompatLang.OVERCLOCKED_EVAPORATION, new Builders.EvaporationBuilder(TETier.OVERCLOCKED));
+            BuildCommand.register("evaporation_quantum", MTECompatLang.QUANTUM_EVAPORATION, new Builders.EvaporationBuilder(TETier.QUANTUM));
+            BuildCommand.register("evaporation_dense", MTECompatLang.DENSE_EVAPORATION, new Builders.EvaporationBuilder(TETier.DENSE));
+            BuildCommand.register("evaporation_multiversal", MTECompatLang.MULTIVERSAL_EVAPORATION, new Builders.EvaporationBuilder(TETier.MULTIVERSAL));
         }
         event.getDispatcher().register(CommandMek.register());
     }

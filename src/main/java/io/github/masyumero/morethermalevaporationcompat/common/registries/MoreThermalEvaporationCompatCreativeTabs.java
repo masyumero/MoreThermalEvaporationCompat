@@ -1,7 +1,7 @@
 package io.github.masyumero.morethermalevaporationcompat.common.registries;
 
 import io.github.masyumero.morethermalevaporationcompat.MoreThermalEvaporationCompat;
-import io.github.masyumero.morethermalevaporationcompat.MoreThermalEvaporationCompatLang;
+import io.github.masyumero.morethermalevaporationcompat.MTECompatLang;
 import io.github.masyumero.morethermalevaporationcompat.EvolvedModule;
 import io.github.masyumero.morethermalevaporationcompat.ExtrasModule;
 import io.github.masyumero.morethermalevaporationcompat.common.content.blocktype.MTECompatMultiPartType;
@@ -21,7 +21,7 @@ public class MoreThermalEvaporationCompatCreativeTabs {
 
     public static final RegistryObject<CreativeModeTab> TAB_MORE_THERMAL_EVAPORATION_COMPAT = CREATIVE_TABS.register("tab_more_thermal_evaporation_compat", () ->
             CreativeModeTab.builder()
-                    .title(Component.translatable(MoreThermalEvaporationCompatLang.CREATIVE_TAB.getTranslationKey()))
+                    .title(Component.translatable(MTECompatLang.CREATIVE_TAB.getTranslationKey()))
                     .icon(() -> {
                         if (ExtrasModule.ExtrasLoaded) {
                             return MoreThermalEvaporationCompatBlocks.getCasingBlock(TETier.ABSOLUTE).getItemStack();
