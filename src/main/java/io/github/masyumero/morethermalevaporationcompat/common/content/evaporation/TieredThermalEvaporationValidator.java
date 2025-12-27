@@ -1,0 +1,92 @@
+package io.github.masyumero.morethermalevaporationcompat.common.content.evaporation;
+
+import io.github.masyumero.morethermalevaporationcompat.common.tier.TETier;
+import io.github.masyumero.morethermalevaporationcompat.common.tile.multiblock.TileEntityTieredThermalEvaporationController;
+import it.unimi.dsi.fastutil.longs.Long2ObjectMap;
+import mekanism.common.MekanismLang;
+import mekanism.common.content.blocktype.BlockType;
+import mekanism.common.lib.math.voxel.VoxelCuboid;
+import mekanism.common.lib.math.voxel.VoxelCuboid.CuboidSide;
+import mekanism.common.lib.math.voxel.VoxelCuboid.WallRelative;
+import mekanism.common.lib.multiblock.CuboidStructureValidator;
+import mekanism.common.lib.multiblock.FormationProtocol;
+import mekanism.common.lib.multiblock.FormationProtocol.CasingType;
+import mekanism.common.lib.multiblock.FormationProtocol.FormationResult;
+import mekanism.common.lib.multiblock.FormationProtocol.StructureRequirement;
+import mekanism.common.lib.multiblock.StructureHelper;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.chunk.ChunkAccess;
+
+import java.util.EnumSet;
+
+public class TieredThermalEvaporationValidator extends CuboidStructureValidator<TieredThermalEvaporationMultiblockData> {
+
+    private static final VoxelCuboid MIN_CUBOID = new VoxelCuboid(4, 3, 4);
+    private static final VoxelCuboid MAX_CUBOID = new VoxelCuboid(4, 18, 4);
+    private final TETier tier;
+    private boolean foundController = false;
+
+    public TieredThermalEvaporationValidator(TETier tier) {
+        this.tier = tier;
+    }
+
+    @Override
+    protected FormationResult validateFrame(FormationProtocol<TieredThermalEvaporationMultiblockData> ctx, BlockPos pos, BlockState state, CasingType type, boolean needsFrame) {
+        boolean controller = structure.getTile(pos) instanceof TileEntityTieredThermalEvaporationController;
+        if (foundController && controller) {
+            return FormationResult.fail(MekanismLang.MULTIBLOCK_INVALID_CONTROLLER_CONFLICT, pos, true);
+        }
+        foundController |= controller;
+        return super.validateFrame(ctx, pos, state, type, needsFrame);
+    }
+
+    @Override
+    protected StructureRequirement getStructureRequirement(BlockPos pos) {
+        WallRelative relative = cuboid.getWallRelative(pos);
+        if (pos.getY() == cuboid.getMaxPos().getY()) {
+            if (relative.isOnCorner()) {
+                return StructureRequirement.IGNORED;
+            } else if (!relative.isOnEdge()) {
+                return StructureRequirement.INNER;
+            } else {
+                return StructureRequirement.OTHER;
+            }
+        }
+        return super.getStructureRequirement(pos);
+    }
+
+    @Override
+    protected CasingType getCasingType(BlockState state) {
+        Block block = state.getBlock();
+        if (BlockType.is(block, tier.getCasingBlockType())) {
+            return CasingType.FRAME;
+        } else if (BlockType.is(block, tier.getValveBlockType())) {
+            return CasingType.VALVE;
+        } else if (BlockType.is(block, tier.getControllerBlockType())) {
+            return CasingType.OTHER;
+        }
+        return CasingType.INVALID;
+    }
+
+    @Override
+    public boolean precheck() {
+        cuboid = StructureHelper.fetchCuboid(structure, MIN_CUBOID,
+                new VoxelCuboid(4, tier.getHeight(), 4),
+                EnumSet.complementOf(EnumSet.of(CuboidSide.TOP)), 8);
+        return cuboid != null;
+    }
+
+    @Override
+    public FormationResult postcheck(TieredThermalEvaporationMultiblockData structure, Long2ObjectMap<ChunkAccess> chunkMap) {
+        if (!foundController) {
+            return FormationResult.fail(MekanismLang.MULTIBLOCK_INVALID_NO_CONTROLLER);
+        }
+        return FormationResult.SUCCESS;
+    }
+
+    public TETier getTier() {
+        return tier;
+    }
+}

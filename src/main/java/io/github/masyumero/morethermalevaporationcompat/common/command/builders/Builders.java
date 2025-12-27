@@ -1,6 +1,6 @@
 package io.github.masyumero.morethermalevaporationcompat.common.command.builders;
 
-import io.github.masyumero.morethermalevaporationcompat.common.registries.MoreThermalEvaporationCompatBlocks;
+import io.github.masyumero.morethermalevaporationcompat.common.tier.TETier;
 import mekanism.common.command.builders.StructureBuilder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.Level;
@@ -12,10 +12,13 @@ public class Builders {
     private Builders() {
     }
 
-    public static class AbsoluteEvaporationBuilder extends StructureBuilder {
+    public static class EvaporationBuilder extends StructureBuilder {
 
-        public AbsoluteEvaporationBuilder() {
+        private final TETier tier;
+
+        public EvaporationBuilder(TETier tier) {
             super(4, 18, 4);
+            this.tier = tier;
         }
 
         @Override
@@ -23,12 +26,12 @@ public class Builders {
             buildFrame(world, start);
             buildWalls(world, start);
             buildInteriorLayers(world, start, 1, 17, Blocks.AIR);
-            world.setBlockAndUpdate(start.offset(1, 1, 0), MoreThermalEvaporationCompatBlocks.ABSOLUTE_THERMAL_EVAPORATION_CONTROLLER.getBlock().defaultBlockState());
+            world.setBlockAndUpdate(start.offset(1, 1, 0), tier.getControllerBlock().getBlock().defaultBlockState());
         }
 
         @Override
         protected Block getCasing() {
-            return MoreThermalEvaporationCompatBlocks.ABSOLUTE_THERMAL_EVAPORATION_BLOCK.getBlock();
+            return tier.getCasingBlock().getBlock();
         }
     }
 }

@@ -2,8 +2,8 @@ package io.github.masyumero.morethermalevaporationcompat.common.registries;
 
 import io.github.masyumero.morethermalevaporationcompat.MoreThermalEvaporationCompat;
 import io.github.masyumero.morethermalevaporationcompat.MoreThermalEvaporationCompatLang;
-import io.github.masyumero.morethermalevaporationcompat.evolved.EvolvedModule;
-import io.github.masyumero.morethermalevaporationcompat.extras.ExtrasModule;
+import io.github.masyumero.morethermalevaporationcompat.EvolvedModule;
+import io.github.masyumero.morethermalevaporationcompat.ExtrasModule;
 import mekanism.common.registries.MekanismBlocks;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
@@ -24,11 +24,11 @@ public class MoreThermalEvaporationCompatCreativeTabs {
                     .title(Component.translatable(MoreThermalEvaporationCompatLang.CREATIVE_TAB.getTranslationKey()))
                     .icon(() -> {
                         if (ExtrasModule.ExtrasLoaded) {
-                            return ABSOLUTE_THERMAL_EVAPORATION_CONTROLLER.getItemStack();
+                            return ABSOLUTE_THERMAL_EVAPORATION_BLOCK.getItemStack();
                         } else if (EvolvedModule.EvolvedLoaded) {
-                            return OVERCLOCKED_THERMAL_EVAPORATION_CONTROLLER.getItemStack();
+                            return OVERCLOCKED_THERMAL_EVAPORATION_BLOCK.getItemStack();
                         }
-                        return MekanismBlocks.THERMAL_EVAPORATION_CONTROLLER.getItemStack();
+                        return MekanismBlocks.THERMAL_EVAPORATION_BLOCK.getItemStack();
                     } )
                     .displayItems((parameters, output) -> {
                         if (EvolvedModule.EvolvedLoaded) {

@@ -1,12 +1,10 @@
 package io.github.masyumero.morethermalevaporationcompat.api.tier;
 
-import java.util.Locale;
+import net.minecraft.network.chat.TextColor;
 
 public interface ITier {
 
     String getSimpleName();
 
-    default String getLowerName() {
-        return getSimpleName().toLowerCase(Locale.ROOT);
-    }
+    TextColor getColor();
 }

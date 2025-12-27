@@ -30,7 +30,14 @@ public class MTECompatLangProvider extends BaseLanguageProvider {
 
     private void addMisc() {
         add(MoreThermalEvaporationCompatLang.CREATIVE_TAB, "More Thermal Evaporation Compat");
-        add(MoreThermalEvaporationCompatLang.ABSOLUTEEVAPORATION, "Absolute Thermal Evaporation");
+        add(MoreThermalEvaporationCompatLang.ABSOLUTE_EVAPORATION, "Absolute Thermal Evaporation");
+        add(MoreThermalEvaporationCompatLang.SUPREME_EVAPORATION, "Supreme Thermal Evaporation");
+        add(MoreThermalEvaporationCompatLang.COSMIC_EVAPORATION, "Cosmic Thermal Evaporation");
+        add(MoreThermalEvaporationCompatLang.INFINITE_EVAPORATION, "Infinite Thermal Evaporation");
+        add(MoreThermalEvaporationCompatLang.OVERCLOCKED_EVAPORATION, "Overclocked Thermal Evaporation");
+        add(MoreThermalEvaporationCompatLang.QUANTUM_EVAPORATION, "Quantum Thermal Evaporation");
+        add(MoreThermalEvaporationCompatLang.DENSE_EVAPORATION, "Dense Thermal Evaporation");
+        add(MoreThermalEvaporationCompatLang.MULTIVERSAL_EVAPORATION, "Multiversal Thermal Evaporation");
     }
 
     private void addExtraTiered(IBlockProvider absolute, IBlockProvider supreme, IBlockProvider cosmic, IBlockProvider infinite, String name) {

@@ -23,5 +23,13 @@
   "block.morethermalevaporationcompat.supreme_thermal_evaporation_block": "Supreme Thermal Evaporation Block",
   "block.morethermalevaporationcompat.supreme_thermal_evaporation_controller": "Supreme Thermal Evaporation Controller",
   "block.morethermalevaporationcompat.supreme_thermal_evaporation_valve": "Supreme Thermal Evaporation Valve",
-  "creativetab.morethermalevaporationcompat.tab": "More Thermal Evaporation Compat"
+  "creativetab.morethermalevaporationcompat.tab": "More Thermal Evaporation Compat",
+  "evaporation.morethermalevaporationcompat.absolute_thermal_evaporation": "Absolute Thermal Evaporation",
+  "evaporation.morethermalevaporationcompat.cosmic_thermal_evaporation": "Cosmic Thermal Evaporation",
+  "evaporation.morethermalevaporationcompat.dense_thermal_evaporation": "Dense Thermal Evaporation",
+  "evaporation.morethermalevaporationcompat.infinite_thermal_evaporation": "Infinite Thermal Evaporation",
+  "evaporation.morethermalevaporationcompat.multiversal_thermal_evaporation": "Multiversal Thermal Evaporation",
+  "evaporation.morethermalevaporationcompat.overclocked_thermal_evaporation": "Overclocked Thermal Evaporation",
+  "evaporation.morethermalevaporationcompat.quantum_thermal_evaporation": "Quantum Thermal Evaporation",
+  "evaporation.morethermalevaporationcompat.supreme_thermal_evaporation": "Supreme Thermal Evaporation"
 }
