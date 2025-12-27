@@ -2,34 +2,34 @@
   "block.morethermalevaporationcompat.absolute_thermal_evaporation_block": "绝对热力蒸馏方块",
   "block.morethermalevaporationcompat.absolute_thermal_evaporation_controller": "绝对热力蒸馏控制器",
   "block.morethermalevaporationcompat.absolute_thermal_evaporation_valve": "绝对热力蒸馏阀门",
-
   "block.morethermalevaporationcompat.cosmic_thermal_evaporation_block": "寰宇热力蒸馏方块",
   "block.morethermalevaporationcompat.cosmic_thermal_evaporation_controller": "寰宇热力蒸馏控制器",
   "block.morethermalevaporationcompat.cosmic_thermal_evaporation_valve": "寰宇热力蒸馏阀门",
-
   "block.morethermalevaporationcompat.dense_thermal_evaporation_block": "稠密热力蒸馏方块",
   "block.morethermalevaporationcompat.dense_thermal_evaporation_controller": "稠密热力蒸馏控制器",
   "block.morethermalevaporationcompat.dense_thermal_evaporation_valve": "稠密热力蒸馏阀门",
-
   "block.morethermalevaporationcompat.infinite_thermal_evaporation_block": "悖论热力蒸馏方块",
   "block.morethermalevaporationcompat.infinite_thermal_evaporation_controller": "悖论热力蒸馏控制器",
   "block.morethermalevaporationcompat.infinite_thermal_evaporation_valve": "悖论热力蒸馏阀门",
-
   "block.morethermalevaporationcompat.multiversal_thermal_evaporation_block": "多元热力蒸馏方块",
   "block.morethermalevaporationcompat.multiversal_thermal_evaporation_controller": "多元热力蒸馏控制器",
   "block.morethermalevaporationcompat.multiversal_thermal_evaporation_valve": "多元热力蒸馏阀门",
-
   "block.morethermalevaporationcompat.overclocked_thermal_evaporation_block": "超频热力蒸馏方块",
   "block.morethermalevaporationcompat.overclocked_thermal_evaporation_controller": "超频热力蒸馏控制器",
   "block.morethermalevaporationcompat.overclocked_thermal_evaporation_valve": "超频热力蒸馏阀门",
-
   "block.morethermalevaporationcompat.quantum_thermal_evaporation_block": "量子热力蒸馏方块",
   "block.morethermalevaporationcompat.quantum_thermal_evaporation_controller": "量子热力蒸馏控制器",
   "block.morethermalevaporationcompat.quantum_thermal_evaporation_valve": "量子热力蒸馏阀门",
-
   "block.morethermalevaporationcompat.supreme_thermal_evaporation_block": "至尊热力蒸馏方块",
   "block.morethermalevaporationcompat.supreme_thermal_evaporation_controller": "至尊热力蒸馏控制器",
   "block.morethermalevaporationcompat.supreme_thermal_evaporation_valve": "至尊热力蒸馏阀门",
-  
-  "creativetab.morethermalevaporationcompat.tab": "更多热力蒸馏兼容性"
+  "creativetab.morethermalevaporationcompat.tab": "更多热力蒸馏兼容性",
+  "evaporation.morethermalevaporationcompat.absolute_thermal_evaporation": "绝对热力蒸馏塔",
+  "evaporation.morethermalevaporationcompat.cosmic_thermal_evaporation": "寰宇热力蒸馏塔",
+  "evaporation.morethermalevaporationcompat.dense_thermal_evaporation": "稠密热力蒸馏塔",
+  "evaporation.morethermalevaporationcompat.infinite_thermal_evaporation": "悖论热力蒸馏塔",
+  "evaporation.morethermalevaporationcompat.multiversal_thermal_evaporation": "多元热力蒸馏塔",
+  "evaporation.morethermalevaporationcompat.overclocked_thermal_evaporation": "超频热力蒸馏塔",
+  "evaporation.morethermalevaporationcompat.quantum_thermal_evaporation": "量子热力蒸馏塔",
+  "evaporation.morethermalevaporationcompat.supreme_thermal_evaporation": "至尊热力蒸馏塔"
 }

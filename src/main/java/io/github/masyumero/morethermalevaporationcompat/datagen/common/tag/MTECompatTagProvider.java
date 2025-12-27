@@ -9,7 +9,6 @@ import net.minecraft.tags.BlockTags;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
@@ -21,10 +20,7 @@ public class MTECompatTagProvider extends BaseTagProvider {
 
     @Override
     protected List<IBlockProvider> getAllBlocks() {
-        List<IBlockProvider> allBlocks = new ArrayList<>();
-        allBlocks.addAll(MoreThermalEvaporationCompatBlocks.EVOLVED_BLOCKS.getAllBlocks());
-        allBlocks.addAll(MoreThermalEvaporationCompatBlocks.EXTRAS_BLOCKS.getAllBlocks());
-        return allBlocks;
+        return MoreThermalEvaporationCompatBlocks.BLOCKS.getAllBlocks();
     }
 
     @Override

@@ -1,17 +1,5 @@
 {
   "values": [
-    "morethermalevaporationcompat:overclocked_thermal_evaporation_block",
-    "morethermalevaporationcompat:overclocked_thermal_evaporation_valve",
-    "morethermalevaporationcompat:overclocked_thermal_evaporation_controller",
-    "morethermalevaporationcompat:quantum_thermal_evaporation_block",
-    "morethermalevaporationcompat:quantum_thermal_evaporation_valve",
-    "morethermalevaporationcompat:quantum_thermal_evaporation_controller",
-    "morethermalevaporationcompat:dense_thermal_evaporation_block",
-    "morethermalevaporationcompat:dense_thermal_evaporation_valve",
-    "morethermalevaporationcompat:dense_thermal_evaporation_controller",
-    "morethermalevaporationcompat:multiversal_thermal_evaporation_block",
-    "morethermalevaporationcompat:multiversal_thermal_evaporation_valve",
-    "morethermalevaporationcompat:multiversal_thermal_evaporation_controller",
     "morethermalevaporationcompat:absolute_thermal_evaporation_block",
     "morethermalevaporationcompat:absolute_thermal_evaporation_valve",
     "morethermalevaporationcompat:absolute_thermal_evaporation_controller",
@@ -23,6 +11,18 @@
     "morethermalevaporationcompat:cosmic_thermal_evaporation_controller",
     "morethermalevaporationcompat:infinite_thermal_evaporation_block",
     "morethermalevaporationcompat:infinite_thermal_evaporation_valve",
-    "morethermalevaporationcompat:infinite_thermal_evaporation_controller"
+    "morethermalevaporationcompat:infinite_thermal_evaporation_controller",
+    "morethermalevaporationcompat:overclocked_thermal_evaporation_block",
+    "morethermalevaporationcompat:overclocked_thermal_evaporation_valve",
+    "morethermalevaporationcompat:overclocked_thermal_evaporation_controller",
+    "morethermalevaporationcompat:quantum_thermal_evaporation_block",
+    "morethermalevaporationcompat:quantum_thermal_evaporation_valve",
+    "morethermalevaporationcompat:quantum_thermal_evaporation_controller",
+    "morethermalevaporationcompat:dense_thermal_evaporation_block",
+    "morethermalevaporationcompat:dense_thermal_evaporation_valve",
+    "morethermalevaporationcompat:dense_thermal_evaporation_controller",
+    "morethermalevaporationcompat:multiversal_thermal_evaporation_block",
+    "morethermalevaporationcompat:multiversal_thermal_evaporation_valve",
+    "morethermalevaporationcompat:multiversal_thermal_evaporation_controller"
   ]
 }

@@ -6,7 +6,6 @@ public class MTECompatBlockLootProvider extends BaseBlockLootTables {
 
     @Override
     protected void generate() {
-        dropSelfWithContents(MoreThermalEvaporationCompatBlocks.EVOLVED_BLOCKS.getAllBlocks());
-        dropSelfWithContents(MoreThermalEvaporationCompatBlocks.EXTRAS_BLOCKS.getAllBlocks());
+        dropSelfWithContents(MoreThermalEvaporationCompatBlocks.BLOCKS.getAllBlocks());
     }
 }

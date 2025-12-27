@@ -1,57 +1,35 @@
 package io.github.masyumero.morethermalevaporationcompat.common.registries;
 
+import com.google.common.collect.HashBasedTable;
+import com.google.common.collect.Table;
 import io.github.masyumero.morethermalevaporationcompat.MoreThermalEvaporationCompat;
+import io.github.masyumero.morethermalevaporationcompat.common.content.blocktype.MTECompatMultiPartType;
 import io.github.masyumero.morethermalevaporationcompat.common.item.block.ItemBlockMekanismTier;
 import io.github.masyumero.morethermalevaporationcompat.common.tier.TETier;
-import io.github.masyumero.morethermalevaporationcompat.common.tile.multiblock.*;
 import mekanism.common.block.interfaces.IHasDescription;
 import mekanism.common.block.prefab.BlockBasicMultiblock;
 import mekanism.common.registration.impl.BlockDeferredRegister;
 import mekanism.common.registration.impl.BlockRegistryObject;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.material.MapColor;
 
 import java.util.function.Supplier;
 
 public class MoreThermalEvaporationCompatBlocks {
 
-    public static final BlockDeferredRegister EVOLVED_BLOCKS = new BlockDeferredRegister(MoreThermalEvaporationCompat.MODID);
-    public static final BlockDeferredRegister EXTRAS_BLOCKS = new BlockDeferredRegister(MoreThermalEvaporationCompat.MODID);
-    
-    // Overclocked
-    public static final BlockRegistryObject<BlockBasicMultiblock<TileEntityTieredThermalEvaporationBlock>, ItemBlockMekanismTier<BlockBasicMultiblock<TileEntityTieredThermalEvaporationBlock>>> OVERCLOCKED_THERMAL_EVAPORATION_BLOCK = MoreThermalEvaporationCompatBlocks.registerBlock("overclocked_thermal_evaporation_block", () -> new BlockBasicMultiblock<>(MoreThermalEvaporationCompatBlockTypes.OVERCLOCKED_THERMAL_EVAPORATION_BLOCK, properties -> properties.mapColor(MapColor.COLOR_GREEN)), TETier.OVERCLOCKED);
-    public static final BlockRegistryObject<BlockBasicMultiblock<TileEntityTieredThermalEvaporationValve>, ItemBlockMekanismTier<BlockBasicMultiblock<TileEntityTieredThermalEvaporationValve>>> OVERCLOCKED_THERMAL_EVAPORATION_VALVE = MoreThermalEvaporationCompatBlocks.registerBlock("overclocked_thermal_evaporation_valve", () -> new BlockBasicMultiblock<>(MoreThermalEvaporationCompatBlockTypes.OVERCLOCKED_THERMAL_EVAPORATION_VALVE, properties -> properties.mapColor(MapColor.COLOR_GREEN)), TETier.OVERCLOCKED);
-    public static final BlockRegistryObject<BlockBasicMultiblock<TileEntityTieredThermalEvaporationController>, ItemBlockMekanismTier<BlockBasicMultiblock<TileEntityTieredThermalEvaporationController>>> OVERCLOCKED_THERMAL_EVAPORATION_CONTROLLER = MoreThermalEvaporationCompatBlocks.registerBlock("overclocked_thermal_evaporation_controller", () -> new BlockBasicMultiblock<>(MoreThermalEvaporationCompatBlockTypes.OVERCLOCKED_THERMAL_EVAPORATION_CONTROLLER, properties -> properties.mapColor(MapColor.COLOR_GREEN)), TETier.OVERCLOCKED);
-    // Quantum
-    public static final BlockRegistryObject<BlockBasicMultiblock<TileEntityTieredThermalEvaporationBlock>, ItemBlockMekanismTier<BlockBasicMultiblock<TileEntityTieredThermalEvaporationBlock>>> QUANTUM_THERMAL_EVAPORATION_BLOCK = MoreThermalEvaporationCompatBlocks.registerBlock("quantum_thermal_evaporation_block", () -> new BlockBasicMultiblock<>(MoreThermalEvaporationCompatBlockTypes.QUANTUM_THERMAL_EVAPORATION_BLOCK, properties -> properties.mapColor(MapColor.COLOR_PURPLE)), TETier.QUANTUM);
-    public static final BlockRegistryObject<BlockBasicMultiblock<TileEntityTieredThermalEvaporationValve>, ItemBlockMekanismTier<BlockBasicMultiblock<TileEntityTieredThermalEvaporationValve>>> QUANTUM_THERMAL_EVAPORATION_VALVE = MoreThermalEvaporationCompatBlocks.registerBlock("quantum_thermal_evaporation_valve", () -> new BlockBasicMultiblock<>(MoreThermalEvaporationCompatBlockTypes.QUANTUM_THERMAL_EVAPORATION_VALVE, properties -> properties.mapColor(MapColor.COLOR_PURPLE)), TETier.QUANTUM);
-    public static final BlockRegistryObject<BlockBasicMultiblock<TileEntityTieredThermalEvaporationController>, ItemBlockMekanismTier<BlockBasicMultiblock<TileEntityTieredThermalEvaporationController>>> QUANTUM_THERMAL_EVAPORATION_CONTROLLER = MoreThermalEvaporationCompatBlocks.registerBlock("quantum_thermal_evaporation_controller", () -> new BlockBasicMultiblock<>(MoreThermalEvaporationCompatBlockTypes.QUANTUM_THERMAL_EVAPORATION_CONTROLLER, properties -> properties.mapColor(MapColor.COLOR_PURPLE)), TETier.QUANTUM);
-    // Dense
-    public static final BlockRegistryObject<BlockBasicMultiblock<TileEntityTieredThermalEvaporationBlock>, ItemBlockMekanismTier<BlockBasicMultiblock<TileEntityTieredThermalEvaporationBlock>>> DENSE_THERMAL_EVAPORATION_BLOCK = MoreThermalEvaporationCompatBlocks.registerBlock("dense_thermal_evaporation_block", () -> new BlockBasicMultiblock<>(MoreThermalEvaporationCompatBlockTypes.DENSE_THERMAL_EVAPORATION_BLOCK, properties -> properties.mapColor(MapColor.TERRACOTTA_YELLOW)), TETier.DENSE);
-    public static final BlockRegistryObject<BlockBasicMultiblock<TileEntityTieredThermalEvaporationValve>, ItemBlockMekanismTier<BlockBasicMultiblock<TileEntityTieredThermalEvaporationValve>>> DENSE_THERMAL_EVAPORATION_VALVE = MoreThermalEvaporationCompatBlocks.registerBlock("dense_thermal_evaporation_valve", () -> new BlockBasicMultiblock<>(MoreThermalEvaporationCompatBlockTypes.DENSE_THERMAL_EVAPORATION_VALVE, properties -> properties.mapColor(MapColor.TERRACOTTA_YELLOW)), TETier.DENSE);
-    public static final BlockRegistryObject<BlockBasicMultiblock<TileEntityTieredThermalEvaporationController>, ItemBlockMekanismTier<BlockBasicMultiblock<TileEntityTieredThermalEvaporationController>>> DENSE_THERMAL_EVAPORATION_CONTROLLER = MoreThermalEvaporationCompatBlocks.registerBlock("dense_thermal_evaporation_controller", () -> new BlockBasicMultiblock<>(MoreThermalEvaporationCompatBlockTypes.DENSE_THERMAL_EVAPORATION_CONTROLLER, properties -> properties.mapColor(MapColor.TERRACOTTA_YELLOW)), TETier.DENSE);
-    // Multiversal
-    public static final BlockRegistryObject<BlockBasicMultiblock<TileEntityTieredThermalEvaporationBlock>, ItemBlockMekanismTier<BlockBasicMultiblock<TileEntityTieredThermalEvaporationBlock>>> MULTIVERSAL_THERMAL_EVAPORATION_BLOCK = MoreThermalEvaporationCompatBlocks.registerBlock("multiversal_thermal_evaporation_block", () -> new BlockBasicMultiblock<>(MoreThermalEvaporationCompatBlockTypes.MULTIVERSAL_THERMAL_EVAPORATION_BLOCK, properties -> properties.mapColor(MapColor.COLOR_BLACK)), TETier.MULTIVERSAL);
-    public static final BlockRegistryObject<BlockBasicMultiblock<TileEntityTieredThermalEvaporationValve>, ItemBlockMekanismTier<BlockBasicMultiblock<TileEntityTieredThermalEvaporationValve>>> MULTIVERSAL_THERMAL_EVAPORATION_VALVE = MoreThermalEvaporationCompatBlocks.registerBlock("multiversal_thermal_evaporation_valve", () -> new BlockBasicMultiblock<>(MoreThermalEvaporationCompatBlockTypes.MULTIVERSAL_THERMAL_EVAPORATION_VALVE, properties -> properties.mapColor(MapColor.COLOR_BLACK)), TETier.MULTIVERSAL);
-    public static final BlockRegistryObject<BlockBasicMultiblock<TileEntityTieredThermalEvaporationController>, ItemBlockMekanismTier<BlockBasicMultiblock<TileEntityTieredThermalEvaporationController>>> MULTIVERSAL_THERMAL_EVAPORATION_CONTROLLER = MoreThermalEvaporationCompatBlocks.registerBlock("multiversal_thermal_evaporation_controller", () -> new BlockBasicMultiblock<>(MoreThermalEvaporationCompatBlockTypes.MULTIVERSAL_THERMAL_EVAPORATION_CONTROLLER, properties -> properties.mapColor(MapColor.COLOR_BLACK)), TETier.MULTIVERSAL);
+    public static final BlockDeferredRegister BLOCKS = new BlockDeferredRegister(MoreThermalEvaporationCompat.MODID);
 
-    // Absolute
-    public static final BlockRegistryObject<BlockBasicMultiblock<TileEntityTieredThermalEvaporationBlock>, ItemBlockMekanismTier<BlockBasicMultiblock<TileEntityTieredThermalEvaporationBlock>>> ABSOLUTE_THERMAL_EVAPORATION_BLOCK = registerBlock("absolute_thermal_evaporation_block", () -> new BlockBasicMultiblock<>(MoreThermalEvaporationCompatBlockTypes.ABSOLUTE_THERMAL_EVAPORATION_BLOCK, properties -> properties.mapColor(MapColor.COLOR_YELLOW)), TETier.ABSOLUTE);
-    public static final BlockRegistryObject<BlockBasicMultiblock<TileEntityTieredThermalEvaporationValve>, ItemBlockMekanismTier<BlockBasicMultiblock<TileEntityTieredThermalEvaporationValve>>> ABSOLUTE_THERMAL_EVAPORATION_VALVE = registerBlock("absolute_thermal_evaporation_valve", () -> new BlockBasicMultiblock<>(MoreThermalEvaporationCompatBlockTypes.ABSOLUTE_THERMAL_EVAPORATION_VALVE, properties -> properties.mapColor(MapColor.COLOR_YELLOW)), TETier.ABSOLUTE);
-    public static final BlockRegistryObject<BlockBasicMultiblock<TileEntityTieredThermalEvaporationController>, ItemBlockMekanismTier<BlockBasicMultiblock<TileEntityTieredThermalEvaporationController>>> ABSOLUTE_THERMAL_EVAPORATION_CONTROLLER = registerBlock("absolute_thermal_evaporation_controller", () -> new BlockBasicMultiblock<>(MoreThermalEvaporationCompatBlockTypes.ABSOLUTE_THERMAL_EVAPORATION_CONTROLLER, properties -> properties.mapColor(MapColor.COLOR_YELLOW)), TETier.ABSOLUTE);
-    // Supreme
-    public static final BlockRegistryObject<BlockBasicMultiblock<TileEntityTieredThermalEvaporationBlock>, ItemBlockMekanismTier<BlockBasicMultiblock<TileEntityTieredThermalEvaporationBlock>>> SUPREME_THERMAL_EVAPORATION_BLOCK = registerBlock("supreme_thermal_evaporation_block", () -> new BlockBasicMultiblock<>(MoreThermalEvaporationCompatBlockTypes.SUPREME_THERMAL_EVAPORATION_BLOCK, properties -> properties.mapColor(MapColor.COLOR_RED)), TETier.SUPREME);
-    public static final BlockRegistryObject<BlockBasicMultiblock<TileEntityTieredThermalEvaporationValve>, ItemBlockMekanismTier<BlockBasicMultiblock<TileEntityTieredThermalEvaporationValve>>> SUPREME_THERMAL_EVAPORATION_VALVE = registerBlock("supreme_thermal_evaporation_valve", () -> new BlockBasicMultiblock<>(MoreThermalEvaporationCompatBlockTypes.SUPREME_THERMAL_EVAPORATION_VALVE, properties -> properties.mapColor(MapColor.COLOR_RED)), TETier.SUPREME);
-    public static final BlockRegistryObject<BlockBasicMultiblock<TileEntityTieredThermalEvaporationController>, ItemBlockMekanismTier<BlockBasicMultiblock<TileEntityTieredThermalEvaporationController>>> SUPREME_THERMAL_EVAPORATION_CONTROLLER = registerBlock("supreme_thermal_evaporation_controller", () -> new BlockBasicMultiblock<>(MoreThermalEvaporationCompatBlockTypes.SUPREME_THERMAL_EVAPORATION_CONTROLLER, properties -> properties.mapColor(MapColor.COLOR_RED)), TETier.SUPREME);
-    // Cosmic
-    public static final BlockRegistryObject<BlockBasicMultiblock<TileEntityTieredThermalEvaporationBlock>, ItemBlockMekanismTier<BlockBasicMultiblock<TileEntityTieredThermalEvaporationBlock>>> COSMIC_THERMAL_EVAPORATION_BLOCK = registerBlock("cosmic_thermal_evaporation_block", () -> new BlockBasicMultiblock<>(MoreThermalEvaporationCompatBlockTypes.COSMIC_THERMAL_EVAPORATION_BLOCK, properties -> properties.mapColor(MapColor.COLOR_PINK)), TETier.COSMIC);
-    public static final BlockRegistryObject<BlockBasicMultiblock<TileEntityTieredThermalEvaporationValve>, ItemBlockMekanismTier<BlockBasicMultiblock<TileEntityTieredThermalEvaporationValve>>> COSMIC_THERMAL_EVAPORATION_VALVE = registerBlock("cosmic_thermal_evaporation_valve", () -> new BlockBasicMultiblock<>(MoreThermalEvaporationCompatBlockTypes.COSMIC_THERMAL_EVAPORATION_VALVE, properties -> properties.mapColor(MapColor.COLOR_PINK)), TETier.COSMIC);
-    public static final BlockRegistryObject<BlockBasicMultiblock<TileEntityTieredThermalEvaporationController>, ItemBlockMekanismTier<BlockBasicMultiblock<TileEntityTieredThermalEvaporationController>>> COSMIC_THERMAL_EVAPORATION_CONTROLLER = registerBlock("cosmic_thermal_evaporation_controller", () -> new BlockBasicMultiblock<>(MoreThermalEvaporationCompatBlockTypes.COSMIC_THERMAL_EVAPORATION_CONTROLLER, properties -> properties.mapColor(MapColor.COLOR_PINK)), TETier.COSMIC);
-    // Infinite
-    public static final BlockRegistryObject<BlockBasicMultiblock<TileEntityTieredThermalEvaporationBlock>, ItemBlockMekanismTier<BlockBasicMultiblock<TileEntityTieredThermalEvaporationBlock>>> INFINITE_THERMAL_EVAPORATION_BLOCK = registerBlock("infinite_thermal_evaporation_block", () -> new BlockBasicMultiblock<>(MoreThermalEvaporationCompatBlockTypes.INFINITE_THERMAL_EVAPORATION_BLOCK, properties -> properties.mapColor(MapColor.COLOR_BLUE)), TETier.INFINITE);
-    public static final BlockRegistryObject<BlockBasicMultiblock<TileEntityTieredThermalEvaporationValve>, ItemBlockMekanismTier<BlockBasicMultiblock<TileEntityTieredThermalEvaporationValve>>> INFINITE_THERMAL_EVAPORATION_VALVE = registerBlock("infinite_thermal_evaporation_valve", () -> new BlockBasicMultiblock<>(MoreThermalEvaporationCompatBlockTypes.INFINITE_THERMAL_EVAPORATION_VALVE, properties -> properties.mapColor(MapColor.COLOR_BLUE)), TETier.INFINITE);
-    public static final BlockRegistryObject<BlockBasicMultiblock<TileEntityTieredThermalEvaporationController>, ItemBlockMekanismTier<BlockBasicMultiblock<TileEntityTieredThermalEvaporationController>>> INFINITE_THERMAL_EVAPORATION_CONTROLLER = registerBlock("infinite_thermal_evaporation_controller", () -> new BlockBasicMultiblock<>(MoreThermalEvaporationCompatBlockTypes.INFINITE_THERMAL_EVAPORATION_CONTROLLER, properties -> properties.mapColor(MapColor.COLOR_BLUE)), TETier.INFINITE);
-    
+    private static final Table<TETier, MTECompatMultiPartType, BlockRegistryObject<BlockBasicMultiblock<?>, ItemBlockMekanismTier<BlockBasicMultiblock<?>>>> BLOCK_TABLE = HashBasedTable.create();
+
+    static {
+        for (TETier tier : TETier.values()) {
+            if (tier.isModLoaded()) {
+                BLOCK_TABLE.put(tier, MTECompatMultiPartType.BLOCK, MoreThermalEvaporationCompatBlocks.registerBlock(tier.getLowerName() + "_thermal_evaporation_block", () -> new BlockBasicMultiblock<>(MoreThermalEvaporationCompatBlockTypes.getBlockType(tier, MTECompatMultiPartType.BLOCK), properties -> properties.mapColor(tier.getMapColor())), tier));
+                BLOCK_TABLE.put(tier, MTECompatMultiPartType.VALVE, MoreThermalEvaporationCompatBlocks.registerBlock(tier.getLowerName() + "_thermal_evaporation_valve", () -> new BlockBasicMultiblock<>(MoreThermalEvaporationCompatBlockTypes.getBlockType(tier, MTECompatMultiPartType.VALVE), properties -> properties.mapColor(tier.getMapColor())), tier));
+                BLOCK_TABLE.put(tier, MTECompatMultiPartType.CONTROLLER, MoreThermalEvaporationCompatBlocks.registerBlock(tier.getLowerName() + "_thermal_evaporation_controller", () -> new BlockBasicMultiblock<>(MoreThermalEvaporationCompatBlockTypes.getBlockType(tier, MTECompatMultiPartType.CONTROLLER), properties -> properties.mapColor(tier.getMapColor())), tier));
+            }
+        }
+    }
+
     private MoreThermalEvaporationCompatBlocks() {
     }
 
@@ -60,6 +38,22 @@ public class MoreThermalEvaporationCompatBlocks {
             Supplier<? extends BLOCK> blockSupplier,
             TETier tier) {
 
-        return EXTRAS_BLOCKS.registerDefaultProperties(name, blockSupplier, (block, props) -> new ItemBlockMekanismTier<>(block, props, tier));
+        return BLOCKS.registerDefaultProperties(name, blockSupplier, (block, props) -> new ItemBlockMekanismTier<>(block, props, tier));
+    }
+
+    public static BlockRegistryObject<BlockBasicMultiblock<?>, ItemBlockMekanismTier<BlockBasicMultiblock<?>>> getCasingBlock(TETier tier) {
+        return getBlock(tier, MTECompatMultiPartType.BLOCK);
+    }
+
+    public static BlockRegistryObject<BlockBasicMultiblock<?>, ItemBlockMekanismTier<BlockBasicMultiblock<?>>> getValveBlock(TETier tier) {
+        return getBlock(tier, MTECompatMultiPartType.VALVE);
+    }
+
+    public static BlockRegistryObject<BlockBasicMultiblock<?>, ItemBlockMekanismTier<BlockBasicMultiblock<?>>> getControllerBlock(TETier tier) {
+        return getBlock(tier, MTECompatMultiPartType.CONTROLLER);
+    }
+
+    public static BlockRegistryObject<BlockBasicMultiblock<?>, ItemBlockMekanismTier<BlockBasicMultiblock<?>>> getBlock(TETier tier, MTECompatMultiPartType type) {
+        return BLOCK_TABLE.get(tier, type);
     }
 }

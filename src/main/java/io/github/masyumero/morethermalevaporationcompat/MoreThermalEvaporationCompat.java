@@ -3,7 +3,10 @@ package io.github.masyumero.morethermalevaporationcompat;
 import com.mojang.logging.LogUtils;
 import io.github.masyumero.morethermalevaporationcompat.common.command.builders.Builders;
 import io.github.masyumero.morethermalevaporationcompat.common.config.LoadConfig;
+import io.github.masyumero.morethermalevaporationcompat.common.registries.MoreThermalEvaporationCompatBlocks;
+import io.github.masyumero.morethermalevaporationcompat.common.registries.MoreThermalEvaporationCompatContainerTypes;
 import io.github.masyumero.morethermalevaporationcompat.common.registries.MoreThermalEvaporationCompatCreativeTabs;
+import io.github.masyumero.morethermalevaporationcompat.common.registries.MoreThermalEvaporationCompatTileEntityTypes;
 import io.github.masyumero.morethermalevaporationcompat.common.tier.TETier;
 import mekanism.common.command.CommandMek;
 import mekanism.common.command.builders.BuildCommand;
@@ -33,12 +36,9 @@ public class MoreThermalEvaporationCompat {
     public MoreThermalEvaporationCompat() {
         LoadConfig.registerConfig(ModLoadingContext.get());
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
-        if (ExtrasModule.ExtrasLoaded) {
-            ExtrasModule.init(modEventBus);
-        }
-        if (EvolvedModule.EvolvedLoaded) {
-            EvolvedModule.init(modEventBus);
-        }
+        MoreThermalEvaporationCompatBlocks.BLOCKS.register(modEventBus);
+        MoreThermalEvaporationCompatTileEntityTypes.TILE_ENTITY_TYPES.register(modEventBus);
+        MoreThermalEvaporationCompatContainerTypes.CONTAINER_TYPES.register(modEventBus);
         MoreThermalEvaporationCompatCreativeTabs.register(modEventBus);
         MinecraftForge.EVENT_BUS.addListener(this::registerCommands);
         MinecraftForge.EVENT_BUS.register(this);

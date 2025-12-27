@@ -2,34 +2,34 @@
   "block.morethermalevaporationcompat.absolute_thermal_evaporation_block": "абсолютного Блок теплового испарителяク",
   "block.morethermalevaporationcompat.absolute_thermal_evaporation_controller": "абсолютного Контроллер теплового испарителя",
   "block.morethermalevaporationcompat.absolute_thermal_evaporation_valve": "абсолютного Вентиль теплового испарителя",
-
   "block.morethermalevaporationcompat.cosmic_thermal_evaporation_block": "космического Блок теплового испарителяク",
   "block.morethermalevaporationcompat.cosmic_thermal_evaporation_controller": "космического Контроллер теплового испарителя",
   "block.morethermalevaporationcompat.cosmic_thermal_evaporation_valve": "космического Вентиль теплового испарителя",
-
   "block.morethermalevaporationcompat.dense_thermal_evaporation_block": "плотный Блок теплового испарителяク",
   "block.morethermalevaporationcompat.dense_thermal_evaporation_controller": "плотный Контроллер теплового испарителя",
   "block.morethermalevaporationcompat.dense_thermal_evaporation_valve": "плотный Вентиль теплового испарителя",
-
   "block.morethermalevaporationcompat.infinite_thermal_evaporation_block": "бесконечного Блок теплового испарителяク",
   "block.morethermalevaporationcompat.infinite_thermal_evaporation_controller": "бесконечного Контроллер теплового испарителя",
   "block.morethermalevaporationcompat.infinite_thermal_evaporation_valve": "бесконечного Вентиль теплового испарителя",
-
   "block.morethermalevaporationcompat.multiversal_thermal_evaporation_block": "мультивселенский Блок теплового испарителяク",
   "block.morethermalevaporationcompat.multiversal_thermal_evaporation_controller": "мультивселенский Контроллер теплового испарителя",
   "block.morethermalevaporationcompat.multiversal_thermal_evaporation_valve": "мультивселенский Вентиль теплового испарителя",
-
   "block.morethermalevaporationcompat.overclocked_thermal_evaporation_block": "разгоняемый Блок теплового испарителяク",
   "block.morethermalevaporationcompat.overclocked_thermal_evaporation_controller": "разгоняемый Контроллер теплового испарителя",
   "block.morethermalevaporationcompat.overclocked_thermal_evaporation_valve": "разгоняемый Вентиль теплового испарителя",
-
   "block.morethermalevaporationcompat.quantum_thermal_evaporation_block": "квант Блок теплового испарителяク",
   "block.morethermalevaporationcompat.quantum_thermal_evaporation_controller": "квант Контроллер теплового испарителя",
   "block.morethermalevaporationcompat.quantum_thermal_evaporation_valve": "квант Вентиль теплового испарителя",
-
   "block.morethermalevaporationcompat.supreme_thermal_evaporation_block": "высшего Блок теплового испарителяク",
   "block.morethermalevaporationcompat.supreme_thermal_evaporation_controller": "высшего Контроллер теплового испарителя",
   "block.morethermalevaporationcompat.supreme_thermal_evaporation_valve": "высшего Вентиль теплового испарителя",
-
-  "creativetab.morethermalevaporationcompat.tab": "бо́лее теплового испарителя Совместимость"
+  "creativetab.morethermalevaporationcompat.tab": "бо́лее теплового испарителя Совместимость",
+  "evaporation.morethermalevaporationcompat.absolute_thermal_evaporation": "абсолютного установка теплового испарителя",
+  "evaporation.morethermalevaporationcompat.cosmic_thermal_evaporation": "космического установка теплового испарителя",
+  "evaporation.morethermalevaporationcompat.dense_thermal_evaporation": "плотный установка теплового испарителя",
+  "evaporation.morethermalevaporationcompat.infinite_thermal_evaporation": "бесконечного установка теплового испарителя",
+  "evaporation.morethermalevaporationcompat.multiversal_thermal_evaporation": "мультивселенский установка теплового испарителя",
+  "evaporation.morethermalevaporationcompat.overclocked_thermal_evaporation": "разгоняемый установка теплового испарителя",
+  "evaporation.morethermalevaporationcompat.quantum_thermal_evaporation": "квант установка теплового испарителя",
+  "evaporation.morethermalevaporationcompat.supreme_thermal_evaporation": "высшего установка теплового испарителя"
 }
