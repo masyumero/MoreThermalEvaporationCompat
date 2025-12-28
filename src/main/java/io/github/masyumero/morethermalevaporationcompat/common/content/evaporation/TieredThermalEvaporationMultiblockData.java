@@ -1,5 +1,6 @@
 package io.github.masyumero.morethermalevaporationcompat.common.content.evaporation;
 
+import fr.iglee42.emgenerators.tile.TileEntityTieredAdvancedSolarGenerator;
 import io.github.masyumero.morethermalevaporationcompat.api.IThermalEvaporationMultiblockData;
 import io.github.masyumero.morethermalevaporationcompat.common.tier.TETier;
 import io.github.masyumero.morethermalevaporationcompat.common.tile.multiblock.TileEntityTieredThermalEvaporationBlock;
@@ -262,7 +263,13 @@ public class TieredThermalEvaporationMultiblockData extends MultiblockData imple
         int ret = 0;
         for (LazyOptional<IEvaporationSolar> capability : cachedSolar.values()) {
             if (capability.map(IEvaporationSolar::canSeeSun).orElse(false)) {
-                ret++;
+                ret += capability.map(solar -> {
+                    if (solar instanceof TileEntityTieredAdvancedSolarGenerator advancedSolar) {
+                        return advancedSolar.getTier().getMultiplier();
+                    } else {
+                        return 1;
+                    }
+                }).orElseThrow();
             }
         }
         return ret;
