@@ -57,6 +57,11 @@ public class MoreThermalEvaporationCompat {
             BuildCommand.register("evaporation_dense", MTECompatLang.DENSE_EVAPORATION, new Builders.EvaporationBuilder(TETier.DENSE));
             BuildCommand.register("evaporation_multiversal", MTECompatLang.MULTIVERSAL_EVAPORATION, new Builders.EvaporationBuilder(TETier.MULTIVERSAL));
         }
+        if (AstralModule.AstralLoaded) {
+            BuildCommand.register("evaporation_vibration", MTECompatLang.VIBRATION_EVAPORATION, new Builders.EvaporationBuilder(TETier.VIBRATION));
+            BuildCommand.register("evaporation_resonance", MTECompatLang.RESONANCE_EVAPORATION, new Builders.EvaporationBuilder(TETier.RESONANCE));
+            BuildCommand.register("evaporation_illusion", MTECompatLang.ILLUSION_EVAPORATION, new Builders.EvaporationBuilder(TETier.ILLUSION));
+        }
         event.getDispatcher().register(CommandMek.register());
     }
 }
