@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "morethermalevaporationcompat:resonance_thermal_evaporation_block"
+    },
+    "O": {
+      "item": "morethermalevaporationcompat:vibration_thermal_evaporation_valve"
+    }
+  },
+  "pattern": [
+    " # ",
+    "#O#",
+    " # "
+  ],
+  "result": {
+    "item": "morethermalevaporationcompat:resonance_thermal_evaporation_valve"
+  }
+}

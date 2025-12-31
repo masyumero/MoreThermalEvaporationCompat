@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "morethermalevaporation:ultimate_thermal_evaporation_block"
+    },
+    "A": {
+      "item": "astral_mekanism:alloy_elastic"
+    },
+    "C": {
+      "item": "astral_mekanism:vibration_control_circuit"
+    }
+  },
+  "pattern": [
+    "A#A",
+    "#C#",
+    "A#A"
+  ],
+  "result": {
+    "count": 4,
+    "item": "morethermalevaporationcompat:vibration_thermal_evaporation_block"
+  }
+}

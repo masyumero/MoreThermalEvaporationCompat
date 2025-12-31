@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "morethermalevaporationcompat:block/vibration/vibration_thermal_evaporation_valve"
+  }
+}

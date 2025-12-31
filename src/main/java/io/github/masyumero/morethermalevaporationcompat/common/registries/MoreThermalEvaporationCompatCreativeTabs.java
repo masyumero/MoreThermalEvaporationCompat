@@ -33,7 +33,9 @@ public class MoreThermalEvaporationCompatCreativeTabs {
                     .displayItems((parameters, output) -> {
                         for (TETier tier : TETier.values()) {
                             for (MTECompatMultiPartType type : MTECompatMultiPartType.values()) {
-                                output.accept(MoreThermalEvaporationCompatBlocks.getBlock(tier, type));
+                                if (tier.isModLoaded()) {
+                                    output.accept(MoreThermalEvaporationCompatBlocks.getBlock(tier, type));
+                                }
                             }
                         }
                     })

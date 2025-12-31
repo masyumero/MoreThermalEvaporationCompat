@@ -2,6 +2,7 @@ package io.github.masyumero.morethermalevaporationcompat.common.tier;
 
 import com.jerry.mekanism_extras.api.tier.AdvancedTier;
 import fr.iglee42.evolvedmekanism.tiers.EMBaseTier;
+import io.github.masyumero.morethermalevaporationcompat.AstralModule;
 import io.github.masyumero.morethermalevaporationcompat.api.tier.ITier;
 import io.github.masyumero.morethermalevaporationcompat.common.config.LoadConfig;
 import io.github.masyumero.morethermalevaporationcompat.common.content.blocktype.MTECompatMultiPartType;
@@ -13,46 +14,55 @@ import io.github.masyumero.morethermalevaporationcompat.ExtrasModule;
 import mekanism.api.providers.IBlockProvider;
 import mekanism.common.content.blocktype.BlockType;
 import mekanism.common.lib.multiblock.MultiblockManager;
+import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.TextColor;
 import net.minecraft.world.level.material.MapColor;
 
 import java.util.Locale;
 
 public enum TETier implements ITier {
-    ABSOLUTE("Absolute", AdvancedTier.ABSOLUTE, MapColor.COLOR_YELLOW, ExtrasModule.ExtrasLoaded, ExtrasModule.AbsoluteThermalEvaporationManager),
-    SUPREME("Supreme", AdvancedTier.SUPREME, MapColor.COLOR_RED, ExtrasModule.ExtrasLoaded, ExtrasModule.SupremeThermalEvaporationManager),
-    COSMIC("Cosmic", AdvancedTier.COSMIC, MapColor.COLOR_PINK, ExtrasModule.ExtrasLoaded, ExtrasModule.CosmicThermalEvaporationManager),
-    INFINITE("Infinite", AdvancedTier.INFINITE, MapColor.COLOR_BLUE, ExtrasModule.ExtrasLoaded, ExtrasModule.InfiniteThermalEvaporationManager),
-    OVERCLOCKED("Overclocked", EMBaseTier.OVERCLOCKED, MapColor.COLOR_GREEN, EvolvedModule.EvolvedLoaded, EvolvedModule.OverclockedThermalEvaporationManager),
-    QUANTUM("Quantum", EMBaseTier.QUANTUM, MapColor.COLOR_PURPLE, EvolvedModule.EvolvedLoaded, EvolvedModule.QuantumThermalEvaporationManager),
-    DENSE("Dense", EMBaseTier.DENSE, MapColor.TERRACOTTA_YELLOW, EvolvedModule.EvolvedLoaded, EvolvedModule.DenseThermalEvaporationManager),
-    MULTIVERSAL("Multiversal", EMBaseTier.MULTIVERSAL, MapColor.COLOR_BLACK, EvolvedModule.EvolvedLoaded, EvolvedModule.MultiversalThermalEvaporationManager)
+    ABSOLUTE("Absolute", AdvancedTier.ABSOLUTE.getColor(), MapColor.COLOR_YELLOW, ExtrasModule.ExtrasLoaded, ExtrasModule.AbsoluteThermalEvaporationManager),
+    SUPREME("Supreme", AdvancedTier.SUPREME.getColor(), MapColor.COLOR_RED, ExtrasModule.ExtrasLoaded, ExtrasModule.SupremeThermalEvaporationManager),
+    COSMIC("Cosmic", AdvancedTier.COSMIC.getColor(), MapColor.COLOR_PINK, ExtrasModule.ExtrasLoaded, ExtrasModule.CosmicThermalEvaporationManager),
+    INFINITE("Infinite", AdvancedTier.INFINITE.getColor(), MapColor.COLOR_BLUE, ExtrasModule.ExtrasLoaded, ExtrasModule.InfiniteThermalEvaporationManager),
+    OVERCLOCKED("Overclocked", EMBaseTier.OVERCLOCKED.getColor(), MapColor.COLOR_GREEN, EvolvedModule.EvolvedLoaded, EvolvedModule.OverclockedThermalEvaporationManager),
+    QUANTUM("Quantum", EMBaseTier.QUANTUM.getColor(), MapColor.COLOR_PURPLE, EvolvedModule.EvolvedLoaded, EvolvedModule.QuantumThermalEvaporationManager),
+    DENSE("Dense", EMBaseTier.DENSE.getColor(), MapColor.TERRACOTTA_YELLOW, EvolvedModule.EvolvedLoaded, EvolvedModule.DenseThermalEvaporationManager),
+    MULTIVERSAL("Multiversal", EMBaseTier.MULTIVERSAL.getColor(), MapColor.COLOR_BLACK, EvolvedModule.EvolvedLoaded, EvolvedModule.MultiversalThermalEvaporationManager),
+    VIBRATION("Vibration", ChatFormatting.YELLOW, MapColor.TERRACOTTA_PURPLE , AstralModule.AstralLoaded, AstralModule.VibrationThermalEvaporationManager),
+    RESONANCE("Resonance", ChatFormatting.AQUA, MapColor.COLOR_PURPLE , AstralModule.AstralLoaded, AstralModule.ResonanceThermalEvaporationManager),
+    ILLUSION("Illusion", ChatFormatting.LIGHT_PURPLE, MapColor.COLOR_YELLOW , AstralModule.AstralLoaded, AstralModule.IllusionThermalEvaporationManager)
     ;
 
     private final String name;
-    private final Object originalTier;
+    private final TextColor textColor;
     private final MapColor mapColor;
     private final boolean modLoaded;
     private final MultiblockManager<TieredThermalEvaporationMultiblockData> manager;
 
-    TETier(String name, Object originalTier, MapColor mapColor, boolean modLoaded, MultiblockManager<TieredThermalEvaporationMultiblockData> manager) {
+    TETier(String name, TextColor textColor, MapColor mapColor, boolean modLoaded, MultiblockManager<TieredThermalEvaporationMultiblockData> manager) {
         this.name = name;
-        this.originalTier = originalTier;
+        this.textColor = textColor;
         this.mapColor = mapColor;
         this.modLoaded = modLoaded;
         this.manager = manager;
     }
 
+    TETier(String name, ChatFormatting color, MapColor mapColor, boolean modLoaded, MultiblockManager<TieredThermalEvaporationMultiblockData> manager) {
+        this(name, TextColor.fromRgb(color.getColor()), mapColor, modLoaded, manager);
+    }
+
     public int getHeight() {
-        return LoadConfig.MTE_COMPAT_CONFIG.getHeight(originalTier);
+        return LoadConfig.MTE_COMPAT_CONFIG.getHeight(this);
     }
 
     public int getOutputTankCapacity() {
-        return LoadConfig.MTE_COMPAT_CONFIG.getTankCapacity(originalTier);
+        return LoadConfig.MTE_COMPAT_CONFIG.getTankCapacity(this);
     }
 
-    public Object getOriginalTier() {
-        return originalTier;
+    @Override
+    public TextColor getColor() {
+        return textColor;
     }
 
     public String getLowerName() {
@@ -60,15 +70,15 @@ public enum TETier implements ITier {
     }
 
     public double getMaxMultiplierTemp() {
-        if (!(originalTier instanceof ITier tier)) {
-            throw new IllegalStateException("Unexpected value: " + originalTier.getClass().getSimpleName());
-        }
-        return switch (tier.getSimpleName()) {
-            case "Absolute", "Overclocked" -> 96_000;
-            case "Supreme", "Quantum" -> 192_000;
-            case "Cosmic", "Dense" -> 384_000;
-            case "Infinite", "Multiversal" -> 768_000;
-            default -> throw new IllegalStateException("Unexpected value: " + tier.getSimpleName());
+        return switch (this.getSimpleName()) {
+            case "Absolute", "Overclocked" -> 96_000; //32
+            case "Supreme", "Quantum" -> 192_000; //64
+            case "Cosmic", "Dense" -> 384_000; //128
+            case "Infinite", "Multiversal" -> 768_000; //256
+            case "Vibration" -> 72_000; //24
+            case "Resonance" -> 144_000; //48
+            case "Illusion" -> 1_536_000; //512
+            default -> throw new IllegalStateException("Unexpected value: " + this.getSimpleName());
         };
     }
 
@@ -103,11 +113,6 @@ public enum TETier implements ITier {
     @Override
     public String getSimpleName() {
         return name;
-    }
-
-    @Override
-    public TextColor getColor() {
-        return null;
     }
 
     public MapColor getMapColor() {

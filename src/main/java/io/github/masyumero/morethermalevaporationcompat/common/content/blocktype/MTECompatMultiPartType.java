@@ -1,5 +1,7 @@
 package io.github.masyumero.morethermalevaporationcompat.common.content.blocktype;
 
+import java.util.Locale;
+
 public enum MTECompatMultiPartType {
     BLOCK("Block"),
     VALVE("Valve"),
@@ -13,5 +15,9 @@ public enum MTECompatMultiPartType {
 
     public String getName() {
         return name;
+    }
+
+    public String getLowerName() {
+        return this.getName().toLowerCase(Locale.ROOT);
     }
 }

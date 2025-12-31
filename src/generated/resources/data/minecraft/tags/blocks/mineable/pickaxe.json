@@ -23,6 +23,15 @@
     "morethermalevaporationcompat:dense_thermal_evaporation_controller",
     "morethermalevaporationcompat:multiversal_thermal_evaporation_block",
     "morethermalevaporationcompat:multiversal_thermal_evaporation_valve",
-    "morethermalevaporationcompat:multiversal_thermal_evaporation_controller"
+    "morethermalevaporationcompat:multiversal_thermal_evaporation_controller",
+    "morethermalevaporationcompat:vibration_thermal_evaporation_block",
+    "morethermalevaporationcompat:vibration_thermal_evaporation_valve",
+    "morethermalevaporationcompat:vibration_thermal_evaporation_controller",
+    "morethermalevaporationcompat:resonance_thermal_evaporation_block",
+    "morethermalevaporationcompat:resonance_thermal_evaporation_valve",
+    "morethermalevaporationcompat:resonance_thermal_evaporation_controller",
+    "morethermalevaporationcompat:illusion_thermal_evaporation_block",
+    "morethermalevaporationcompat:illusion_thermal_evaporation_valve",
+    "morethermalevaporationcompat:illusion_thermal_evaporation_controller"
   ]
 }

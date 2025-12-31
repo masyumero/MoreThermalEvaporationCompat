@@ -17,6 +17,9 @@ public class MTECompatConfig extends BaseMekanismConfig {
     public final CachedIntValue quantumHeight;
     public final CachedIntValue denseHeight;
     public final CachedIntValue multiversalHeight;
+    public final CachedIntValue vibrationHeight;
+    public final CachedIntValue resonanceHeight;
+    public final CachedIntValue illusionHeight;
     public final CachedIntValue absoluteOutputTankCapacity;
     public final CachedIntValue supremeOutputTankCapacity;
     public final CachedIntValue cosmicOutputTankCapacity;
@@ -25,6 +28,9 @@ public class MTECompatConfig extends BaseMekanismConfig {
     public final CachedIntValue quantumOutputTankCapacity;
     public final CachedIntValue denseOutputTankCapacity;
     public final CachedIntValue multiversalOutputTankCapacity;
+    public final CachedIntValue vibrationOutputTankCapacity;
+    public final CachedIntValue resonanceOutputTankCapacity;
+    public final CachedIntValue illusionOutputTankCapacity;
 
     public MTECompatConfig() {
         ForgeConfigSpec.Builder builder = new ForgeConfigSpec.Builder();
@@ -119,6 +125,39 @@ public class MTECompatConfig extends BaseMekanismConfig {
                 .comment("Buildable Height (in blocks) for the Multiversal Evaporation Plant.")
                 .defineInRange("MultiversalEvaporationPlantHeight", 18, 18, 4098));
 
+        builder.pop();
+        builder.push("Vibration");
+        builder.comment("Settings for the Vibration Tier");
+        vibrationOutputTankCapacity = CachedIntValue.wrap(this, builder
+                .comment("Amount of output fluid (mB) that the Vibration Evaporation Plant can store.")
+                .defineInRange("VibrationEvaporationOutputTankCapacity", 15360000, 1, Integer.MAX_VALUE));
+
+        vibrationHeight = CachedIntValue.wrap(this, builder
+                .comment("Buildable Height (in blocks) for the Vibration Evaporation Plant.")
+                .defineInRange("VibrationEvaporationPlantHeight", 18, 18, 432));
+
+        builder.pop();
+        builder.push("Resonance");
+        builder.comment("Settings for the Resonance Tier");
+        resonanceOutputTankCapacity = CachedIntValue.wrap(this, builder
+                .comment("Amount of output fluid (mB) that the Resonance Evaporation Plant can store.")
+                .defineInRange("ResonanceEvaporationOutputTankCapacity", 30720000, 1, Integer.MAX_VALUE));
+
+        resonanceHeight = CachedIntValue.wrap(this, builder
+                .comment("Buildable Height (in blocks) for the Resonance Evaporation Plant.")
+                .defineInRange("ResonanceEvaporationPlantHeight", 18, 18, 864));
+
+        builder.pop();
+        builder.push("Illusion");
+        builder.comment("Settings for the Illusion Tier");
+        illusionOutputTankCapacity = CachedIntValue.wrap(this, builder
+                .comment("Amount of output fluid (mB) that the Illusion Evaporation Plant can store.")
+                .defineInRange("IllusionEvaporationOutputTankCapacity", 327680000, 1, Integer.MAX_VALUE));
+
+        illusionHeight = CachedIntValue.wrap(this, builder
+                .comment("Buildable Height (in blocks) for the Illusion Evaporation Plant.")
+                .defineInRange("IllusionEvaporationPlantHeight", 18, 18, 9216));
+
         builder.pop().pop();
         this.configSpec = builder.build();
     }
@@ -134,6 +173,9 @@ public class MTECompatConfig extends BaseMekanismConfig {
                 case "Quantum" -> this.quantumHeight.get();
                 case "Dense" -> this.denseHeight.get();
                 case "Multiversal" -> this.multiversalHeight.get();
+                case "Vibration" -> this.vibrationHeight.get();
+                case "Resonance" -> this.resonanceHeight.get();
+                case "Illusion" -> this.illusionHeight.get();
                 default -> 18;
             };
         }
@@ -151,6 +193,9 @@ public class MTECompatConfig extends BaseMekanismConfig {
                 case "Quantum" -> this.quantumOutputTankCapacity.get();
                 case "Dense" -> this.denseOutputTankCapacity.get();
                 case "Multiversal" -> this.multiversalOutputTankCapacity.get();
+                case "Vibration" -> this.vibrationOutputTankCapacity.get();
+                case "Resonance" -> this.resonanceOutputTankCapacity.get();
+                case "Illusion" -> this.illusionOutputTankCapacity.get();
                 default -> 20000;
             };
         }

@@ -1,6 +1,5 @@
 package io.github.masyumero.morethermalevaporationcompat.common.item.block;
 
-import io.github.masyumero.morethermalevaporationcompat.api.tier.ITier;
 import io.github.masyumero.morethermalevaporationcompat.common.tier.TETier;
 import mekanism.api.text.TextComponentUtil;
 import mekanism.api.tier.BaseTier;
@@ -21,7 +20,7 @@ public class ItemBlockMekanismTier<BLOCK extends Block & IHasDescription> extend
     }
 
     public ItemBlockMekanismTier(BLOCK block, Properties properties, TETier tier) {
-        this(block, properties, ((ITier)tier.getOriginalTier()).getColor().getValue());
+        this(block, properties, tier.getColor().getValue());
     }
 
     public ItemBlockMekanismTier(BLOCK block, Properties properties, BaseTier tier) {

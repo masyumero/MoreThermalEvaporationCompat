@@ -47,7 +47,22 @@ public enum MTECompatLang implements ILangEntry {
     MULTIVERSAL_EVAPORATION("evaporation", "multiversal_thermal_evaporation", TETier.MULTIVERSAL, MTECompatLangType.TITLE),
     DESCRIPTION_MULTIVERSAL_EVAPORATION_BLOCK("description", "multiversal_thermal_evaporation_block", TETier.MULTIVERSAL, MTECompatLangType.DESC_BLOCK),
     DESCRIPTION_MULTIVERSAL_EVAPORATION_VALVE("description", "multiversal_thermal_evaporation_valve", TETier.MULTIVERSAL, MTECompatLangType.DESC_VALVE),
-    DESCRIPTION_MULTIVERSAL_EVAPORATION_CONTROLLER("description", "multiversal_thermal_evaporation_controller",TETier.MULTIVERSAL, MTECompatLangType.DESC_CONTROLLER)
+    DESCRIPTION_MULTIVERSAL_EVAPORATION_CONTROLLER("description", "multiversal_thermal_evaporation_controller",TETier.MULTIVERSAL, MTECompatLangType.DESC_CONTROLLER),
+
+    VIBRATION_EVAPORATION("evaporation", "vibration_thermal_evaporation", TETier.VIBRATION, MTECompatLangType.TITLE),
+    DESCRIPTION_VIBRATION_EVAPORATION_BLOCK("description", "vibration_thermal_evaporation_block", TETier.VIBRATION, MTECompatLangType.DESC_BLOCK),
+    DESCRIPTION_VIBRATION_EVAPORATION_VALVE("description", "vibration_thermal_evaporation_valve", TETier.VIBRATION, MTECompatLangType.DESC_VALVE),
+    DESCRIPTION_VIBRATION_EVAPORATION_CONTROLLER("description", "vibration_thermal_evaporation_controller",TETier.VIBRATION, MTECompatLangType.DESC_CONTROLLER),
+
+    RESONANCE_EVAPORATION("evaporation", "resonance_thermal_evaporation", TETier.RESONANCE, MTECompatLangType.TITLE),
+    DESCRIPTION_RESONANCE_EVAPORATION_BLOCK("description", "resonance_thermal_evaporation_block", TETier.RESONANCE, MTECompatLangType.DESC_BLOCK),
+    DESCRIPTION_RESONANCE_EVAPORATION_VALVE("description", "resonance_thermal_evaporation_valve", TETier.RESONANCE, MTECompatLangType.DESC_VALVE),
+    DESCRIPTION_RESONANCE_EVAPORATION_CONTROLLER("description", "resonance_thermal_evaporation_controller",TETier.RESONANCE, MTECompatLangType.DESC_CONTROLLER),
+
+    ILLUSION_EVAPORATION("evaporation", "illusion_thermal_evaporation", TETier.ILLUSION, MTECompatLangType.TITLE),
+    DESCRIPTION_ILLUSION_EVAPORATION_BLOCK("description", "illusion_thermal_evaporation_block", TETier.ILLUSION, MTECompatLangType.DESC_BLOCK),
+    DESCRIPTION_ILLUSION_EVAPORATION_VALVE("description", "illusion_thermal_evaporation_valve", TETier.ILLUSION, MTECompatLangType.DESC_VALVE),
+    DESCRIPTION_ILLUSION_EVAPORATION_CONTROLLER("description", "illusion_thermal_evaporation_controller",TETier.ILLUSION, MTECompatLangType.DESC_CONTROLLER),
     ;
 
     private final String key;
