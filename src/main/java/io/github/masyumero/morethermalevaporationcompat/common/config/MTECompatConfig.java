@@ -1,6 +1,6 @@
 package io.github.masyumero.morethermalevaporationcompat.common.config;
 
-import io.github.masyumero.morethermalevaporationcompat.api.tier.ITier;
+import io.github.masyumero.morethermalevaporationcompat.common.tier.TETier;
 import mekanism.common.config.BaseMekanismConfig;
 import mekanism.common.config.value.CachedIntValue;
 import net.minecraftforge.common.ForgeConfigSpec;
@@ -215,52 +215,46 @@ public class MTECompatConfig extends BaseMekanismConfig {
         this.configSpec = builder.build();
     }
 
-    public int getHeight(Object tiers) {
-        if (tiers instanceof ITier tier) {
-            return switch (tier.getSimpleName()) {
-                case "Absolute" -> this.absoluteHeight.get();
-                case "Supreme" -> this.supremeHeight.get();
-                case "Cosmic" -> this.cosmicHeight.get();
-                case "Infinite" -> this.infiniteHeight.get();
-                case "Overclocked" -> this.overclockedHeight.get();
-                case "Quantum" -> this.quantumHeight.get();
-                case "Dense" -> this.denseHeight.get();
-                case "Multiversal" -> this.multiversalHeight.get();
-                case "Vibration" -> this.vibrationHeight.get();
-                case "Resonance" -> this.resonanceHeight.get();
-                case "Illusion" -> this.illusionHeight.get();
-                case "Absolute_Overclocked" -> this.absoluteOverclockedHeight.get();
-                case "Supreme_Quantum" -> this.supremeQuantumOverclockedHeight.get();
-                case "Cosmic_Dense" -> this.cosmicDenseHeight.get();
-                case "Infinite_Multiversal" -> this.infiniteMultiversalHeight.get();
-                default -> 18;
-            };
-        }
-        return 18;
+    public int getHeight(TETier tier) {
+        return switch (tier.getSimpleName()) {
+            case "Absolute" -> this.absoluteHeight.get();
+            case "Supreme" -> this.supremeHeight.get();
+            case "Cosmic" -> this.cosmicHeight.get();
+            case "Infinite" -> this.infiniteHeight.get();
+            case "Overclocked" -> this.overclockedHeight.get();
+            case "Quantum" -> this.quantumHeight.get();
+            case "Dense" -> this.denseHeight.get();
+            case "Multiversal" -> this.multiversalHeight.get();
+            case "Vibration" -> this.vibrationHeight.get();
+            case "Resonance" -> this.resonanceHeight.get();
+            case "Illusion" -> this.illusionHeight.get();
+            case "Absolute_Overclocked" -> this.absoluteOverclockedHeight.get();
+            case "Supreme_Quantum" -> this.supremeQuantumOverclockedHeight.get();
+            case "Cosmic_Dense" -> this.cosmicDenseHeight.get();
+            case "Infinite_Multiversal" -> this.infiniteMultiversalHeight.get();
+            default -> 18;
+        };
     }
 
-    public int getTankCapacity(Object tiers) {
-        if (tiers instanceof ITier tier) {
-            return switch (tier.getSimpleName()) {
-                case "Absolute" -> this.absoluteOutputTankCapacity.get();
-                case "Supreme" -> this.supremeOutputTankCapacity.get();
-                case "Cosmic" -> this.cosmicOutputTankCapacity.get();
-                case "Infinite" -> this.infiniteOutputTankCapacity.get();
-                case "Overclocked" -> this.overclockedOutputTankCapacity.get();
-                case "Quantum" -> this.quantumOutputTankCapacity.get();
-                case "Dense" -> this.denseOutputTankCapacity.get();
-                case "Multiversal" -> this.multiversalOutputTankCapacity.get();
-                case "Vibration" -> this.vibrationOutputTankCapacity.get();
-                case "Resonance" -> this.resonanceOutputTankCapacity.get();
-                case "Illusion" -> this.illusionOutputTankCapacity.get();
-                case "Absolute_Overclocked" -> this.absoluteOverclockedOutputTankCapacity.get();
-                case "Supreme_Quantum" -> this.supremeQuantumOverclockedOutputTankCapacity.get();
-                case "Cosmic_Dense" -> this.cosmicDenseOutputTankCapacity.get();
-                case "Infinite_Multiversal" -> this.infiniteMultiversalOutputTankCapacity.get();
-                default -> 20000;
-            };
-        }
-        return 20000;
+    public int getTankCapacity(TETier tier) {
+        return switch (tier.getSimpleName()) {
+            case "Absolute" -> this.absoluteOutputTankCapacity.get();
+            case "Supreme" -> this.supremeOutputTankCapacity.get();
+            case "Cosmic" -> this.cosmicOutputTankCapacity.get();
+            case "Infinite" -> this.infiniteOutputTankCapacity.get();
+            case "Overclocked" -> this.overclockedOutputTankCapacity.get();
+            case "Quantum" -> this.quantumOutputTankCapacity.get();
+            case "Dense" -> this.denseOutputTankCapacity.get();
+            case "Multiversal" -> this.multiversalOutputTankCapacity.get();
+            case "Vibration" -> this.vibrationOutputTankCapacity.get();
+            case "Resonance" -> this.resonanceOutputTankCapacity.get();
+            case "Illusion" -> this.illusionOutputTankCapacity.get();
+            case "Absolute_Overclocked" -> this.absoluteOverclockedOutputTankCapacity.get();
+            case "Supreme_Quantum" -> this.supremeQuantumOverclockedOutputTankCapacity.get();
+            case "Cosmic_Dense" -> this.cosmicDenseOutputTankCapacity.get();
+            case "Infinite_Multiversal" -> this.infiniteMultiversalOutputTankCapacity.get();
+            default -> 20000;
+        };
     }
 
     @Override

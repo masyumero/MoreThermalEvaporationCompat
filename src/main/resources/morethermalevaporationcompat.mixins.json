@@ -14,9 +14,7 @@
     "MixinTileEntityEliteThermalEvaporationController",
     "MixinTileEntityUltimatehermalEvaporationController",
     "MixinUltimateThermalEvaporationMultiblockData",
-    "accessor.AccessorAstralMekanismGases",
-    "tier.MixinAdvancedTier",
-    "tier.MixinBaseTier"
+    "accessor.AccessorAstralMekanismGases"
   ],
   "client": [
   ],

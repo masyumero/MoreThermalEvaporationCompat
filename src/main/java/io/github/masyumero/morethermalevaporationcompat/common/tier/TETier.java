@@ -1,11 +1,7 @@
 package io.github.masyumero.morethermalevaporationcompat.common.tier;
 
-import com.jerry.mekanism_extras.api.tier.AdvancedTier;
-import fr.iglee42.evolvedmekanism.tiers.EMBaseTier;
-import io.github.masyumero.emextras.api.tier.EMExtraTier;
 import io.github.masyumero.morethermalevaporationcompat.AstralModule;
 import io.github.masyumero.morethermalevaporationcompat.EMExtrasModule;
-import io.github.masyumero.morethermalevaporationcompat.api.tier.ITier;
 import io.github.masyumero.morethermalevaporationcompat.common.config.LoadConfig;
 import io.github.masyumero.morethermalevaporationcompat.common.content.blocktype.MTECompatMultiPartType;
 import io.github.masyumero.morethermalevaporationcompat.common.content.evaporation.TieredThermalEvaporationMultiblockData;
@@ -13,49 +9,46 @@ import io.github.masyumero.morethermalevaporationcompat.common.registries.MoreTh
 import io.github.masyumero.morethermalevaporationcompat.common.registries.MoreThermalEvaporationCompatBlocks;
 import io.github.masyumero.morethermalevaporationcompat.EvolvedModule;
 import io.github.masyumero.morethermalevaporationcompat.ExtrasModule;
+import mekanism.api.SupportsColorMap;
 import mekanism.api.providers.IBlockProvider;
 import mekanism.common.content.blocktype.BlockType;
 import mekanism.common.lib.multiblock.MultiblockManager;
-import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.TextColor;
 import net.minecraft.world.level.material.MapColor;
 
 import java.util.Locale;
 
-public enum TETier implements ITier {
-    ABSOLUTE("Absolute", AdvancedTier.ABSOLUTE.getColor(), MapColor.COLOR_YELLOW, ExtrasModule.ExtrasLoaded, ExtrasModule.AbsoluteThermalEvaporationManager),
-    SUPREME("Supreme", AdvancedTier.SUPREME.getColor(), MapColor.COLOR_RED, ExtrasModule.ExtrasLoaded, ExtrasModule.SupremeThermalEvaporationManager),
-    COSMIC("Cosmic", AdvancedTier.COSMIC.getColor(), MapColor.COLOR_PINK, ExtrasModule.ExtrasLoaded, ExtrasModule.CosmicThermalEvaporationManager),
-    INFINITE("Infinite", AdvancedTier.INFINITE.getColor(), MapColor.COLOR_BLUE, ExtrasModule.ExtrasLoaded, ExtrasModule.InfiniteThermalEvaporationManager),
-    OVERCLOCKED("Overclocked", EMBaseTier.OVERCLOCKED.getColor(), MapColor.COLOR_GREEN, EvolvedModule.EvolvedLoaded, EvolvedModule.OverclockedThermalEvaporationManager),
-    QUANTUM("Quantum", EMBaseTier.QUANTUM.getColor(), MapColor.COLOR_PURPLE, EvolvedModule.EvolvedLoaded, EvolvedModule.QuantumThermalEvaporationManager),
-    DENSE("Dense", EMBaseTier.DENSE.getColor(), MapColor.TERRACOTTA_YELLOW, EvolvedModule.EvolvedLoaded, EvolvedModule.DenseThermalEvaporationManager),
-    MULTIVERSAL("Multiversal", EMBaseTier.MULTIVERSAL.getColor(), MapColor.COLOR_BLACK, EvolvedModule.EvolvedLoaded, EvolvedModule.MultiversalThermalEvaporationManager),
-    VIBRATION("Vibration", ChatFormatting.YELLOW, MapColor.TERRACOTTA_PURPLE , AstralModule.AstralLoaded, AstralModule.VibrationThermalEvaporationManager),
-    RESONANCE("Resonance", ChatFormatting.AQUA, MapColor.COLOR_PURPLE , AstralModule.AstralLoaded, AstralModule.ResonanceThermalEvaporationManager),
-    ILLUSION("Illusion", ChatFormatting.LIGHT_PURPLE, MapColor.COLOR_YELLOW , AstralModule.AstralLoaded, AstralModule.IllusionThermalEvaporationManager),
-    ABSOLUTE_OVERCLOCKED("Absolute_Overclocked", EMExtraTier.ABSOLUTE_OVERCLOCKED.getColor(), MapColor.COLOR_LIGHT_GREEN, EMExtrasModule.EMExtraLoaded, EMExtrasModule.AbsoluteOverclockedThermalEvaporationManager),
-    SUPREME_QUANTUM("Supreme_Quantum", EMExtraTier.SUPREME_QUANTUM.getColor(), MapColor.TERRACOTTA_PINK, EMExtrasModule.EMExtraLoaded, EMExtrasModule.SupremeQuantumThermalEvaporationManager),
-    COSMIC_DENSE("Cosmic_Dense", EMExtraTier.COSMIC_DENSE.getColor(), MapColor.DIAMOND, EMExtrasModule.EMExtraLoaded, EMExtrasModule.CosmicDenseThermalEvaporationManager),
-    INFINITE_MULTIVERSAL("Infinite_Multiversal", EMExtraTier.INFINITE_MULTIVERSAL.getColor(), MapColor.COLOR_MAGENTA, EMExtrasModule.EMExtraLoaded, EMExtrasModule.InfiniteMultiversalThermalEvaporationManager),
+public enum TETier implements SupportsColorMap {
+    ABSOLUTE("Absolute", new int[]{95, 255, 184}, MapColor.COLOR_YELLOW, ExtrasModule.ExtrasLoaded, ExtrasModule.AbsoluteThermalEvaporationManager),
+    SUPREME("Supreme", new int[]{255, 128, 106}, MapColor.COLOR_RED, ExtrasModule.ExtrasLoaded, ExtrasModule.SupremeThermalEvaporationManager),
+    COSMIC("Cosmic", new int[]{75, 248, 255}, MapColor.COLOR_PINK, ExtrasModule.ExtrasLoaded, ExtrasModule.CosmicThermalEvaporationManager),
+    INFINITE("Infinite", new int[]{247, 135, 255}, MapColor.COLOR_BLUE, ExtrasModule.ExtrasLoaded, ExtrasModule.InfiniteThermalEvaporationManager),
+    OVERCLOCKED("Overclocked", new int[]{0, 221, 0}, MapColor.COLOR_LIGHT_GREEN, EvolvedModule.EvolvedLoaded, EvolvedModule.OverclockedThermalEvaporationManager),
+    QUANTUM("Quantum", new int[]{252, 158, 250}, MapColor.COLOR_PURPLE, EvolvedModule.EvolvedLoaded, EvolvedModule.QuantumThermalEvaporationManager),
+    DENSE("Dense", new int[]{253, 245, 95}, MapColor.GOLD, EvolvedModule.EvolvedLoaded, EvolvedModule.DenseThermalEvaporationManager),
+    MULTIVERSAL("Multiversal", new int[]{90, 87, 90}, MapColor.COLOR_BLACK, EvolvedModule.EvolvedLoaded, EvolvedModule.MultiversalThermalEvaporationManager),
+    VIBRATION("Vibration", new int[]{255, 255, 85}, MapColor.TERRACOTTA_PURPLE , AstralModule.AstralLoaded, AstralModule.VibrationThermalEvaporationManager),
+    RESONANCE("Resonance", new int[]{85, 255, 255}, MapColor.COLOR_PURPLE , AstralModule.AstralLoaded, AstralModule.ResonanceThermalEvaporationManager),
+    ILLUSION("Illusion", new int[]{255, 85, 255}, MapColor.COLOR_YELLOW , AstralModule.AstralLoaded, AstralModule.IllusionThermalEvaporationManager),
+    ABSOLUTE_OVERCLOCKED("Absolute_Overclocked", new int[]{95, 255, 184}, MapColor.COLOR_LIGHT_GREEN, EMExtrasModule.EMExtraLoaded, EMExtrasModule.AbsoluteOverclockedThermalEvaporationManager),
+    SUPREME_QUANTUM("Supreme_Quantum", new int[]{255, 128, 106}, MapColor.TERRACOTTA_PINK, EMExtrasModule.EMExtraLoaded, EMExtrasModule.SupremeQuantumThermalEvaporationManager),
+    COSMIC_DENSE("Cosmic_Dense", new int[]{75, 248, 255}, MapColor.DIAMOND, EMExtrasModule.EMExtraLoaded, EMExtrasModule.CosmicDenseThermalEvaporationManager),
+    INFINITE_MULTIVERSAL("Infinite_Multiversal", new int[]{247, 135, 255}, MapColor.COLOR_MAGENTA, EMExtrasModule.EMExtraLoaded, EMExtrasModule.InfiniteMultiversalThermalEvaporationManager),
     ;
 
     private final String name;
-    private final TextColor textColor;
+    private TextColor textColor;
     private final MapColor mapColor;
     private final boolean modLoaded;
+    private int[] rgbCode;
     private final MultiblockManager<TieredThermalEvaporationMultiblockData> manager;
 
-    TETier(String name, TextColor textColor, MapColor mapColor, boolean modLoaded, MultiblockManager<TieredThermalEvaporationMultiblockData> manager) {
+    TETier(String name, int[] rgbCode, MapColor mapColor, boolean modLoaded, MultiblockManager<TieredThermalEvaporationMultiblockData> manager) {
         this.name = name;
-        this.textColor = textColor;
         this.mapColor = mapColor;
         this.modLoaded = modLoaded;
         this.manager = manager;
-    }
-
-    TETier(String name, ChatFormatting color, MapColor mapColor, boolean modLoaded, MultiblockManager<TieredThermalEvaporationMultiblockData> manager) {
-        this(name, TextColor.fromRgb(color.getColor()), mapColor, modLoaded, manager);
+        setColorFromAtlas(rgbCode);
     }
 
     public int getHeight() {
@@ -64,11 +57,6 @@ public enum TETier implements ITier {
 
     public int getOutputTankCapacity() {
         return LoadConfig.MTE_COMPAT_CONFIG.getTankCapacity(this);
-    }
-
-    @Override
-    public TextColor getColor() {
-        return textColor;
     }
 
     public String getLowerName() {
@@ -120,7 +108,6 @@ public enum TETier implements ITier {
         return manager;
     }
 
-    @Override
     public String getSimpleName() {
         return name;
     }
@@ -131,5 +118,20 @@ public enum TETier implements ITier {
 
     public boolean isModLoaded() {
         return modLoaded;
+    }
+
+    @Override
+    public int[] getRgbCode() {
+        return rgbCode;
+    }
+
+    @Override
+    public void setColorFromAtlas(int[] color) {
+        this.rgbCode = color;
+        this.textColor = TextColor.fromRgb(rgbCode[0] << 16 | rgbCode[1] << 8 | rgbCode[2]);
+    }
+
+    public TextColor getColor() {
+        return textColor;
     }
 }
