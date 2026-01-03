@@ -172,44 +172,44 @@ public class MTECompatConfig extends BaseMekanismConfig {
         builder.comment("Settings for the AbsoluteOverclocked Tier");
         absoluteOverclockedOutputTankCapacity = CachedIntValue.wrap(this, builder
                 .comment("Amount of output fluid (mB) that the AbsoluteOverclocked Evaporation Plant can store.")
-                .defineInRange("AbsoluteOverclockedEvaporationOutputTankCapacity", 327680000, 1, Integer.MAX_VALUE));
+                .defineInRange("AbsoluteOverclockedEvaporationOutputTankCapacity", 30720000, 1, Integer.MAX_VALUE));
 
         absoluteOverclockedHeight = CachedIntValue.wrap(this, builder
                 .comment("Buildable Height (in blocks) for the AbsoluteOverclocked Evaporation Plant.")
-                .defineInRange("AbsoluteOverclockedEvaporationPlantHeight", 18, 18, 9216));
+                .defineInRange("AbsoluteOverclockedEvaporationPlantHeight", 18, 18, 864));
 
         builder.pop();
         builder.push("SupremeQuantum");
         builder.comment("Settings for the SupremeQuantum Tier");
         supremeQuantumOverclockedOutputTankCapacity = CachedIntValue.wrap(this, builder
                 .comment("Amount of output fluid (mB) that the ASupremeQuantum Evaporation Plant can store.")
-                .defineInRange("SupremeQuantumEvaporationOutputTankCapacity", 327680000, 1, Integer.MAX_VALUE));
+                .defineInRange("SupremeQuantumEvaporationOutputTankCapacity", 61440000, 1, Integer.MAX_VALUE));
 
         supremeQuantumOverclockedHeight = CachedIntValue.wrap(this, builder
                 .comment("Buildable Height (in blocks) for the SupremeQuantum Evaporation Plant.")
-                .defineInRange("SupremeQuantumEvaporationPlantHeight", 18, 18, 9216));
+                .defineInRange("SupremeQuantumEvaporationPlantHeight", 18, 18, 1728));
 
         builder.pop();
         builder.push("CosmicDense");
         builder.comment("Settings for the CosmicDense Tier");
         cosmicDenseOutputTankCapacity = CachedIntValue.wrap(this, builder
                 .comment("Amount of output fluid (mB) that the CosmicDense Evaporation Plant can store.")
-                .defineInRange("CosmicDenseEvaporationOutputTankCapacity", 327680000, 1, Integer.MAX_VALUE));
+                .defineInRange("CosmicDenseEvaporationOutputTankCapacity", 122880000, 1, Integer.MAX_VALUE));
 
         cosmicDenseHeight = CachedIntValue.wrap(this, builder
                 .comment("Buildable Height (in blocks) for the CosmicDense Evaporation Plant.")
-                .defineInRange("CosmicDenseEvaporationPlantHeight", 18, 18, 9216));
+                .defineInRange("CosmicDenseEvaporationPlantHeight", 18, 18, 3456));
 
         builder.pop();
         builder.push("InfiniteMultiversal");
         builder.comment("Settings for the InfiniteMultiversal Tier");
         infiniteMultiversalOutputTankCapacity = CachedIntValue.wrap(this, builder
                 .comment("Amount of output fluid (mB) that the InfiniteMultiversal Evaporation Plant can store.")
-                .defineInRange("InfiniteMultiversalEvaporationOutputTankCapacity", 327680000, 1, Integer.MAX_VALUE));
+                .defineInRange("InfiniteMultiversalEvaporationOutputTankCapacity", 245760000, 1, Integer.MAX_VALUE));
 
         infiniteMultiversalHeight = CachedIntValue.wrap(this, builder
                 .comment("Buildable Height (in blocks) for the InfiniteMultiversal Evaporation Plant.")
-                .defineInRange("InfiniteMultiversalEvaporationPlantHeight", 18, 18, 9216));
+                .defineInRange("InfiniteMultiversalEvaporationPlantHeight", 18, 18, 6912));
 
         builder.pop().pop();
         this.configSpec = builder.build();
