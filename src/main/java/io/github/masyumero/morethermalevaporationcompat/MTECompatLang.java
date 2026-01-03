@@ -63,6 +63,26 @@ public enum MTECompatLang implements ILangEntry {
     DESCRIPTION_ILLUSION_EVAPORATION_BLOCK("description", "illusion_thermal_evaporation_block", TETier.ILLUSION, MTECompatLangType.DESC_BLOCK),
     DESCRIPTION_ILLUSION_EVAPORATION_VALVE("description", "illusion_thermal_evaporation_valve", TETier.ILLUSION, MTECompatLangType.DESC_VALVE),
     DESCRIPTION_ILLUSION_EVAPORATION_CONTROLLER("description", "illusion_thermal_evaporation_controller",TETier.ILLUSION, MTECompatLangType.DESC_CONTROLLER),
+
+    ABSOLUTE_OVERCLOCKED_EVAPORATION("evaporation", "absolute_overclocked_thermal_evaporation", TETier.ABSOLUTE_OVERCLOCKED, MTECompatLangType.TITLE),
+    DESCRIPTION_ABSOLUTE_OVERCLOCKED_EVAPORATION_BLOCK("description", "absolute_overclocked_thermal_evaporation_block", TETier.ABSOLUTE_OVERCLOCKED, MTECompatLangType.DESC_BLOCK),
+    DESCRIPTION_ABSOLUTE_OVERCLOCKED_EVAPORATION_VALVE("description", "absolute_overclocked_thermal_evaporation_valve", TETier.ABSOLUTE_OVERCLOCKED, MTECompatLangType.DESC_VALVE),
+    DESCRIPTION_ABSOLUTE_OVERCLOCKED_EVAPORATION_CONTROLLER("description", "absolute_overclocked_thermal_evaporation_controller", TETier.ABSOLUTE_OVERCLOCKED, MTECompatLangType.DESC_CONTROLLER),
+
+    SUPREME_QUANTUM_EVAPORATION("evaporation", "supreme_quantum_thermal_evaporation", TETier.SUPREME_QUANTUM, MTECompatLangType.TITLE),
+    DESCRIPTION_SUPREME_QUANTUM_EVAPORATION_BLOCK("description", "supreme_quantum_thermal_evaporation_block", TETier.SUPREME_QUANTUM, MTECompatLangType.DESC_BLOCK),
+    DESCRIPTION_SUPREME_QUANTUM_EVAPORATION_VALVE("description", "supreme_quantum_thermal_evaporation_valve", TETier.SUPREME_QUANTUM, MTECompatLangType.DESC_VALVE),
+    DESCRIPTION_SUPREME_QUANTUM_EVAPORATION_CONTROLLER("description", "supreme_quantum_thermal_evaporation_controller", TETier.SUPREME_QUANTUM, MTECompatLangType.DESC_CONTROLLER),
+
+    COSMIC_DENSE_EVAPORATION("evaporation", "cosmic_dense_thermal_evaporation", TETier.COSMIC_DENSE, MTECompatLangType.TITLE),
+    DESCRIPTION_COSMIC_DENSE_EVAPORATION_BLOCK("description", "cosmic_dense_thermal_evaporation_block", TETier.COSMIC_DENSE, MTECompatLangType.DESC_BLOCK),
+    DESCRIPTION_COSMIC_DENSE_EVAPORATION_VALVE("description", "cosmic_dense_thermal_evaporation_valve", TETier.COSMIC_DENSE, MTECompatLangType.DESC_VALVE),
+    DESCRIPTION_COSMIC_DENSE_EVAPORATION_CONTROLLER("description", "cosmic_dense_thermal_evaporation_controller", TETier.COSMIC_DENSE, MTECompatLangType.DESC_CONTROLLER),
+
+    INFINITE_MULTIVERSAL_EVAPORATION("evaporation", "infinite_multiversal_thermal_evaporation", TETier.INFINITE_MULTIVERSAL, MTECompatLangType.TITLE),
+    DESCRIPTION_INFINITE_MULTIVERSAL_EVAPORATION_BLOCK("description", "infinite_multiversal_thermal_evaporation_block", TETier.INFINITE_MULTIVERSAL, MTECompatLangType.DESC_BLOCK),
+    DESCRIPTION_INFINITE_MULTIVERSAL_EVAPORATION_VALVE("description", "infinite_multiversal_thermal_evaporation_valve", TETier.INFINITE_MULTIVERSAL, MTECompatLangType.DESC_VALVE),
+    DESCRIPTION_INFINITE_MULTIVERSAL_EVAPORATION_CONTROLLER("description", "infinite_multiversal_thermal_evaporation_controller", TETier.INFINITE_MULTIVERSAL, MTECompatLangType.DESC_CONTROLLER),
     ;
 
     private final String key;

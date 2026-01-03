@@ -20,6 +20,11 @@ public class MTECompatConfig extends BaseMekanismConfig {
     public final CachedIntValue vibrationHeight;
     public final CachedIntValue resonanceHeight;
     public final CachedIntValue illusionHeight;
+    public final CachedIntValue absoluteOverclockedHeight;
+    public final CachedIntValue supremeQuantumOverclockedHeight;
+    public final CachedIntValue cosmicDenseHeight;
+    public final CachedIntValue infiniteMultiversalHeight;
+
     public final CachedIntValue absoluteOutputTankCapacity;
     public final CachedIntValue supremeOutputTankCapacity;
     public final CachedIntValue cosmicOutputTankCapacity;
@@ -31,6 +36,10 @@ public class MTECompatConfig extends BaseMekanismConfig {
     public final CachedIntValue vibrationOutputTankCapacity;
     public final CachedIntValue resonanceOutputTankCapacity;
     public final CachedIntValue illusionOutputTankCapacity;
+    public final CachedIntValue absoluteOverclockedOutputTankCapacity;
+    public final CachedIntValue supremeQuantumOverclockedOutputTankCapacity;
+    public final CachedIntValue cosmicDenseOutputTankCapacity;
+    public final CachedIntValue infiniteMultiversalOutputTankCapacity;
 
     public MTECompatConfig() {
         ForgeConfigSpec.Builder builder = new ForgeConfigSpec.Builder();
@@ -158,6 +167,50 @@ public class MTECompatConfig extends BaseMekanismConfig {
                 .comment("Buildable Height (in blocks) for the Illusion Evaporation Plant.")
                 .defineInRange("IllusionEvaporationPlantHeight", 18, 18, 9216));
 
+        builder.pop();
+        builder.push("AbsoluteOverclocked");
+        builder.comment("Settings for the AbsoluteOverclocked Tier");
+        absoluteOverclockedOutputTankCapacity = CachedIntValue.wrap(this, builder
+                .comment("Amount of output fluid (mB) that the AbsoluteOverclocked Evaporation Plant can store.")
+                .defineInRange("AbsoluteOverclockedEvaporationOutputTankCapacity", 327680000, 1, Integer.MAX_VALUE));
+
+        absoluteOverclockedHeight = CachedIntValue.wrap(this, builder
+                .comment("Buildable Height (in blocks) for the AbsoluteOverclocked Evaporation Plant.")
+                .defineInRange("AbsoluteOverclockedEvaporationPlantHeight", 18, 18, 9216));
+
+        builder.pop();
+        builder.push("SupremeQuantum");
+        builder.comment("Settings for the SupremeQuantum Tier");
+        supremeQuantumOverclockedOutputTankCapacity = CachedIntValue.wrap(this, builder
+                .comment("Amount of output fluid (mB) that the ASupremeQuantum Evaporation Plant can store.")
+                .defineInRange("SupremeQuantumEvaporationOutputTankCapacity", 327680000, 1, Integer.MAX_VALUE));
+
+        supremeQuantumOverclockedHeight = CachedIntValue.wrap(this, builder
+                .comment("Buildable Height (in blocks) for the SupremeQuantum Evaporation Plant.")
+                .defineInRange("SupremeQuantumEvaporationPlantHeight", 18, 18, 9216));
+
+        builder.pop();
+        builder.push("CosmicDense");
+        builder.comment("Settings for the CosmicDense Tier");
+        cosmicDenseOutputTankCapacity = CachedIntValue.wrap(this, builder
+                .comment("Amount of output fluid (mB) that the CosmicDense Evaporation Plant can store.")
+                .defineInRange("CosmicDenseEvaporationOutputTankCapacity", 327680000, 1, Integer.MAX_VALUE));
+
+        cosmicDenseHeight = CachedIntValue.wrap(this, builder
+                .comment("Buildable Height (in blocks) for the CosmicDense Evaporation Plant.")
+                .defineInRange("CosmicDenseEvaporationPlantHeight", 18, 18, 9216));
+
+        builder.pop();
+        builder.push("InfiniteMultiversal");
+        builder.comment("Settings for the InfiniteMultiversal Tier");
+        infiniteMultiversalOutputTankCapacity = CachedIntValue.wrap(this, builder
+                .comment("Amount of output fluid (mB) that the InfiniteMultiversal Evaporation Plant can store.")
+                .defineInRange("InfiniteMultiversalEvaporationOutputTankCapacity", 327680000, 1, Integer.MAX_VALUE));
+
+        infiniteMultiversalHeight = CachedIntValue.wrap(this, builder
+                .comment("Buildable Height (in blocks) for the InfiniteMultiversal Evaporation Plant.")
+                .defineInRange("InfiniteMultiversalEvaporationPlantHeight", 18, 18, 9216));
+
         builder.pop().pop();
         this.configSpec = builder.build();
     }
@@ -176,6 +229,10 @@ public class MTECompatConfig extends BaseMekanismConfig {
                 case "Vibration" -> this.vibrationHeight.get();
                 case "Resonance" -> this.resonanceHeight.get();
                 case "Illusion" -> this.illusionHeight.get();
+                case "Absolute_Overclocked" -> this.absoluteOverclockedHeight.get();
+                case "Supreme_Quantum" -> this.supremeQuantumOverclockedHeight.get();
+                case "Cosmic_Dense" -> this.cosmicDenseHeight.get();
+                case "Infinite_Multiversal" -> this.infiniteMultiversalHeight.get();
                 default -> 18;
             };
         }
@@ -196,6 +253,10 @@ public class MTECompatConfig extends BaseMekanismConfig {
                 case "Vibration" -> this.vibrationOutputTankCapacity.get();
                 case "Resonance" -> this.resonanceOutputTankCapacity.get();
                 case "Illusion" -> this.illusionOutputTankCapacity.get();
+                case "Absolute_Overclocked" -> this.absoluteOverclockedOutputTankCapacity.get();
+                case "Supreme_Quantum" -> this.supremeQuantumOverclockedOutputTankCapacity.get();
+                case "Cosmic_Dense" -> this.cosmicDenseOutputTankCapacity.get();
+                case "Infinite_Multiversal" -> this.infiniteMultiversalOutputTankCapacity.get();
                 default -> 20000;
             };
         }

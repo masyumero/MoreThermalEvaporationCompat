@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "morethermalevaporationcompat:absolute_overclocked_thermal_evaporation_block"
+    },
+    "C": {
+      "item": "emextras:absolute_overclocked_control_circuit"
+    },
+    "G": {
+      "tag": "forge:glass_panes"
+    },
+    "O": {
+      "item": "morethermalevaporation:ultimate_thermal_evaporation_controller"
+    }
+  },
+  "pattern": [
+    "CGC",
+    "#O#",
+    "###"
+  ],
+  "result": {
+    "item": "morethermalevaporationcompat:absolute_overclocked_thermal_evaporation_controller"
+  }
+}

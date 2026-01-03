@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "morethermalevaporationcompat:block/absolute_overclocked/absolute_overclocked_thermal_evaporation_block",
+    "bottom": "morethermalevaporationcompat:block/absolute_overclocked/absolute_overclocked_thermal_evaporation_block",
+    "side": "morethermalevaporationcompat:block/absolute_overclocked/absolute_overclocked_thermal_evaporation_block"
+  }
+}

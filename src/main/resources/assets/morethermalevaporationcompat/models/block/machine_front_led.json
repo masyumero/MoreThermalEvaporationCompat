@@ -1,0 +1,42 @@
+{
+  "credit": "Made with Blockbench",
+  "parent": "block/cube_all",
+  "render_type":"minecraft:cutout",
+  "textures":{
+    "particle":"#sides",
+    "down":"#sides",
+    "up":"#sides",
+    "north":"#front",
+    "north_led":"#front_led",
+    "east":"#sides",
+    "south":"#sides",
+    "west":"#sides"
+  },
+  "elements": [
+    {
+      "from": [0, 0, 0],
+      "to": [16, 16, 16],
+      "faces": {
+        "north": {"uv": [0, 0, 16, 16], "texture": "#north"},
+        "east": {"uv": [0, 0, 16, 16], "texture": "#east"},
+        "south": {"uv": [0, 0, 16, 16], "texture": "#south"},
+        "west": {"uv": [0, 0, 16, 16], "texture": "#west"},
+        "up": {"uv": [0, 0, 16, 16], "rotation":180, "texture": "#up"},
+        "down": {"uv": [0, 0, 16, 16], "texture": "#down"}
+      }
+    },
+    {
+      "from": [-0.02, -0.02, -0.02],
+      "to": [16.02, 16.02, 16.02],
+      "faces": {
+        "north": {"uv": [0, 0, 16, 16], "texture": "#north_led"},
+        "east": {"uv": [0, 0, 16, 16], "texture": "#overlay"},
+        "south": {"uv": [0, 0, 16, 16], "texture": "#overlay"},
+        "west": {"uv": [0, 0, 16, 16], "texture": "#overlay"},
+        "up": {"uv": [0, 0, 16, 16], "texture": "#overlay"},
+        "down": {"uv": [0, 0, 16, 16], "texture": "#overlay"}
+      }
+    }
+  ],
+  "forge_data":{"block_light":15,"sky_light":15}
+}

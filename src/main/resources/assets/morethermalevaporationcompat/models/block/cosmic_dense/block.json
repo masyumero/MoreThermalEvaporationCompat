@@ -1,0 +1,9 @@
+{
+  "parent": "morethermalevaporationcompat:block/block_overlay",
+  "textures": {
+    "top": "morethermalevaporationcompat:block/cosmic_dense/cosmic_dense_thermal_evaporation_block",
+    "bottom": "morethermalevaporationcompat:block/cosmic_dense/cosmic_dense_thermal_evaporation_block",
+    "side": "morethermalevaporationcompat:block/cosmic_dense/cosmic_dense_thermal_evaporation_block",
+    "overlay": "morethermalevaporationcompat:block/dense/overlay"
+  }
+}

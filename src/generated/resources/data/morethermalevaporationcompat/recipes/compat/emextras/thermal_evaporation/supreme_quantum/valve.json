@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "morethermalevaporationcompat:supreme_quantum_thermal_evaporation_block"
+    },
+    "O": {
+      "item": "morethermalevaporationcompat:absolute_overclocked_thermal_evaporation_valve"
+    }
+  },
+  "pattern": [
+    " # ",
+    "#O#",
+    " # "
+  ],
+  "result": {
+    "item": "morethermalevaporationcompat:supreme_quantum_thermal_evaporation_valve"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "morethermalevaporation:ultimate_thermal_evaporation_block"
+    },
+    "A": {
+      "item": "mekanism_extras:alloy_radiance"
+    },
+    "C": {
+      "item": "emextras:absolute_overclocked_control_circuit"
+    },
+    "Y": {
+      "item": "evolvedmekanism:alloy_hypercharged"
+    }
+  },
+  "pattern": [
+    "A#Y",
+    "#C#",
+    "Y#A"
+  ],
+  "result": {
+    "count": 4,
+    "item": "morethermalevaporationcompat:absolute_overclocked_thermal_evaporation_block"
+  }
+}

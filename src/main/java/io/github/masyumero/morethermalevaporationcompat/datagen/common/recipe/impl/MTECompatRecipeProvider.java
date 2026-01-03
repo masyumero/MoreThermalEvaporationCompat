@@ -4,6 +4,7 @@ import io.github.masyumero.morethermalevaporationcompat.MoreThermalEvaporationCo
 import io.github.masyumero.morethermalevaporationcompat.datagen.common.recipe.BaseRecipeProvider;
 import io.github.masyumero.morethermalevaporationcompat.datagen.common.recipe.ISubRecipeProvider;
 import io.github.masyumero.morethermalevaporationcompat.datagen.common.recipe.compat.AstralMekanismRecipeProvider;
+import io.github.masyumero.morethermalevaporationcompat.datagen.common.recipe.compat.EvolvedMekanismExtraRecipeProvider;
 import io.github.masyumero.morethermalevaporationcompat.datagen.common.recipe.compat.EvolvedMekanismRecipeProvider;
 import io.github.masyumero.morethermalevaporationcompat.datagen.common.recipe.compat.MekanismExtrasRecipeProvider;
 import mekanism.api.annotations.NothingNullByDefault;
@@ -30,6 +31,7 @@ public class MTECompatRecipeProvider extends BaseRecipeProvider {
         checkCompat("mekanism_extras", MekanismExtrasRecipeProvider::new);
         checkCompat("evolvedmekanism", EvolvedMekanismRecipeProvider::new);
         checkCompat("astral_mekanism", AstralMekanismRecipeProvider::new);
+        checkCompat("emextras", EvolvedMekanismExtraRecipeProvider::new);
     }
 
     private void checkCompat(String modid, Function<String, ISubRecipeProvider> providerCreator) {

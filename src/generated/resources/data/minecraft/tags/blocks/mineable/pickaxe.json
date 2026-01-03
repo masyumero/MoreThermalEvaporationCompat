@@ -32,6 +32,18 @@
     "morethermalevaporationcompat:resonance_thermal_evaporation_controller",
     "morethermalevaporationcompat:illusion_thermal_evaporation_block",
     "morethermalevaporationcompat:illusion_thermal_evaporation_valve",
-    "morethermalevaporationcompat:illusion_thermal_evaporation_controller"
+    "morethermalevaporationcompat:illusion_thermal_evaporation_controller",
+    "morethermalevaporationcompat:absolute_overclocked_thermal_evaporation_block",
+    "morethermalevaporationcompat:absolute_overclocked_thermal_evaporation_valve",
+    "morethermalevaporationcompat:absolute_overclocked_thermal_evaporation_controller",
+    "morethermalevaporationcompat:supreme_quantum_thermal_evaporation_block",
+    "morethermalevaporationcompat:supreme_quantum_thermal_evaporation_valve",
+    "morethermalevaporationcompat:supreme_quantum_thermal_evaporation_controller",
+    "morethermalevaporationcompat:cosmic_dense_thermal_evaporation_block",
+    "morethermalevaporationcompat:cosmic_dense_thermal_evaporation_valve",
+    "morethermalevaporationcompat:cosmic_dense_thermal_evaporation_controller",
+    "morethermalevaporationcompat:infinite_multiversal_thermal_evaporation_block",
+    "morethermalevaporationcompat:infinite_multiversal_thermal_evaporation_valve",
+    "morethermalevaporationcompat:infinite_multiversal_thermal_evaporation_controller"
   ]
 }

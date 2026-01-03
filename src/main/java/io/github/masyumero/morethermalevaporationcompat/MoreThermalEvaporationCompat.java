@@ -62,6 +62,12 @@ public class MoreThermalEvaporationCompat {
             BuildCommand.register("evaporation_resonance", MTECompatLang.RESONANCE_EVAPORATION, new Builders.EvaporationBuilder(TETier.RESONANCE));
             BuildCommand.register("evaporation_illusion", MTECompatLang.ILLUSION_EVAPORATION, new Builders.EvaporationBuilder(TETier.ILLUSION));
         }
+        if (EMExtrasModule.EMExtraLoaded) {
+            BuildCommand.register("evaporation_absolute_overclocked", MTECompatLang.ABSOLUTE_OVERCLOCKED_EVAPORATION, new Builders.EvaporationBuilder(TETier.ABSOLUTE_OVERCLOCKED));
+            BuildCommand.register("evaporation_supreme_quantum", MTECompatLang.SUPREME_QUANTUM_EVAPORATION, new Builders.EvaporationBuilder(TETier.SUPREME_QUANTUM));
+            BuildCommand.register("evaporation_cosmic_dense", MTECompatLang.COSMIC_DENSE_EVAPORATION, new Builders.EvaporationBuilder(TETier.COSMIC_DENSE));
+            BuildCommand.register("evaporation_infinite_multiversal", MTECompatLang.INFINITE_MULTIVERSAL_EVAPORATION, new Builders.EvaporationBuilder(TETier.INFINITE_MULTIVERSAL));
+        }
         event.getDispatcher().register(CommandMek.register());
     }
 }

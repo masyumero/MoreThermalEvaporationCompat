@@ -2,7 +2,9 @@ package io.github.masyumero.morethermalevaporationcompat.common.tier;
 
 import com.jerry.mekanism_extras.api.tier.AdvancedTier;
 import fr.iglee42.evolvedmekanism.tiers.EMBaseTier;
+import io.github.masyumero.emextras.api.tier.EMExtraTier;
 import io.github.masyumero.morethermalevaporationcompat.AstralModule;
+import io.github.masyumero.morethermalevaporationcompat.EMExtrasModule;
 import io.github.masyumero.morethermalevaporationcompat.api.tier.ITier;
 import io.github.masyumero.morethermalevaporationcompat.common.config.LoadConfig;
 import io.github.masyumero.morethermalevaporationcompat.common.content.blocktype.MTECompatMultiPartType;
@@ -31,7 +33,11 @@ public enum TETier implements ITier {
     MULTIVERSAL("Multiversal", EMBaseTier.MULTIVERSAL.getColor(), MapColor.COLOR_BLACK, EvolvedModule.EvolvedLoaded, EvolvedModule.MultiversalThermalEvaporationManager),
     VIBRATION("Vibration", ChatFormatting.YELLOW, MapColor.TERRACOTTA_PURPLE , AstralModule.AstralLoaded, AstralModule.VibrationThermalEvaporationManager),
     RESONANCE("Resonance", ChatFormatting.AQUA, MapColor.COLOR_PURPLE , AstralModule.AstralLoaded, AstralModule.ResonanceThermalEvaporationManager),
-    ILLUSION("Illusion", ChatFormatting.LIGHT_PURPLE, MapColor.COLOR_YELLOW , AstralModule.AstralLoaded, AstralModule.IllusionThermalEvaporationManager)
+    ILLUSION("Illusion", ChatFormatting.LIGHT_PURPLE, MapColor.COLOR_YELLOW , AstralModule.AstralLoaded, AstralModule.IllusionThermalEvaporationManager),
+    ABSOLUTE_OVERCLOCKED("Absolute_Overclocked", EMExtraTier.ABSOLUTE_OVERCLOCKED.getColor(), MapColor.COLOR_LIGHT_GREEN, EMExtrasModule.EMExtraLoaded, EMExtrasModule.AbsoluteOverclockedThermalEvaporationManager),
+    SUPREME_QUANTUM("Supreme_Quantum", EMExtraTier.SUPREME_QUANTUM.getColor(), MapColor.TERRACOTTA_PINK, EMExtrasModule.EMExtraLoaded, EMExtrasModule.SupremeQuantumThermalEvaporationManager),
+    COSMIC_DENSE("Cosmic_Dense", EMExtraTier.COSMIC_DENSE.getColor(), MapColor.DIAMOND, EMExtrasModule.EMExtraLoaded, EMExtrasModule.CosmicDenseThermalEvaporationManager),
+    INFINITE_MULTIVERSAL("Infinite_Multiversal", EMExtraTier.INFINITE_MULTIVERSAL.getColor(), MapColor.COLOR_MAGENTA, EMExtrasModule.EMExtraLoaded, EMExtrasModule.InfiniteMultiversalThermalEvaporationManager),
     ;
 
     private final String name;
@@ -78,6 +84,10 @@ public enum TETier implements ITier {
             case "Vibration" -> 72_000; //24
             case "Resonance" -> 144_000; //48
             case "Illusion" -> 1_536_000; //512
+            case "Absolute_Overclocked" -> 144_000; //48
+            case "Supreme_Quantum" -> 288_000; //96
+            case "Cosmic_Dense" -> 576_000; //192
+            case "Infinite_Multiversal" -> 1_152_000; //384
             default -> throw new IllegalStateException("Unexpected value: " + this.getSimpleName());
         };
     }

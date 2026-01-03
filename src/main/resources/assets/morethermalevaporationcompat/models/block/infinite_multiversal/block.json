@@ -1,0 +1,9 @@
+{
+  "parent": "morethermalevaporationcompat:block/block_overlay",
+  "textures": {
+    "top": "morethermalevaporationcompat:block/infinite_multiversal/infinite_multiversal_thermal_evaporation_block",
+    "bottom": "morethermalevaporationcompat:block/infinite_multiversal/infinite_multiversal_thermal_evaporation_block",
+    "side": "morethermalevaporationcompat:block/infinite_multiversal/infinite_multiversal_thermal_evaporation_block",
+    "overlay": "morethermalevaporationcompat:block/multiversal/overlay"
+  }
+}

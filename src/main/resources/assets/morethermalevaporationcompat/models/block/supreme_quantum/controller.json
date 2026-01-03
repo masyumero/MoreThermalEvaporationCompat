@@ -1,0 +1,8 @@
+{
+  "parent": "morethermalevaporationcompat:block/machine",
+  "textures": {
+    "sides": "morethermalevaporationcompat:block/supreme_quantum/supreme_quantum_thermal_evaporation_block",
+    "front": "mekanism:block/thermal_evaporation_controller",
+    "overlay": "morethermalevaporationcompat:block/quantum/overlay"
+  }
+}

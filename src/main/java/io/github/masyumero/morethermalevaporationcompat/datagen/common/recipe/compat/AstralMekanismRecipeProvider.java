@@ -24,6 +24,7 @@ import java.util.function.Consumer;
 import static astral_mekanism.registries.AstralMekanismItems.*;
 import static com.jerry.mekanism_extras.common.registry.ExtraItem.SPECTRUM_ALLOY;
 import static fr.iglee42.evolvedmekanism.registries.EMItems.EXOVERSAL_ALLOY;
+import static io.github.masyumero.emextras.common.registry.EMExtrasItem.INFINITE_MULTIVERSAL_CONTROL_CIRCUIT;
 
 @NothingNullByDefault
 public class AstralMekanismRecipeProvider extends CompatRecipeProvider{
@@ -34,12 +35,12 @@ public class AstralMekanismRecipeProvider extends CompatRecipeProvider{
 
     @Override
     protected void registerRecipes(Consumer<FinishedRecipe> consumer, String basePath) {
-        basePath = basePath + "astral_crafting/";
+        basePath = basePath + "thermal_evaporation/";
         for (MTECompatMultiPartType type : MTECompatMultiPartType.values()) {
             AstralCraftingRecipeBuilder.astralCrafting(new ItemStackIngredient[]{
                     IngredientCreatorAccess.item().from(ELASTIC_ALLOY, 64) , IngredientCreatorAccess.item().from(EXOVERSAL_ALLOY, 64),IngredientCreatorAccess.item().from(ItemUtils.getItem("ae2:singularity"), 64),IngredientCreatorAccess.item().from(EXOVERSAL_ALLOY, 64),IngredientCreatorAccess.item().from(ELASTIC_ALLOY, 64),
                     IngredientCreatorAccess.item().from(SPECTRUM_ALLOY, 64) , IngredientCreatorAccess.item().from(STARDUST_ALLOY),IngredientCreatorAccess.item().from(ILLUSION_CONTROL_CIRCUIT),IngredientCreatorAccess.item().from(STARDUST_ALLOY),IngredientCreatorAccess.item().from(SPECTRUM_ALLOY, 64),
-                    IngredientCreatorAccess.item().from(ItemUtils.getItem("emextras:infinite_multiversal_control_circuit"), 64) , IngredientCreatorAccess.item().from(SPACETIME_MODULATION_CORE),IngredientCreatorAccess.item().from(MoreThermalEvaporationCompatBlocks.getBlock(TETier.RESONANCE, type)),IngredientCreatorAccess.item().from(SPACETIME_MODULATION_CORE),IngredientCreatorAccess.item().from(ItemUtils.getItem("emextras:infinite_multiversal_control_circuit"), 64),
+                    IngredientCreatorAccess.item().from(INFINITE_MULTIVERSAL_CONTROL_CIRCUIT, 64) , IngredientCreatorAccess.item().from(SPACETIME_MODULATION_CORE),IngredientCreatorAccess.item().from(MoreThermalEvaporationCompatBlocks.getBlock(TETier.RESONANCE, type)),IngredientCreatorAccess.item().from(SPACETIME_MODULATION_CORE),IngredientCreatorAccess.item().from(INFINITE_MULTIVERSAL_CONTROL_CIRCUIT, 64),
                     IngredientCreatorAccess.item().from(SPECTRUM_ALLOY, 64) , IngredientCreatorAccess.item().from(STARDUST_ALLOY),IngredientCreatorAccess.item().from(ILLUSION_CONTROL_CIRCUIT),IngredientCreatorAccess.item().from(STARDUST_ALLOY),IngredientCreatorAccess.item().from(SPECTRUM_ALLOY, 64),
                     IngredientCreatorAccess.item().from(ELASTIC_ALLOY, 64) , IngredientCreatorAccess.item().from(EXOVERSAL_ALLOY, 64),IngredientCreatorAccess.item().from(ItemUtils.getItem("ae2:singularity"), 64),IngredientCreatorAccess.item().from(EXOVERSAL_ALLOY, 64),IngredientCreatorAccess.item().from(ELASTIC_ALLOY, 64),
             },IngredientCreatorAccess.fluid().from(Fluids.LAVA, 10000),

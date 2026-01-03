@@ -1,0 +1,9 @@
+{
+  "parent": "morethermalevaporationcompat:block/block_overlay",
+  "textures": {
+    "top": "morethermalevaporationcompat:block/supreme_quantum/supreme_quantum_thermal_evaporation_block",
+    "bottom": "morethermalevaporationcompat:block/supreme_quantum/supreme_quantum_thermal_evaporation_block",
+    "side": "morethermalevaporationcompat:block/supreme_quantum/supreme_quantum_thermal_evaporation_block",
+    "overlay": "morethermalevaporationcompat:block/quantum/overlay"
+  }
+}

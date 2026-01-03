@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "morethermalevaporationcompat:supreme_quantum_thermal_evaporation_block"
+    },
+    "C": {
+      "item": "emextras:supreme_quantum_control_circuit"
+    },
+    "G": {
+      "tag": "forge:glass_panes"
+    },
+    "O": {
+      "item": "morethermalevaporationcompat:absolute_overclocked_thermal_evaporation_controller"
+    }
+  },
+  "pattern": [
+    "CGC",
+    "#O#",
+    "###"
+  ],
+  "result": {
+    "item": "morethermalevaporationcompat:supreme_quantum_thermal_evaporation_controller"
+  }
+}
