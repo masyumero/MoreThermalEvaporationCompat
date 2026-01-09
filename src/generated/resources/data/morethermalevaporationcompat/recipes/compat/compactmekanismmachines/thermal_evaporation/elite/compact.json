@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "morethermalevaporation:elite_thermal_evaporation_block"
+    },
+    "A": {
+      "tag": "forge:alloys/elite"
+    },
+    "P": {
+      "item": "morethermalevaporation:elite_thermal_evaporation_controller"
+    }
+  },
+  "pattern": [
+    "#A#",
+    "APA",
+    "#A#"
+  ],
+  "result": {
+    "item": "morethermalevaporationcompat:elite_compact_thermal_evaporation"
+  }
+}

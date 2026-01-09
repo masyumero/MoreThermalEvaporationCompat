@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "morethermalevaporationcompat:dense_thermal_evaporation_block"
+    },
+    "A": {
+      "item": "evolvedmekanism:alloy_singular"
+    },
+    "P": {
+      "item": "morethermalevaporationcompat:dense_thermal_evaporation_controller"
+    }
+  },
+  "pattern": [
+    "#A#",
+    "APA",
+    "#A#"
+  ],
+  "result": {
+    "item": "morethermalevaporationcompat:dense_compact_thermal_evaporation"
+  }
+}

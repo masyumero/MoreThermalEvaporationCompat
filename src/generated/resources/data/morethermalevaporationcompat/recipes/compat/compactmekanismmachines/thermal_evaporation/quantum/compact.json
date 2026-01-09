@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "morethermalevaporationcompat:quantum_thermal_evaporation_block"
+    },
+    "A": {
+      "item": "evolvedmekanism:alloy_subatomic"
+    },
+    "P": {
+      "item": "morethermalevaporationcompat:quantum_thermal_evaporation_controller"
+    }
+  },
+  "pattern": [
+    "#A#",
+    "APA",
+    "#A#"
+  ],
+  "result": {
+    "item": "morethermalevaporationcompat:quantum_compact_thermal_evaporation"
+  }
+}

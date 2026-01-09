@@ -12,6 +12,7 @@ import mekanism.api.tier.BaseTier;
 import mekanism.common.content.blocktype.BlockType;
 import mekanism.common.lib.multiblock.MultiblockManager;
 import morethermalevaporation.common.config.MoreThermalEvaporationConfig;
+import morethermalevaporation.common.registries.MoreThermalEvaporationBlocks;
 import net.minecraft.network.chat.TextColor;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraftforge.fml.loading.FMLLoader;
@@ -116,14 +117,38 @@ public enum TETier implements SupportsColorMap {
     }
 
     public IBlockProvider getCasingBlock() {
+        if (compactOnly) {
+            return switch (this) {
+                case BASIC -> MoreThermalEvaporationBlocks.BASIC_THERMAL_EVAPORATION_BLOCK;
+                case ADVANCED -> MoreThermalEvaporationBlocks.ADVANCED_THERMAL_EVAPORATION_BLOCK;
+                case ELITE -> MoreThermalEvaporationBlocks.ELITE_THERMAL_EVAPORATION_BLOCK;
+                default -> MoreThermalEvaporationBlocks.ULTIMATE_THERMAL_EVAPORATION_BLOCK; //ULTIMATE
+            };
+        }
         return MoreThermalEvaporationCompatBlocks.getCasingBlock(this);
     }
 
     public IBlockProvider getValveBlock() {
+        if (compactOnly) {
+            return switch (this) {
+                case BASIC -> MoreThermalEvaporationBlocks.BASIC_THERMAL_EVAPORATION_VALVE;
+                case ADVANCED -> MoreThermalEvaporationBlocks.ADVANCED_THERMAL_EVAPORATION_VALVE;
+                case ELITE -> MoreThermalEvaporationBlocks.ELITE_THERMAL_EVAPORATION_VALVE;
+                default -> MoreThermalEvaporationBlocks.ULTIMATE_THERMAL_EVAPORATION_VALVE; //ULTIMATE
+            };
+        }
         return MoreThermalEvaporationCompatBlocks.getValveBlock(this);
     }
 
     public IBlockProvider getControllerBlock() {
+        if (compactOnly) {
+            return switch (this) {
+                case BASIC -> MoreThermalEvaporationBlocks.BASIC_THERMAL_EVAPORATION_CONTROLLER;
+                case ADVANCED -> MoreThermalEvaporationBlocks.ADVANCED_THERMAL_EVAPORATION_CONTROLLER;
+                case ELITE -> MoreThermalEvaporationBlocks.ELITE_THERMAL_EVAPORATION_CONTROLLER;
+                default -> MoreThermalEvaporationBlocks.ULTIMATE_THERMAL_EVAPORATION_CONTROLLER; //ULTIMATE
+            };
+        }
         return MoreThermalEvaporationCompatBlocks.getControllerBlock(this);
     }
 

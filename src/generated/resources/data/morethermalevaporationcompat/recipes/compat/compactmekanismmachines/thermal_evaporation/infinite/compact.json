@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "morethermalevaporationcompat:infinite_thermal_evaporation_block"
+    },
+    "A": {
+      "item": "mekanism_extras:alloy_spectrum"
+    },
+    "P": {
+      "item": "morethermalevaporationcompat:infinite_thermal_evaporation_controller"
+    }
+  },
+  "pattern": [
+    "#A#",
+    "APA",
+    "#A#"
+  ],
+  "result": {
+    "item": "morethermalevaporationcompat:infinite_compact_thermal_evaporation"
+  }
+}

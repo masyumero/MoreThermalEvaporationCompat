@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "morethermalevaporationcompat:resonance_thermal_evaporation_block"
+    },
+    "A": {
+      "item": "astral_mekanism:alloy_convergent"
+    },
+    "P": {
+      "item": "morethermalevaporationcompat:resonance_thermal_evaporation_controller"
+    }
+  },
+  "pattern": [
+    "#A#",
+    "APA",
+    "#A#"
+  ],
+  "result": {
+    "item": "morethermalevaporationcompat:resonance_compact_thermal_evaporation"
+  }
+}

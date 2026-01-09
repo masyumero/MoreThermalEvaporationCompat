@@ -2,19 +2,31 @@ package io.github.masyumero.morethermalevaporationcompat.api.datagen.recipe.buil
 
 import astral_mekanism.AstralMekanismID;
 import com.google.gson.JsonObject;
+import io.github.masyumero.morethermalevaporationcompat.common.util.ItemUtils;
+import io.github.masyumero.morethermalevaporationcompat.mixin.accessor.AccessorAstralMekanismGases;
 import mekanism.api.JsonConstants;
 import mekanism.api.SerializerHelper;
 import mekanism.api.datagen.recipe.MekanismRecipeBuilder;
 import mekanism.api.recipes.ingredients.ChemicalStackIngredient;
 import mekanism.api.recipes.ingredients.FluidStackIngredient;
 import mekanism.api.recipes.ingredients.ItemStackIngredient;
+import mekanism.api.recipes.ingredients.creator.IngredientCreatorAccess;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.material.Fluids;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.function.Consumer;
+
+import static astral_mekanism.registries.AstralMekanismItems.ELASTIC_ALLOY;
+import static astral_mekanism.registries.AstralMekanismItems.ILLUSION_CONTROL_CIRCUIT;
+import static astral_mekanism.registries.AstralMekanismItems.SPACETIME_MODULATION_CORE;
+import static astral_mekanism.registries.AstralMekanismItems.STARDUST_ALLOY;
+import static com.jerry.mekanism_extras.common.registry.ExtraItem.SPECTRUM_ALLOY;
+import static fr.iglee42.evolvedmekanism.registries.EMItems.EXOVERSAL_ALLOY;
+import static io.github.masyumero.emextras.common.registry.EMExtrasItem.INFINITE_MULTIVERSAL_CONTROL_CIRCUIT;
 
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault
@@ -45,6 +57,18 @@ public class AstralCraftingRecipeBuilder extends MekanismRecipeBuilder<AstralCra
         this.inputFluid = inputFluid;
         this.inputGas = inputGas;
         this.output = output;
+    }
+
+    public static AstralCraftingRecipeBuilder astralCrafting(ItemStackIngredient catalyst, ItemStack output) {
+        return astralCrafting(new ItemStackIngredient[]{
+                        IngredientCreatorAccess.item().from(ELASTIC_ALLOY, 64) , IngredientCreatorAccess.item().from(EXOVERSAL_ALLOY, 64),IngredientCreatorAccess.item().from(ItemUtils.getItem("ae2:singularity"), 64),IngredientCreatorAccess.item().from(EXOVERSAL_ALLOY, 64),IngredientCreatorAccess.item().from(ELASTIC_ALLOY, 64),
+                        IngredientCreatorAccess.item().from(SPECTRUM_ALLOY, 64) , IngredientCreatorAccess.item().from(STARDUST_ALLOY),IngredientCreatorAccess.item().from(ILLUSION_CONTROL_CIRCUIT),IngredientCreatorAccess.item().from(STARDUST_ALLOY),IngredientCreatorAccess.item().from(SPECTRUM_ALLOY, 64),
+                        IngredientCreatorAccess.item().from(INFINITE_MULTIVERSAL_CONTROL_CIRCUIT, 64) , IngredientCreatorAccess.item().from(SPACETIME_MODULATION_CORE),catalyst,IngredientCreatorAccess.item().from(SPACETIME_MODULATION_CORE),IngredientCreatorAccess.item().from(INFINITE_MULTIVERSAL_CONTROL_CIRCUIT, 64),
+                        IngredientCreatorAccess.item().from(SPECTRUM_ALLOY, 64) , IngredientCreatorAccess.item().from(STARDUST_ALLOY),IngredientCreatorAccess.item().from(ILLUSION_CONTROL_CIRCUIT),IngredientCreatorAccess.item().from(STARDUST_ALLOY),IngredientCreatorAccess.item().from(SPECTRUM_ALLOY, 64),
+                        IngredientCreatorAccess.item().from(ELASTIC_ALLOY, 64) , IngredientCreatorAccess.item().from(EXOVERSAL_ALLOY, 64),IngredientCreatorAccess.item().from(ItemUtils.getItem("ae2:singularity"), 64),IngredientCreatorAccess.item().from(EXOVERSAL_ALLOY, 64),IngredientCreatorAccess.item().from(ELASTIC_ALLOY, 64),
+                },IngredientCreatorAccess.fluid().from(Fluids.LAVA, 10000),
+                IngredientCreatorAccess.gas().from(AccessorAstralMekanismGases.getAstralEther().get(), 10000),
+                output);
     }
 
     public static AstralCraftingRecipeBuilder astralCrafting(ItemStackIngredient[] inputItems, FluidStackIngredient inputFluid, ChemicalStackIngredient.GasStackIngredient inputGas, ItemStack output) {

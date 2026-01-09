@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "morethermalevaporationcompat:cosmic_dense_thermal_evaporation_block"
+    },
+    "A": {
+      "item": "mekanism_extras:alloy_shining"
+    },
+    "P": {
+      "item": "morethermalevaporationcompat:cosmic_dense_thermal_evaporation_controller"
+    },
+    "Y": {
+      "item": "evolvedmekanism:alloy_singular"
+    }
+  },
+  "pattern": [
+    "#Y#",
+    "APA",
+    "#Y#"
+  ],
+  "result": {
+    "item": "morethermalevaporationcompat:cosmic_dense_compact_thermal_evaporation"
+  }
+}
