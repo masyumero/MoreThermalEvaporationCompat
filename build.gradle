@@ -156,6 +156,7 @@ dependencies {
     implementation fg.deobf("curse.maven:mekanism-extras-1026040:6936409")
     implementation fg.deobf("curse.maven:morethermalevaporation-1406469:7384658")
     implementation fg.deobf("curse.maven:evolved-mekanism-extras-1268159:6866367")
+    implementation fg.deobf("curse.maven:compact-mekanism-machines-1161015:7388773")
 
     runtimeOnly fg.deobf("curse.maven:iglee-library-541199:6987117")
     runtimeOnly fg.deobf("mekanism:Mekanism:1.20.1-${mekanism_version}:tools")

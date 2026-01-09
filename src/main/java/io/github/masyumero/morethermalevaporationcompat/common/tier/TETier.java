@@ -1,24 +1,28 @@
 package io.github.masyumero.morethermalevaporationcompat.common.tier;
 
-import io.github.masyumero.morethermalevaporationcompat.AstralModule;
-import io.github.masyumero.morethermalevaporationcompat.EMExtrasModule;
+import io.github.masyumero.morethermalevaporationcompat.*;
 import io.github.masyumero.morethermalevaporationcompat.common.config.LoadConfig;
 import io.github.masyumero.morethermalevaporationcompat.common.content.blocktype.MTECompatMultiPartType;
 import io.github.masyumero.morethermalevaporationcompat.common.content.evaporation.TieredThermalEvaporationMultiblockData;
 import io.github.masyumero.morethermalevaporationcompat.common.registries.MoreThermalEvaporationCompatBlockTypes;
 import io.github.masyumero.morethermalevaporationcompat.common.registries.MoreThermalEvaporationCompatBlocks;
-import io.github.masyumero.morethermalevaporationcompat.EvolvedModule;
-import io.github.masyumero.morethermalevaporationcompat.ExtrasModule;
 import mekanism.api.SupportsColorMap;
 import mekanism.api.providers.IBlockProvider;
+import mekanism.api.tier.BaseTier;
 import mekanism.common.content.blocktype.BlockType;
 import mekanism.common.lib.multiblock.MultiblockManager;
+import morethermalevaporation.common.config.MoreThermalEvaporationConfig;
 import net.minecraft.network.chat.TextColor;
 import net.minecraft.world.level.material.MapColor;
+import net.minecraftforge.fml.loading.FMLLoader;
 
 import java.util.Locale;
 
 public enum TETier implements SupportsColorMap {
+    BASIC("Basic", BaseTier.BASIC),
+    ADVANCED("Advanced", BaseTier.ADVANCED),
+    ELITE("Elite", BaseTier.ELITE),
+    ULTIMATE("Ultimate", BaseTier.ULTIMATE),
     ABSOLUTE("Absolute", new int[]{95, 255, 184}, MapColor.COLOR_YELLOW, ExtrasModule.ExtrasLoaded, ExtrasModule.AbsoluteThermalEvaporationManager),
     SUPREME("Supreme", new int[]{255, 128, 106}, MapColor.COLOR_RED, ExtrasModule.ExtrasLoaded, ExtrasModule.SupremeThermalEvaporationManager),
     COSMIC("Cosmic", new int[]{75, 248, 255}, MapColor.COLOR_PINK, ExtrasModule.ExtrasLoaded, ExtrasModule.CosmicThermalEvaporationManager),
@@ -40,6 +44,7 @@ public enum TETier implements SupportsColorMap {
     private TextColor textColor;
     private final MapColor mapColor;
     private final boolean modLoaded;
+    private final boolean compactOnly;
     private int[] rgbCode;
     private final MultiblockManager<TieredThermalEvaporationMultiblockData> manager;
 
@@ -48,14 +53,40 @@ public enum TETier implements SupportsColorMap {
         this.mapColor = mapColor;
         this.modLoaded = modLoaded;
         this.manager = manager;
+        compactOnly = false;
         setColorFromAtlas(rgbCode);
     }
 
+    TETier(String name, BaseTier tier) {
+        this.name = name;
+        this.mapColor = tier.getMapColor();
+        this.modLoaded = CompactModule.CompactLoaded;
+        this.manager = null;
+        this.compactOnly = true;
+        this.textColor = tier.getColor();
+    }
+
     public int getHeight() {
+        if (compactOnly) {
+            return switch (this) {
+                case BASIC -> MoreThermalEvaporationConfig.BasicEvaporationPlantHeight.get();
+                case ADVANCED -> MoreThermalEvaporationConfig.AdvancedEvaporationPlantHeight.get();
+                case ELITE -> MoreThermalEvaporationConfig.EliteEvaporationPlantHeight.get();
+                default -> MoreThermalEvaporationConfig.UltimateEvaporationPlantHeight.get(); //ULTIMATE
+            };
+        }
         return LoadConfig.MTE_COMPAT_CONFIG.getHeight(this);
     }
 
     public int getOutputTankCapacity() {
+        if (compactOnly && !FMLLoader.getLaunchHandler().isData()) {
+            return switch (this) {
+                case BASIC -> MoreThermalEvaporationConfig.BasicEvaporationOutputTankCapacity.get();
+                case ADVANCED -> MoreThermalEvaporationConfig.AdvancedEvaporationOutputTankCapacity.get();
+                case ELITE -> MoreThermalEvaporationConfig.EliteEvaporationOutputTankCapacity.get();
+                default -> MoreThermalEvaporationConfig.UltimateEvaporationOutputTankCapacity.get(); //ULTIMATE
+            };
+        }
         return LoadConfig.MTE_COMPAT_CONFIG.getTankCapacity(this);
     }
 
@@ -65,6 +96,10 @@ public enum TETier implements SupportsColorMap {
 
     public double getMaxMultiplierTemp() {
         return switch (this.getSimpleName()) {
+            case "Basic" -> 6_000;
+            case "Advanced" -> 12_000;
+            case "Elite" -> 24_000;
+            case "Ultimate" -> 48_000;
             case "Absolute", "Overclocked" -> 96_000; //32
             case "Supreme", "Quantum" -> 192_000; //64
             case "Cosmic", "Dense" -> 384_000; //128
@@ -92,6 +127,10 @@ public enum TETier implements SupportsColorMap {
         return MoreThermalEvaporationCompatBlocks.getControllerBlock(this);
     }
 
+    public IBlockProvider getCompactBlock() {
+        return MoreThermalEvaporationCompatBlocks.getCompactBlock(this);
+    }
+
     public BlockType getCasingBlockType() {
         return MoreThermalEvaporationCompatBlockTypes.getBlockType(this, MTECompatMultiPartType.BLOCK);
     }
@@ -102,6 +141,10 @@ public enum TETier implements SupportsColorMap {
 
     public BlockType getControllerBlockType() {
         return MoreThermalEvaporationCompatBlockTypes.getBlockType(this, MTECompatMultiPartType.CONTROLLER);
+    }
+
+    public BlockType getCompactBlockType() {
+        return MoreThermalEvaporationCompatBlockTypes.getCompactBlockType(this);
     }
 
     public MultiblockManager<TieredThermalEvaporationMultiblockData> getManager() {
@@ -133,5 +176,9 @@ public enum TETier implements SupportsColorMap {
 
     public TextColor getColor() {
         return textColor;
+    }
+
+    public boolean isCompactOnly() {
+        return compactOnly;
     }
 }

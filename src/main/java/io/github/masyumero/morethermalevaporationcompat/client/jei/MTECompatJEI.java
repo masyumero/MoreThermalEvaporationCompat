@@ -1,5 +1,6 @@
 package io.github.masyumero.morethermalevaporationcompat.client.jei;
 
+import io.github.masyumero.morethermalevaporationcompat.CompactModule;
 import io.github.masyumero.morethermalevaporationcompat.MoreThermalEvaporationCompat;
 import io.github.masyumero.morethermalevaporationcompat.common.content.blocktype.MTECompatMultiPartType;
 import io.github.masyumero.morethermalevaporationcompat.common.registries.MoreThermalEvaporationCompatBlocks;
@@ -28,7 +29,10 @@ public class MTECompatJEI implements IModPlugin {
     public void registerRecipeCatalysts(IRecipeCatalystRegistration registry) {
         for (TETier tier : TETier.values()) {
             for (MTECompatMultiPartType type : MTECompatMultiPartType.values()) {
-                if (tier.isModLoaded()) CatalystRegistryHelper.register(registry, MekanismJEIRecipeType.EVAPORATING, MoreThermalEvaporationCompatBlocks.getBlock(tier, type));
+                if (tier.isModLoaded() && !tier.isCompactOnly()) CatalystRegistryHelper.register(registry, MekanismJEIRecipeType.EVAPORATING, MoreThermalEvaporationCompatBlocks.getBlock(tier, type));
+            }
+            if (CompactModule.CompactLoaded) {
+                CatalystRegistryHelper.register(registry, MekanismJEIRecipeType.EVAPORATING, MoreThermalEvaporationCompatBlocks.getCompactBlock(tier));
             }
         }
     }

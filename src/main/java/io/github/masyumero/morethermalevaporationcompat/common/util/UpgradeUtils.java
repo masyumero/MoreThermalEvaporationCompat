@@ -18,4 +18,10 @@ public class UpgradeUtils {
         }
         return EnumSet.of(Upgrade.ANCHOR);
     }
+
+    public static EnumSet<Upgrade> getCompactUpgrades() {
+        var upgrade = getUpgrades().clone();
+        upgrade.addAll(EnumSet.of(Upgrade.ENERGY, Upgrade.SPEED, Upgrade.MUFFLING));
+        return upgrade;
+    }
 }

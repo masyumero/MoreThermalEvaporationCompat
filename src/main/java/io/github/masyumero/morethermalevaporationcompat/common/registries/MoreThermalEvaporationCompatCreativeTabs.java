@@ -1,9 +1,6 @@
 package io.github.masyumero.morethermalevaporationcompat.common.registries;
 
-import io.github.masyumero.morethermalevaporationcompat.MoreThermalEvaporationCompat;
-import io.github.masyumero.morethermalevaporationcompat.MTECompatLang;
-import io.github.masyumero.morethermalevaporationcompat.EvolvedModule;
-import io.github.masyumero.morethermalevaporationcompat.ExtrasModule;
+import io.github.masyumero.morethermalevaporationcompat.*;
 import io.github.masyumero.morethermalevaporationcompat.common.content.blocktype.MTECompatMultiPartType;
 import io.github.masyumero.morethermalevaporationcompat.common.tier.TETier;
 import mekanism.common.registries.MekanismBlocks;
@@ -34,8 +31,13 @@ public class MoreThermalEvaporationCompatCreativeTabs {
                         for (TETier tier : TETier.values()) {
                             for (MTECompatMultiPartType type : MTECompatMultiPartType.values()) {
                                 if (tier.isModLoaded()) {
-                                    output.accept(MoreThermalEvaporationCompatBlocks.getBlock(tier, type));
+                                    if (!tier.isCompactOnly()) {
+                                        output.accept(MoreThermalEvaporationCompatBlocks.getBlock(tier, type));
+                                    }
                                 }
+                            }
+                            if (tier.isModLoaded() && CompactModule.CompactLoaded) {
+                                output.accept(MoreThermalEvaporationCompatBlocks.getCompactBlock(tier));
                             }
                         }
                     })

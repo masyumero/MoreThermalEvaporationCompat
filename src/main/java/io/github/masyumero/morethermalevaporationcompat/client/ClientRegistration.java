@@ -1,6 +1,8 @@
 package io.github.masyumero.morethermalevaporationcompat.client;
 
+import io.github.masyumero.morethermalevaporationcompat.CompactModule;
 import io.github.masyumero.morethermalevaporationcompat.MoreThermalEvaporationCompat;
+import io.github.masyumero.morethermalevaporationcompat.client.gui.GuiTieredCompactThermalEvaporation;
 import io.github.masyumero.morethermalevaporationcompat.client.gui.GuiTieredThermalEvaporationController;
 import io.github.masyumero.morethermalevaporationcompat.client.tileentity.RenderTieredThermalEvaporationPlant;
 import io.github.masyumero.morethermalevaporationcompat.common.registries.MoreThermalEvaporationCompatContainerTypes;
@@ -22,7 +24,9 @@ public class ClientRegistration {
     public static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
         for (TETier tier : TETier.values()) {
             if (tier.isModLoaded()) {
-                event.registerBlockEntityRenderer(MoreThermalEvaporationCompatTileEntityTypes.getControllerTileEntityType(tier).get(), RenderTieredThermalEvaporationPlant::new);
+                if (!tier.isCompactOnly()) {
+                    event.registerBlockEntityRenderer(MoreThermalEvaporationCompatTileEntityTypes.getControllerTileEntityType(tier).get(), ctx ->  new RenderTieredThermalEvaporationPlant(tier, ctx));
+                }
             }
         }
     }
@@ -32,7 +36,12 @@ public class ClientRegistration {
         event.register(Registries.MENU, helper -> {
             for (TETier tier : TETier.values()) {
                 if (tier.isModLoaded()) {
-                    ClientRegistrationUtil.registerScreen(MoreThermalEvaporationCompatContainerTypes.getContainerType(tier), GuiTieredThermalEvaporationController::new);
+                    if (!tier.isCompactOnly()) {
+                        ClientRegistrationUtil.registerScreen(MoreThermalEvaporationCompatContainerTypes.getContainerType(tier), GuiTieredThermalEvaporationController::new);
+                    }
+                    if (CompactModule.CompactLoaded) {
+                        ClientRegistrationUtil.registerScreen(MoreThermalEvaporationCompatContainerTypes.getCompactContainerType(tier), GuiTieredCompactThermalEvaporation::new);
+                    }
                 }
             }
         });
