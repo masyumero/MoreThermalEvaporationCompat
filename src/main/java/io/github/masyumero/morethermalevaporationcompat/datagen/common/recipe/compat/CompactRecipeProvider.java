@@ -15,5 +15,11 @@ public class CompactRecipeProvider extends CompatRecipeProvider {
     @Override
     protected void registerRecipes(Consumer<FinishedRecipe> consumer, String basePath) {
         basePath = basePath + "thermal_evaporation/";
+        tieredController(consumer, basePath);
     }
+
+    private static void tieredController(Consumer<FinishedRecipe> consumer, String basePath) {
+
+    }
+
 }

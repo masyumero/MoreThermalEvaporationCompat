@@ -34,7 +34,7 @@ public class MoreThermalEvaporationCompatBlocks {
                     BLOCK_TABLE.put(tier, MTECompatMultiPartType.CONTROLLER, MoreThermalEvaporationCompatBlocks.registerBlock(tier.getLowerName() + "_thermal_evaporation_controller", () -> new BlockBasicMultiblock<>(MoreThermalEvaporationCompatBlockTypes.getBlockType(tier, MTECompatMultiPartType.CONTROLLER), properties -> properties.mapColor(tier.getMapColor())), tier));
                 }
                 if (CompactModule.CompactLoaded) {
-                    COMPACT_BLOCK_TABLE.put(tier, MoreThermalEvaporationCompatBlocks.registerBlock(tier.getLowerName() + "_compact_thermal_evaporation_controller", () -> new BlockTile.BlockTileModel<>(MoreThermalEvaporationCompatBlockTypes.getCompactBlockType(tier), properties -> properties.mapColor(tier.getMapColor())), tier));
+                    COMPACT_BLOCK_TABLE.put(tier, MoreThermalEvaporationCompatBlocks.registerBlock(tier.getLowerName() + "_compact_thermal_evaporation", () -> new BlockTile.BlockTileModel<>(MoreThermalEvaporationCompatBlockTypes.getCompactBlockType(tier), properties -> properties.mapColor(tier.getMapColor())), tier));
                 }
             }
         }

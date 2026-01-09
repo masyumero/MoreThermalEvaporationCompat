@@ -3,6 +3,7 @@ package io.github.masyumero.morethermalevaporationcompat;
 import io.github.masyumero.morethermalevaporationcompat.api.lang.MTECompatLangType;
 import io.github.masyumero.morethermalevaporationcompat.common.tier.TETier;
 import mekanism.api.text.ILangEntry;
+import morethermalevaporation.common.MoreThermalEvaporationLang;
 import net.minecraft.Util;
 import org.jetbrains.annotations.NotNull;
 
@@ -119,6 +120,18 @@ public enum MTECompatLang implements ILangEntry {
             }
         }
         return null;
+    }
+
+    public static ILangEntry getCompactLang(TETier tier) {
+        if (tier.isCompactOnly()) {
+            return switch (tier) {
+                case BASIC -> MoreThermalEvaporationLang.DESCRIPTION_BASIC_THERMAL_EVAPORATION_CONTROLLER;
+                case ADVANCED -> MoreThermalEvaporationLang.DESCRIPTION_ADVANCED_THERMAL_EVAPORATION_CONTROLLER;
+                case ELITE -> MoreThermalEvaporationLang.DESCRIPTION_ELITE_THERMAL_EVAPORATION_CONTROLLER;
+                default -> MoreThermalEvaporationLang.DESCRIPTION_ULTIMATE_THERMAL_EVAPORATION_CONTROLLER;
+            };
+        }
+        return getLang(tier, MTECompatLangType.DESC_CONTROLLER);
     }
 
     private TETier getTier() {

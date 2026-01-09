@@ -16,6 +16,16 @@
               "ops": [
                 {
                   "op": "replace",
+                  "source": "componentSecurity.owner",
+                  "target": "mekData.owner"
+                },
+                {
+                  "op": "replace",
+                  "source": "componentSecurity.securityMode",
+                  "target": "mekData.securityMode"
+                },
+                {
+                  "op": "replace",
                   "source": "componentUpgrade",
                   "target": "mekData.componentUpgrade"
                 },
@@ -31,6 +41,11 @@
                 },
                 {
                   "op": "replace",
+                  "source": "controlType",
+                  "target": "mekData.controlType"
+                },
+                {
+                  "op": "replace",
                   "source": "FluidTanks",
                   "target": "mekData.FluidTanks"
                 },
@@ -43,12 +58,12 @@
               "source": "block_entity"
             }
           ],
-          "name": "morethermalevaporationcompat:elite_compact_thermal_evaporation_controller"
+          "name": "morethermalevaporationcompat:basic_compact_thermal_evaporation"
         }
       ],
       "name": "main",
       "rolls": 1.0
     }
   ],
-  "random_sequence": "morethermalevaporationcompat:blocks/elite_compact_thermal_evaporation_controller"
+  "random_sequence": "morethermalevaporationcompat:blocks/basic_compact_thermal_evaporation"
 }
