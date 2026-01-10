@@ -34,12 +34,14 @@ import mekanism.common.inventory.container.slot.ContainerSlotType;
 import mekanism.common.inventory.container.sync.dynamic.ContainerSync;
 import mekanism.common.inventory.slot.FluidInventorySlot;
 import mekanism.common.inventory.slot.OutputInventorySlot;
+import mekanism.common.lib.chunkloading.IChunkLoader;
 import mekanism.common.lib.transmitter.TransmissionType;
 import mekanism.common.recipe.IMekanismRecipeTypeProvider;
 import mekanism.common.recipe.MekanismRecipeType;
 import mekanism.common.recipe.lookup.ISingleRecipeLookupHandler;
 import mekanism.common.recipe.lookup.cache.InputRecipeCache;
 import mekanism.common.recipe.lookup.monitor.RecipeCacheLookupMonitor;
+import mekanism.common.tile.component.TileComponentChunkLoader;
 import mekanism.common.tile.component.TileComponentConfig;
 import mekanism.common.tile.component.TileComponentEjector;
 import mekanism.common.tile.component.config.ConfigInfo;
@@ -49,18 +51,21 @@ import mekanism.common.tile.prefab.TileEntityConfigurableMachine;
 import mekanism.common.tile.prefab.TileEntityRecipeMachine;
 import mekanism.common.util.MekanismUtils;
 import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.fluids.FluidStack;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Collections;
 import java.util.List;
+import java.util.Set;
 import java.util.function.BiPredicate;
 import java.util.function.BooleanSupplier;
 import java.util.function.IntSupplier;
 import java.util.function.Predicate;
 
-public class TileEntityTieredCompactThermalEvaporation extends TileEntityConfigurableMachine implements ISingleRecipeLookupHandler.FluidRecipeLookupHandler<FluidToFluidRecipe> {
+public class TileEntityTieredCompactThermalEvaporation extends TileEntityConfigurableMachine implements ISingleRecipeLookupHandler.FluidRecipeLookupHandler<FluidToFluidRecipe>, IChunkLoader {
     public float prevScale;
     private final IOutputHandler<@NotNull FluidStack> outputHandler;
     private final IInputHandler<@NotNull FluidStack> inputHandler;
@@ -68,11 +73,14 @@ public class TileEntityTieredCompactThermalEvaporation extends TileEntityConfigu
     private double tempMultiplier;
     public final double maxMultiplierTemp;
     private final BooleanSupplier recheckAllRecipeErrors;
+    private final TileComponentChunkLoader<TileEntityTieredCompactThermalEvaporation> chunkLoaderComponent = new TileComponentChunkLoader<>(this);
+    private double biomeAmbientTemp;
     private int upgradeCount;
     protected TETier tier;
 
     public TileEntityTieredCompactThermalEvaporation(BlockPos pos, BlockState state, TETier tier){
         super(tier.getCompactBlock(), pos, state);
+        biomeAmbientTemp = HeatAPI.getAmbientTemp(getTileWorld(), getTilePos());
         maxMultiplierTemp = tier.getMaxMultiplierTemp();
         recipeCacheLookupMonitor = new RecipeCacheLookupMonitor<>(this);
         inputHandler = InputHelper.getInputHandler(inputTank, CachedRecipe.OperationTracker.RecipeError.NOT_ENOUGH_INPUT);
@@ -112,8 +120,18 @@ public class TileEntityTieredCompactThermalEvaporation extends TileEntityConfigu
     @Override
     public IHeatCapacitorHolder getInitialHeatCapacitors(IContentsListener listener, CachedAmbientTemperature ambientTemperature){
         HeatCapacitorHelper builder = HeatCapacitorHelper.forSide(this::getDirection);
-        builder.addCapacitor(heatCapacitor = VariableHeatCapacitor.create((upgradeCount + 1) * MekanismConfig.general.evaporationHeatCapacity.get() * 3, () -> 300D, this), RelativeSide.TOP,RelativeSide.BOTTOM,RelativeSide.LEFT, RelativeSide.RIGHT, RelativeSide.BACK,RelativeSide.FRONT);
+        builder.addCapacitor(heatCapacitor = VariableHeatCapacitor.create(MekanismConfig.general.evaporationHeatCapacity.get() * 3, () -> biomeAmbientTemp, this), RelativeSide.TOP,RelativeSide.BOTTOM,RelativeSide.LEFT, RelativeSide.RIGHT, RelativeSide.BACK,RelativeSide.FRONT);
         return builder.build();
+    }
+
+    @Override
+    public TileComponentChunkLoader<TileEntityTieredCompactThermalEvaporation> getChunkLoader() {
+        return chunkLoaderComponent;
+    }
+
+    @Override
+    public Set<ChunkPos> getChunkSet() {
+        return Collections.singleton(new ChunkPos(getBlockPos()));
     }
 
 

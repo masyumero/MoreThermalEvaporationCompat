@@ -22,6 +22,7 @@ public class UpgradeUtils {
     public static EnumSet<Upgrade> getCompactUpgrades() {
         var upgrade = getUpgrades().clone();
         upgrade.addAll(EnumSet.of(Upgrade.ENERGY, Upgrade.SPEED, Upgrade.MUFFLING));
+        upgrade.remove(EMUpgrades.SOLAR_UPGRADE);
         return upgrade;
     }
 }
