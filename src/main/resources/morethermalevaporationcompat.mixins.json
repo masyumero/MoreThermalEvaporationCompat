@@ -6,14 +6,8 @@
   "refmap": "morethermalevaporationcompat.refmap.json",
   "mixins": [
     "MixinAdvancedThermalEvaporationMultiblockData",
-    "MixinBasicThermalEvaporationMultiblockData",
-    "MixinEliteThermalEvaporationMultiblockData",
     "MixinMoreThermalEvaporationBlockTypes",
     "MixinTileEntityAdvancedThermalEvaporationController",
-    "MixinTileEntityBasicThermalEvaporationController",
-    "MixinTileEntityEliteThermalEvaporationController",
-    "MixinTileEntityUltimatehermalEvaporationController",
-    "MixinUltimateThermalEvaporationMultiblockData",
     "accessor.AccessorAstralMekanismGases"
   ],
   "client": [

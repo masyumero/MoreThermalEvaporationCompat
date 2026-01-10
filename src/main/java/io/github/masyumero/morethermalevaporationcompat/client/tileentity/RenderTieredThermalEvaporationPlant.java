@@ -44,6 +44,6 @@ public class RenderTieredThermalEvaporationPlant extends MultiblockTileEntityRen
 
     @Override
     protected boolean shouldRender(TileEntityTieredThermalEvaporationController tile, TieredThermalEvaporationMultiblockData multiblock, Vec3 camera) {
-        return super.shouldRender(tile, multiblock, camera) && !multiblock.inputTank.isEmpty() && MoreThermalEvaporationConfig.RenderFluid.get();
+        return super.shouldRender(tile, multiblock, camera) && !multiblock.inputTank.isEmpty() && MoreThermalEvaporationConfig.config.RenderFluid.get();
     }
 }

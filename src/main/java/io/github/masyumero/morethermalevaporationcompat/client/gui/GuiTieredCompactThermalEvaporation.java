@@ -1,5 +1,6 @@
 package io.github.masyumero.morethermalevaporationcompat.client.gui;
 
+import io.github.masyumero.morethermalevaporationcompat.common.tier.TETier;
 import io.github.masyumero.morethermalevaporationcompat.common.tile.TileEntityTieredCompactThermalEvaporation;
 import mekanism.api.recipes.cache.CachedRecipe;
 import mekanism.client.gui.GuiConfigurableTile;
@@ -11,8 +12,8 @@ import mekanism.client.gui.element.gauge.GaugeType;
 import mekanism.client.gui.element.gauge.GuiFluidGauge;
 import mekanism.client.gui.element.tab.GuiHeatTab;
 import mekanism.client.gui.element.tab.GuiWarningTab;
+import mekanism.client.jei.MekanismJEIRecipeType;
 import mekanism.common.MekanismLang;
-import mekanism.common.content.evaporation.EvaporationMultiblockData;
 import mekanism.common.inventory.container.tile.MekanismTileContainer;
 import mekanism.common.inventory.warning.IWarningTracker;
 import mekanism.common.inventory.warning.WarningTracker;
@@ -29,11 +30,14 @@ import java.util.function.BooleanSupplier;
 
 public class GuiTieredCompactThermalEvaporation extends GuiConfigurableTile<TileEntityTieredCompactThermalEvaporation, MekanismTileContainer<TileEntityTieredCompactThermalEvaporation>> {
 
+    private final TETier tier;
+
     public GuiTieredCompactThermalEvaporation(MekanismTileContainer<TileEntityTieredCompactThermalEvaporation> container, Inventory inv, Component title) {
         super(container, inv, title);
         inventoryLabelY += 2;
         titleLabelY = 4;
         dynamicSlots = true;
+        this.tier = getTileEntity().getTier();
     }
 
     @Override
@@ -42,7 +46,8 @@ public class GuiTieredCompactThermalEvaporation extends GuiConfigurableTile<Tile
         addRenderableWidget(new GuiInnerScreen(this, 48, 19, 80, 40, () ->
                 List.of(MekanismLang.MULTIBLOCK_FORMED.translate(), MekanismLang.EVAPORATION_HEIGHT.translate(18),
                         MekanismLang.TEMPERATURE.translate(MekanismUtils.getTemperatureDisplay(tile.getTemperature(), UnitDisplayUtils.TemperatureUnit.KELVIN, true)),
-                        MekanismLang.FLUID_PRODUCTION.translate(Math.round(tile.lastGain * 100D) / 100D))).spacing(1));
+                        MekanismLang.FLUID_PRODUCTION.translate(Math.round(tile.lastGain * 100D) / 100D))).spacing(1)
+                .jeiCategories(MekanismJEIRecipeType.EVAPORATING));
         addRenderableWidget(new GuiDownArrow(this, 32, 39));
         addRenderableWidget(new GuiDownArrow(this, 136, 39));
         addRenderableWidget(new GuiHorizontalRateBar(this, new GuiBar.IBarInfoHandler() {
@@ -53,7 +58,7 @@ public class GuiTieredCompactThermalEvaporation extends GuiConfigurableTile<Tile
 
             @Override
             public double getLevel() {
-                return Math.min(1, tile.getTemperature() / EvaporationMultiblockData.MAX_MULTIPLIER_TEMP);
+                return Math.min(1, tile.getTemperature() / tier.getMaxMultiplierTemp());
             }
         }, 48, 63))
                 //Note: We just apply this warning to the bar as we don't have an arrow or anything here

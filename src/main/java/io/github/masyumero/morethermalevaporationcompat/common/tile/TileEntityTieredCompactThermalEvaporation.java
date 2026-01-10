@@ -74,7 +74,7 @@ public class TileEntityTieredCompactThermalEvaporation extends TileEntityConfigu
     public final double maxMultiplierTemp;
     private final BooleanSupplier recheckAllRecipeErrors;
     private final TileComponentChunkLoader<TileEntityTieredCompactThermalEvaporation> chunkLoaderComponent = new TileComponentChunkLoader<>(this);
-    private double biomeAmbientTemp;
+    private final double biomeAmbientTemp;
     private int upgradeCount;
     protected TETier tier;
 
@@ -196,6 +196,26 @@ public class TileEntityTieredCompactThermalEvaporation extends TileEntityConfigu
     }
 
     @Override
+    public double simulateEnvironment() {
+        double currentTemperature = getTemperature();
+        double heatCapacity = heatCapacitor.getHeatCapacity();
+        heatCapacitor.handleHeat(upgradeCount * MekanismConfig.general.evaporationSolarMultiplier.get() * heatCapacity);
+        if (Math.abs(currentTemperature - biomeAmbientTemp) < 0.001) {
+            heatCapacitor.handleHeat(biomeAmbientTemp * heatCapacity - heatCapacitor.getHeat());
+        } else {
+            double incr = MekanismConfig.general.evaporationHeatDissipation.get() * Math.sqrt(Math.abs(currentTemperature - biomeAmbientTemp));
+            if (currentTemperature > biomeAmbientTemp) {
+                incr = -incr;
+            }
+            heatCapacitor.handleHeat(heatCapacity * incr);
+            if (incr < 0) {
+                return -incr;
+            }
+        }
+        return 0;
+    }
+
+    @Override
     public @NotNull IMekanismRecipeTypeProvider<FluidToFluidRecipe, InputRecipeCache.SingleFluid<FluidToFluidRecipe>> getRecipeType() {
         return MekanismRecipeType.EVAPORATING;
     }
@@ -256,5 +276,9 @@ public class TileEntityTieredCompactThermalEvaporation extends TileEntityConfigu
     protected void presetVariables() {
         super.presetVariables();
         tier = MTECompatAttribute.getTier(getBlockType());
+    }
+
+    public TETier getTier() {
+        return tier;
     }
 }

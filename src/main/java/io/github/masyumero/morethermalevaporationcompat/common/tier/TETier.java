@@ -11,34 +11,33 @@ import mekanism.api.providers.IBlockProvider;
 import mekanism.api.tier.BaseTier;
 import mekanism.common.content.blocktype.BlockType;
 import mekanism.common.lib.multiblock.MultiblockManager;
-import morethermalevaporation.common.config.MoreThermalEvaporationConfig;
 import morethermalevaporation.common.registries.MoreThermalEvaporationBlocks;
+import morethermalevaporation.common.tier.MoreThermalEvaporationTier;
 import net.minecraft.network.chat.TextColor;
 import net.minecraft.world.level.material.MapColor;
-import net.minecraftforge.fml.loading.FMLLoader;
 
 import java.util.Locale;
 
 public enum TETier implements SupportsColorMap {
-    BASIC("Basic", BaseTier.BASIC),
-    ADVANCED("Advanced", BaseTier.ADVANCED),
-    ELITE("Elite", BaseTier.ELITE),
-    ULTIMATE("Ultimate", BaseTier.ULTIMATE),
-    ABSOLUTE("Absolute", new int[]{95, 255, 184}, MapColor.COLOR_YELLOW, ExtrasModule.ExtrasLoaded, ExtrasModule.AbsoluteThermalEvaporationManager),
-    SUPREME("Supreme", new int[]{255, 128, 106}, MapColor.COLOR_RED, ExtrasModule.ExtrasLoaded, ExtrasModule.SupremeThermalEvaporationManager),
-    COSMIC("Cosmic", new int[]{75, 248, 255}, MapColor.COLOR_PINK, ExtrasModule.ExtrasLoaded, ExtrasModule.CosmicThermalEvaporationManager),
-    INFINITE("Infinite", new int[]{247, 135, 255}, MapColor.COLOR_BLUE, ExtrasModule.ExtrasLoaded, ExtrasModule.InfiniteThermalEvaporationManager),
-    OVERCLOCKED("Overclocked", new int[]{0, 221, 0}, MapColor.COLOR_LIGHT_GREEN, EvolvedModule.EvolvedLoaded, EvolvedModule.OverclockedThermalEvaporationManager),
-    QUANTUM("Quantum", new int[]{252, 158, 250}, MapColor.COLOR_PURPLE, EvolvedModule.EvolvedLoaded, EvolvedModule.QuantumThermalEvaporationManager),
-    DENSE("Dense", new int[]{253, 245, 95}, MapColor.GOLD, EvolvedModule.EvolvedLoaded, EvolvedModule.DenseThermalEvaporationManager),
-    MULTIVERSAL("Multiversal", new int[]{90, 87, 90}, MapColor.COLOR_BLACK, EvolvedModule.EvolvedLoaded, EvolvedModule.MultiversalThermalEvaporationManager),
-    VIBRATION("Vibration", new int[]{255, 255, 85}, MapColor.TERRACOTTA_PURPLE , AstralModule.AstralLoaded, AstralModule.VibrationThermalEvaporationManager),
-    RESONANCE("Resonance", new int[]{85, 255, 255}, MapColor.COLOR_PURPLE , AstralModule.AstralLoaded, AstralModule.ResonanceThermalEvaporationManager),
-    ILLUSION("Illusion", new int[]{255, 85, 255}, MapColor.COLOR_YELLOW , AstralModule.AstralLoaded, AstralModule.IllusionThermalEvaporationManager),
-    ABSOLUTE_OVERCLOCKED("Absolute_Overclocked", new int[]{95, 255, 184}, MapColor.COLOR_LIGHT_GREEN, EMExtrasModule.EMExtraLoaded, EMExtrasModule.AbsoluteOverclockedThermalEvaporationManager),
-    SUPREME_QUANTUM("Supreme_Quantum", new int[]{255, 128, 106}, MapColor.TERRACOTTA_PINK, EMExtrasModule.EMExtraLoaded, EMExtrasModule.SupremeQuantumThermalEvaporationManager),
-    COSMIC_DENSE("Cosmic_Dense", new int[]{75, 248, 255}, MapColor.DIAMOND, EMExtrasModule.EMExtraLoaded, EMExtrasModule.CosmicDenseThermalEvaporationManager),
-    INFINITE_MULTIVERSAL("Infinite_Multiversal", new int[]{247, 135, 255}, MapColor.COLOR_MAGENTA, EMExtrasModule.EMExtraLoaded, EMExtrasModule.InfiniteMultiversalThermalEvaporationManager),
+    BASIC("Basic", BaseTier.BASIC, MoreThermalEvaporationTier.BASIC),
+    ADVANCED("Advanced", BaseTier.ADVANCED, MoreThermalEvaporationTier.ADVANCED),
+    ELITE("Elite", BaseTier.ELITE, MoreThermalEvaporationTier.ELITE),
+    ULTIMATE("Ultimate", BaseTier.ULTIMATE, MoreThermalEvaporationTier.ULTIMATE),
+    ABSOLUTE("Absolute", new int[]{95, 255, 184}, MapColor.COLOR_YELLOW, ExtrasModule.ExtrasLoaded, 96_000, ExtrasModule.AbsoluteThermalEvaporationManager),
+    SUPREME("Supreme", new int[]{255, 128, 106}, MapColor.COLOR_RED, ExtrasModule.ExtrasLoaded, 192_000, ExtrasModule.SupremeThermalEvaporationManager),
+    COSMIC("Cosmic", new int[]{75, 248, 255}, MapColor.COLOR_PINK, ExtrasModule.ExtrasLoaded, 384_000, ExtrasModule.CosmicThermalEvaporationManager),
+    INFINITE("Infinite", new int[]{247, 135, 255}, MapColor.COLOR_BLUE, ExtrasModule.ExtrasLoaded, 768_000, ExtrasModule.InfiniteThermalEvaporationManager),
+    OVERCLOCKED("Overclocked", new int[]{0, 221, 0}, MapColor.COLOR_LIGHT_GREEN, EvolvedModule.EvolvedLoaded, 96_000, EvolvedModule.OverclockedThermalEvaporationManager),
+    QUANTUM("Quantum", new int[]{252, 158, 250}, MapColor.COLOR_PURPLE, EvolvedModule.EvolvedLoaded, 192_000, EvolvedModule.QuantumThermalEvaporationManager),
+    DENSE("Dense", new int[]{253, 245, 95}, MapColor.GOLD, EvolvedModule.EvolvedLoaded, 384_000, EvolvedModule.DenseThermalEvaporationManager),
+    MULTIVERSAL("Multiversal", new int[]{90, 87, 90}, MapColor.COLOR_BLACK, EvolvedModule.EvolvedLoaded, 768_000, EvolvedModule.MultiversalThermalEvaporationManager),
+    VIBRATION("Vibration", new int[]{255, 255, 85}, MapColor.TERRACOTTA_PURPLE , AstralModule.AstralLoaded, 72_000, AstralModule.VibrationThermalEvaporationManager),
+    RESONANCE("Resonance", new int[]{85, 255, 255}, MapColor.COLOR_PURPLE , AstralModule.AstralLoaded, 144_000, AstralModule.ResonanceThermalEvaporationManager),
+    ILLUSION("Illusion", new int[]{255, 85, 255}, MapColor.COLOR_YELLOW , AstralModule.AstralLoaded, 1_536_000, AstralModule.IllusionThermalEvaporationManager),
+    ABSOLUTE_OVERCLOCKED("Absolute_Overclocked", new int[]{95, 255, 184}, MapColor.COLOR_LIGHT_GREEN, EMExtrasModule.EMExtraLoaded, 144_000, EMExtrasModule.AbsoluteOverclockedThermalEvaporationManager),
+    SUPREME_QUANTUM("Supreme_Quantum", new int[]{255, 128, 106}, MapColor.TERRACOTTA_PINK, EMExtrasModule.EMExtraLoaded, 288_000, EMExtrasModule.SupremeQuantumThermalEvaporationManager),
+    COSMIC_DENSE("Cosmic_Dense", new int[]{75, 248, 255}, MapColor.DIAMOND, EMExtrasModule.EMExtraLoaded, 576_000, EMExtrasModule.CosmicDenseThermalEvaporationManager),
+    INFINITE_MULTIVERSAL("Infinite_Multiversal", new int[]{247, 135, 255}, MapColor.COLOR_MAGENTA, EMExtrasModule.EMExtraLoaded, 1_152_000, EMExtrasModule.InfiniteMultiversalThermalEvaporationManager),
     ;
 
     private final String name;
@@ -46,47 +45,42 @@ public enum TETier implements SupportsColorMap {
     private final MapColor mapColor;
     private final boolean modLoaded;
     private final boolean compactOnly;
+    private final double maxMultiplierTemp;
     private int[] rgbCode;
+    private MoreThermalEvaporationTier mteTier;
     private final MultiblockManager<TieredThermalEvaporationMultiblockData> manager;
 
-    TETier(String name, int[] rgbCode, MapColor mapColor, boolean modLoaded, MultiblockManager<TieredThermalEvaporationMultiblockData> manager) {
+    TETier(String name, int[] rgbCode, MapColor mapColor, boolean modLoaded, int maxMultiplierTemp, MultiblockManager<TieredThermalEvaporationMultiblockData> manager) {
         this.name = name;
         this.mapColor = mapColor;
         this.modLoaded = modLoaded;
         this.manager = manager;
+        this.maxMultiplierTemp = maxMultiplierTemp;
         compactOnly = false;
         setColorFromAtlas(rgbCode);
     }
 
-    TETier(String name, BaseTier tier) {
+    TETier(String name, BaseTier tier, MoreThermalEvaporationTier mteTier) {
         this.name = name;
         this.mapColor = tier.getMapColor();
         this.modLoaded = CompactModule.CompactLoaded;
         this.manager = null;
         this.compactOnly = true;
         this.textColor = tier.getColor();
+        this.mteTier = mteTier;
+        this.maxMultiplierTemp = mteTier.getMultiplierTemp();
     }
 
     public int getHeight() {
         if (compactOnly) {
-            return switch (this) {
-                case BASIC -> MoreThermalEvaporationConfig.BasicEvaporationPlantHeight.get();
-                case ADVANCED -> MoreThermalEvaporationConfig.AdvancedEvaporationPlantHeight.get();
-                case ELITE -> MoreThermalEvaporationConfig.EliteEvaporationPlantHeight.get();
-                default -> MoreThermalEvaporationConfig.UltimateEvaporationPlantHeight.get(); //ULTIMATE
-            };
+            return mteTier.getHeight();
         }
         return LoadConfig.MTE_COMPAT_CONFIG.getHeight(this);
     }
 
     public int getOutputTankCapacity() {
-        if (compactOnly && !FMLLoader.getLaunchHandler().isData()) {
-            return switch (this) {
-                case BASIC -> MoreThermalEvaporationConfig.BasicEvaporationOutputTankCapacity.get();
-                case ADVANCED -> MoreThermalEvaporationConfig.AdvancedEvaporationOutputTankCapacity.get();
-                case ELITE -> MoreThermalEvaporationConfig.EliteEvaporationOutputTankCapacity.get();
-                default -> MoreThermalEvaporationConfig.UltimateEvaporationOutputTankCapacity.get(); //ULTIMATE
-            };
+        if (compactOnly) {
+            return mteTier.getOutputTankCapacity();
         }
         return LoadConfig.MTE_COMPAT_CONFIG.getTankCapacity(this);
     }
@@ -96,58 +90,26 @@ public enum TETier implements SupportsColorMap {
     }
 
     public double getMaxMultiplierTemp() {
-        return switch (this.getSimpleName()) {
-            case "Basic" -> 6_000;
-            case "Advanced" -> 12_000;
-            case "Elite" -> 24_000;
-            case "Ultimate" -> 48_000;
-            case "Absolute", "Overclocked" -> 96_000; //32
-            case "Supreme", "Quantum" -> 192_000; //64
-            case "Cosmic", "Dense" -> 384_000; //128
-            case "Infinite", "Multiversal" -> 768_000; //256
-            case "Vibration" -> 72_000; //24
-            case "Resonance" -> 144_000; //48
-            case "Illusion" -> 1_536_000; //512
-            case "Absolute_Overclocked" -> 144_000; //48
-            case "Supreme_Quantum" -> 288_000; //96
-            case "Cosmic_Dense" -> 576_000; //192
-            case "Infinite_Multiversal" -> 1_152_000; //384
-            default -> throw new IllegalStateException("Unexpected value: " + this.getSimpleName());
-        };
+        return maxMultiplierTemp;
     }
 
     public IBlockProvider getCasingBlock() {
         if (compactOnly) {
-            return switch (this) {
-                case BASIC -> MoreThermalEvaporationBlocks.BASIC_THERMAL_EVAPORATION_BLOCK;
-                case ADVANCED -> MoreThermalEvaporationBlocks.ADVANCED_THERMAL_EVAPORATION_BLOCK;
-                case ELITE -> MoreThermalEvaporationBlocks.ELITE_THERMAL_EVAPORATION_BLOCK;
-                default -> MoreThermalEvaporationBlocks.ULTIMATE_THERMAL_EVAPORATION_BLOCK; //ULTIMATE
-            };
+            return MoreThermalEvaporationBlocks.getBlock(mteTier);
         }
         return MoreThermalEvaporationCompatBlocks.getCasingBlock(this);
     }
 
     public IBlockProvider getValveBlock() {
         if (compactOnly) {
-            return switch (this) {
-                case BASIC -> MoreThermalEvaporationBlocks.BASIC_THERMAL_EVAPORATION_VALVE;
-                case ADVANCED -> MoreThermalEvaporationBlocks.ADVANCED_THERMAL_EVAPORATION_VALVE;
-                case ELITE -> MoreThermalEvaporationBlocks.ELITE_THERMAL_EVAPORATION_VALVE;
-                default -> MoreThermalEvaporationBlocks.ULTIMATE_THERMAL_EVAPORATION_VALVE; //ULTIMATE
-            };
+            return MoreThermalEvaporationBlocks.getValve(mteTier);
         }
         return MoreThermalEvaporationCompatBlocks.getValveBlock(this);
     }
 
     public IBlockProvider getControllerBlock() {
         if (compactOnly) {
-            return switch (this) {
-                case BASIC -> MoreThermalEvaporationBlocks.BASIC_THERMAL_EVAPORATION_CONTROLLER;
-                case ADVANCED -> MoreThermalEvaporationBlocks.ADVANCED_THERMAL_EVAPORATION_CONTROLLER;
-                case ELITE -> MoreThermalEvaporationBlocks.ELITE_THERMAL_EVAPORATION_CONTROLLER;
-                default -> MoreThermalEvaporationBlocks.ULTIMATE_THERMAL_EVAPORATION_CONTROLLER; //ULTIMATE
-            };
+            return MoreThermalEvaporationBlocks.getController(mteTier);
         }
         return MoreThermalEvaporationCompatBlocks.getControllerBlock(this);
     }

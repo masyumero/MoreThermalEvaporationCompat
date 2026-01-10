@@ -3,14 +3,14 @@ package io.github.masyumero.morethermalevaporationcompat.mixin;
 import io.github.masyumero.morethermalevaporationcompat.api.IThermalEvaporationMultiblockData;
 import mekanism.common.capabilities.heat.VariableHeatCapacitor;
 import mekanism.common.config.MekanismConfig;
-import morethermalevaporation.common.evaporation.AdvancedThermalEvaporationMultiblockData;
+import morethermalevaporation.common.content.evaporation.MoreThermalEvaporationMultiblockData;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
 
-@Mixin(value = AdvancedThermalEvaporationMultiblockData.class, remap = false)
+@Mixin(value = MoreThermalEvaporationMultiblockData.class, remap = false)
 public abstract class MixinAdvancedThermalEvaporationMultiblockData implements IThermalEvaporationMultiblockData {
 
     @Shadow
