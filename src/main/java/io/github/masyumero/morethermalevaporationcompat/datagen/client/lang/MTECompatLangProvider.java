@@ -7,6 +7,7 @@ import io.github.masyumero.morethermalevaporationcompat.api.lang.MTECompatLangTy
 import io.github.masyumero.morethermalevaporationcompat.common.content.blocktype.MTECompatMultiPartType;
 import io.github.masyumero.morethermalevaporationcompat.common.registries.MoreThermalEvaporationCompatBlocks;
 import io.github.masyumero.morethermalevaporationcompat.common.tier.TETier;
+import io.github.masyumero.morethermalevaporationcompat.common.util.MTECompatEnumUtils;
 import net.minecraft.data.PackOutput;
 
 public class MTECompatLangProvider extends BaseLanguageProvider {
@@ -22,7 +23,7 @@ public class MTECompatLangProvider extends BaseLanguageProvider {
     }
 
     private void addBlocks() {
-        for (TETier tier : TETier.values()) {
+        for (TETier tier : MTECompatEnumUtils.THERMAL_EVAPORATION_TIERS) {
             for (MTECompatMultiPartType type : MTECompatMultiPartType.values()) {
                 if (!tier.isCompactOnly()) {
                     add(MoreThermalEvaporationCompatBlocks.getBlock(tier, type), tier.getSimpleName().replace("_", " ") + " Thermal Evaporation " + type.getName());
@@ -36,7 +37,7 @@ public class MTECompatLangProvider extends BaseLanguageProvider {
 
     private void addMisc() {
         add(MTECompatLang.CREATIVE_TAB, "More Thermal Evaporation Compat");
-        for (TETier tier : TETier.values()) {
+        for (TETier tier : MTECompatEnumUtils.THERMAL_EVAPORATION_TIERS) {
             if (!tier.isCompactOnly()) {
                 add(MTECompatLang.getLang(tier, MTECompatLangType.TITLE), "%s Thermal Evaporation".formatted(tier.getSimpleName().replace("_", " ")));
                 add(MTECompatLang.getLang(tier, MTECompatLangType.DESC_BLOCK), "A copper-alloyed casing used in the structure of a %s Thermal Evaporation Plant, using its advanced material to conduct the great amounts of heat necessary for processing.".formatted(tier.getSimpleName().replace("_", " ")));

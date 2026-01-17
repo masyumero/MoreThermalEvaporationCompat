@@ -14,6 +14,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegisterCommandsEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -26,6 +27,7 @@ public class MoreThermalEvaporationCompat {
     public static final String MODID = "morethermalevaporationcompat";
     public static final String MOD_NAME = "MoreThermalEvaporationCompat";
     public static final Logger LOGGER = LogUtils.getLogger();
+    public static final boolean JEI_MEK_LOADED = ModList.get().isLoaded("jei_mekanism_multiblocks");
 
     @SuppressWarnings("removal")
     public static ResourceLocation rl(String id) {

@@ -3,6 +3,7 @@ package io.github.masyumero.morethermalevaporationcompat.common.registries;
 import io.github.masyumero.morethermalevaporationcompat.*;
 import io.github.masyumero.morethermalevaporationcompat.common.content.blocktype.MTECompatMultiPartType;
 import io.github.masyumero.morethermalevaporationcompat.common.tier.TETier;
+import io.github.masyumero.morethermalevaporationcompat.common.util.MTECompatEnumUtils;
 import mekanism.common.registries.MekanismBlocks;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
@@ -28,7 +29,7 @@ public class MoreThermalEvaporationCompatCreativeTabs {
                         return MekanismBlocks.THERMAL_EVAPORATION_BLOCK.getItemStack();
                     } )
                     .displayItems((parameters, output) -> {
-                        for (TETier tier : TETier.values()) {
+                        for (TETier tier : MTECompatEnumUtils.THERMAL_EVAPORATION_TIERS) {
                             for (MTECompatMultiPartType type : MTECompatMultiPartType.values()) {
                                 if (tier.isModLoaded()) {
                                     if (!tier.isCompactOnly()) {

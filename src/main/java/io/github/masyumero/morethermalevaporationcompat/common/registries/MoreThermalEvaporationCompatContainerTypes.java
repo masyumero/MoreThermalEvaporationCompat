@@ -5,6 +5,7 @@ import io.github.masyumero.morethermalevaporationcompat.MoreThermalEvaporationCo
 import io.github.masyumero.morethermalevaporationcompat.common.tier.TETier;
 import io.github.masyumero.morethermalevaporationcompat.common.tile.TileEntityTieredCompactThermalEvaporation;
 import io.github.masyumero.morethermalevaporationcompat.common.tile.multiblock.TileEntityTieredThermalEvaporationController;
+import io.github.masyumero.morethermalevaporationcompat.common.util.MTECompatEnumUtils;
 import mekanism.common.inventory.container.tile.MekanismTileContainer;
 import mekanism.common.registration.impl.ContainerTypeDeferredRegister;
 import mekanism.common.registration.impl.ContainerTypeRegistryObject;
@@ -19,7 +20,7 @@ public class MoreThermalEvaporationCompatContainerTypes {
     private static final Map<TETier, ContainerTypeRegistryObject<MekanismTileContainer<TileEntityTieredCompactThermalEvaporation>>> COMPACT_CONTAINERTYPE_MAP = new HashMap<>();
 
     static {
-        for (TETier tier : TETier.values()) {
+        for (TETier tier : MTECompatEnumUtils.THERMAL_EVAPORATION_TIERS) {
             if (tier.isModLoaded()) {
                 if (!tier.isCompactOnly()) {
                     CONTAINERTYPE_MAP.put(tier, CONTAINER_TYPES.register(MoreThermalEvaporationCompatBlocks.getControllerBlock(tier), TileEntityTieredThermalEvaporationController.class));

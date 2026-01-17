@@ -5,6 +5,7 @@ import io.github.masyumero.morethermalevaporationcompat.MoreThermalEvaporationCo
 import io.github.masyumero.morethermalevaporationcompat.common.tier.TETier;
 import io.github.masyumero.morethermalevaporationcompat.common.tile.TileEntityTieredCompactThermalEvaporation;
 import io.github.masyumero.morethermalevaporationcompat.common.tile.multiblock.*;
+import io.github.masyumero.morethermalevaporationcompat.common.util.MTECompatEnumUtils;
 import mekanism.common.registration.impl.TileEntityTypeDeferredRegister;
 import mekanism.common.registration.impl.TileEntityTypeRegistryObject;
 import mekanism.common.tile.base.TileEntityMekanism;
@@ -21,7 +22,7 @@ public class MoreThermalEvaporationCompatTileEntityTypes {
     private static final Map<TETier, TileEntityTypeRegistryObject<TileEntityTieredCompactThermalEvaporation>> COMPACTTILEENTITYTYPE_MAP = new HashMap<>();
 
     static {
-        for (TETier tier : TETier.values()) {
+        for (TETier tier : MTECompatEnumUtils.THERMAL_EVAPORATION_TIERS) {
             if (tier.isModLoaded()) {
                 if (!tier.isCompactOnly()) {
                     BLOCKTILEENTITYTYPE_MAP.put(tier, TILE_ENTITY_TYPES.register(MoreThermalEvaporationCompatBlocks.getCasingBlock(tier), (pos, state) -> new TileEntityTieredThermalEvaporationBlock(pos, state, tier), TileEntityMekanism::tickServer, TileEntityMekanism::tickClient));

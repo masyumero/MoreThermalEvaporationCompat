@@ -3,6 +3,7 @@ package io.github.masyumero.morethermalevaporationcompat.common.tile;
 import fr.iglee42.evolvedmekanism.registries.EMUpgrades;
 import io.github.masyumero.morethermalevaporationcompat.common.block.attribute.MTECompatAttribute;
 import io.github.masyumero.morethermalevaporationcompat.common.tier.TETier;
+import io.github.masyumero.morethermalevaporationcompat.common.upgrade.TieredCompactThermalEvaporationUpgradeData;
 import mekanism.api.AutomationType;
 import mekanism.api.IContentsListener;
 import mekanism.api.RelativeSide;
@@ -17,6 +18,7 @@ import mekanism.api.recipes.inputs.IInputHandler;
 import mekanism.api.recipes.inputs.InputHelper;
 import mekanism.api.recipes.outputs.IOutputHandler;
 import mekanism.api.recipes.outputs.OutputHelper;
+import mekanism.common.Mekanism;
 import mekanism.common.capabilities.fluid.BasicFluidTank;
 import mekanism.common.capabilities.fluid.VariableCapacityFluidTank;
 import mekanism.common.capabilities.heat.CachedAmbientTemperature;
@@ -41,6 +43,7 @@ import mekanism.common.recipe.MekanismRecipeType;
 import mekanism.common.recipe.lookup.ISingleRecipeLookupHandler;
 import mekanism.common.recipe.lookup.cache.InputRecipeCache;
 import mekanism.common.recipe.lookup.monitor.RecipeCacheLookupMonitor;
+import mekanism.common.tile.component.ITileComponent;
 import mekanism.common.tile.component.TileComponentChunkLoader;
 import mekanism.common.tile.component.TileComponentConfig;
 import mekanism.common.tile.component.TileComponentEjector;
@@ -49,6 +52,7 @@ import mekanism.common.tile.component.config.DataType;
 import mekanism.common.tile.component.config.slot.FluidSlotInfo;
 import mekanism.common.tile.prefab.TileEntityConfigurableMachine;
 import mekanism.common.tile.prefab.TileEntityRecipeMachine;
+import mekanism.common.upgrade.IUpgradeData;
 import mekanism.common.util.MekanismUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.ChunkPos;
@@ -111,7 +115,7 @@ public class TileEntityTieredCompactThermalEvaporation extends TileEntityConfigu
 
         FluidTankHelper builder = FluidTankHelper.forSideWithConfig(this::getDirection,this::getConfig);
 
-        builder.addTank(inputTank = new FluidTank(() -> 1800000, ConstantPredicates.internalOnly(), ConstantPredicates.alwaysTrueBi(), this::containsRecipe, createSaveAndComparator()));
+        builder.addTank(inputTank = new FluidTank(() -> tier.getOutputTankCapacity() * 2, ConstantPredicates.internalOnly(), ConstantPredicates.alwaysTrueBi(), this::containsRecipe, createSaveAndComparator()));
         builder.addTank(outputTank = new FluidTank(tier::getOutputTankCapacity, ConstantPredicates.alwaysTrueBi(), ConstantPredicates.internalOnly(), (fluidStack -> true), this));
         return builder.build();
     }
@@ -133,7 +137,6 @@ public class TileEntityTieredCompactThermalEvaporation extends TileEntityConfigu
     public Set<ChunkPos> getChunkSet() {
         return Collections.singleton(new ChunkPos(getBlockPos()));
     }
-
 
     private static class FluidTank extends VariableCapacityFluidTank{
         protected FluidTank(@NotNull IntSupplier capacity,
@@ -276,6 +279,31 @@ public class TileEntityTieredCompactThermalEvaporation extends TileEntityConfigu
     protected void presetVariables() {
         super.presetVariables();
         tier = MTECompatAttribute.getTier(getBlockType());
+    }
+
+    @Override
+    public void parseUpgradeData(@NotNull IUpgradeData upgradeData) {
+        if (upgradeData instanceof TieredCompactThermalEvaporationUpgradeData data) {
+            redstone = data.redstone;
+            setControlType(data.controlType);
+            for (ITileComponent component : getComponents()) {
+                component.read(data.components);
+            }
+            inputTank.deserializeNBT(data.inputTank.serializeNBT());
+            outputTank.deserializeNBT(data.outputTank.serializeNBT());
+            inputInputSlot.deserializeNBT(data.inputInputSlot.serializeNBT());
+            outputInputSlot.deserializeNBT(data.outputInputSlot.serializeNBT());
+            inputOutputSlot.deserializeNBT(data.inputOutputSlot.serializeNBT());
+            outputOutputSlot.deserializeNBT(data.outputOutputSlot.serializeNBT());
+            heatCapacitor.deserializeNBT(data.heatCapacitor.serializeNBT());
+        } else {
+            Mekanism.logger.warn("Unhandled upgrade data.", new Throwable());
+        }
+    }
+
+    @Override
+    public TieredCompactThermalEvaporationUpgradeData getUpgradeData() {
+        return new TieredCompactThermalEvaporationUpgradeData(redstone, getControlType(), inputTank, outputTank, inputInputSlot, outputInputSlot, inputOutputSlot, outputOutputSlot, heatCapacitor, getComponents());
     }
 
     public TETier getTier() {

@@ -9,6 +9,7 @@ import io.github.masyumero.morethermalevaporationcompat.common.content.blocktype
 import io.github.masyumero.morethermalevaporationcompat.common.content.blocktype.MTECompatMachine;
 import io.github.masyumero.morethermalevaporationcompat.common.content.blocktype.MTECompatMultiPartType;
 import io.github.masyumero.morethermalevaporationcompat.common.tier.TETier;
+import io.github.masyumero.morethermalevaporationcompat.common.util.MTECompatEnumUtils;
 import io.github.masyumero.morethermalevaporationcompat.common.util.UpgradeUtils;
 import mekanism.common.block.attribute.AttributeCustomSelectionBox;
 import mekanism.common.block.attribute.AttributeStateFacing;
@@ -23,7 +24,7 @@ public class MoreThermalEvaporationCompatBlockTypes {
     private static final Map<TETier, MTECompatBlockTypeTile<?>> COMPACT_BLOCKTYPE_TABLE = new HashMap<>();
 
     static {
-        for (TETier tier : TETier.values()) {
+        for (TETier tier : MTECompatEnumUtils.THERMAL_EVAPORATION_TIERS) {
             if (tier.isModLoaded()) {
                 if (!tier.isCompactOnly()) {
                     BLOCKTYPE_TABLE.put(tier, MTECompatMultiPartType.BLOCK, MTECompatBlockTypeTile.MTECompatBlockTileBuilder.createBlock(() -> MoreThermalEvaporationCompatTileEntityTypes.getBlockTileEntityType(tier), MTECompatLang.getLang(tier, MTECompatLangType.DESC_BLOCK), tier).with(new Attributes.AttributeCustomResistance(9)).externalMultiblock().build());

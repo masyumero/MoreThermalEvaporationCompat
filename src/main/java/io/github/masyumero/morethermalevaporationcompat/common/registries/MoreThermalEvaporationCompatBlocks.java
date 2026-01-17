@@ -7,6 +7,7 @@ import io.github.masyumero.morethermalevaporationcompat.MoreThermalEvaporationCo
 import io.github.masyumero.morethermalevaporationcompat.common.content.blocktype.MTECompatMultiPartType;
 import io.github.masyumero.morethermalevaporationcompat.common.item.block.ItemBlockMekanismTier;
 import io.github.masyumero.morethermalevaporationcompat.common.tier.TETier;
+import io.github.masyumero.morethermalevaporationcompat.common.util.MTECompatEnumUtils;
 import mekanism.common.block.interfaces.IHasDescription;
 import mekanism.common.block.prefab.BlockBasicMultiblock;
 import mekanism.common.block.prefab.BlockTile;
@@ -26,7 +27,7 @@ public class MoreThermalEvaporationCompatBlocks {
     private static final Map<TETier, BlockRegistryObject<BlockTile.BlockTileModel<?, ?>, ItemBlockMekanismTier<BlockTile.BlockTileModel<?, ?>>>> COMPACT_BLOCK_TABLE = new HashMap<>();
 
     static {
-        for (TETier tier : TETier.values()) {
+        for (TETier tier : MTECompatEnumUtils.THERMAL_EVAPORATION_TIERS) {
             if (tier.isModLoaded()) {
                 if (!tier.isCompactOnly()) {
                     BLOCK_TABLE.put(tier, MTECompatMultiPartType.BLOCK, MoreThermalEvaporationCompatBlocks.registerBlock(tier.getLowerName() + "_thermal_evaporation_block", () -> new BlockBasicMultiblock<>(MoreThermalEvaporationCompatBlockTypes.getBlockType(tier, MTECompatMultiPartType.BLOCK), properties -> properties.mapColor(tier.getMapColor())), tier));

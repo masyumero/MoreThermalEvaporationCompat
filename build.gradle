@@ -97,6 +97,7 @@ minecraft {
         client {
             // Comma-separated list of namespaces to load gametests from. Empty = all namespaces.
             property 'forge.enabledGameTestNamespaces', mod_id
+            args "-XX:+AllowEnhancedClassRedefinition"
         }
 
         server {
@@ -141,12 +142,16 @@ repositories {
 
 mixin {
     add sourceSets.main, "${mod_id}.refmap.json"
+    debug.export = true
     config "${mod_id}.mixins.json"
 }
 
 dependencies {
 
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+
+    compileOnly(annotationProcessor("io.github.llamalad7:mixinextras-common:0.5.3"))
+    implementation(jarJar("io.github.llamalad7:mixinextras-forge:0.5.3"))
 
     implementation fg.deobf("mekanism:Mekanism:1.20.1-${mekanism_version}")
     implementation fg.deobf("mekanism:Mekanism:1.20.1-${mekanism_version}:generators")
@@ -155,8 +160,9 @@ dependencies {
     implementation fg.deobf("curse.maven:astral-mekanism-1415150:7411577")
     implementation fg.deobf("curse.maven:mekanism-extras-1026040:6936409")
     implementation fg.deobf("curse.maven:morethermalevaporation-1406469:7441029")
-    implementation fg.deobf("curse.maven:evolved-mekanism-extras-1268159:6866367")
+    implementation fg.deobf("curse.maven:evolved-mekanism-extras-1268159:7471169")
     implementation fg.deobf("curse.maven:compact-mekanism-machines-1161015:7388773")
+    implementation fg.deobf("curse.maven:just-enough-mekanism-multiblocks-898746:7176443")
 
     runtimeOnly fg.deobf("curse.maven:iglee-library-541199:6987117")
     runtimeOnly fg.deobf("mekanism:Mekanism:1.20.1-${mekanism_version}:tools")

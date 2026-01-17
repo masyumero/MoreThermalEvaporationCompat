@@ -8,6 +8,7 @@ import io.github.masyumero.morethermalevaporationcompat.client.tileentity.Render
 import io.github.masyumero.morethermalevaporationcompat.common.registries.MoreThermalEvaporationCompatContainerTypes;
 import io.github.masyumero.morethermalevaporationcompat.common.registries.MoreThermalEvaporationCompatTileEntityTypes;
 import io.github.masyumero.morethermalevaporationcompat.common.tier.TETier;
+import io.github.masyumero.morethermalevaporationcompat.common.util.MTECompatEnumUtils;
 import mekanism.client.ClientRegistrationUtil;
 import net.minecraft.core.registries.Registries;
 import net.minecraftforge.api.distmarker.Dist;
@@ -22,7 +23,7 @@ public class ClientRegistration {
 
     @SubscribeEvent
     public static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
-        for (TETier tier : TETier.values()) {
+        for (TETier tier : MTECompatEnumUtils.THERMAL_EVAPORATION_TIERS) {
             if (tier.isModLoaded()) {
                 if (!tier.isCompactOnly()) {
                     event.registerBlockEntityRenderer(MoreThermalEvaporationCompatTileEntityTypes.getControllerTileEntityType(tier).get(), ctx ->  new RenderTieredThermalEvaporationPlant(tier, ctx));
@@ -34,7 +35,7 @@ public class ClientRegistration {
     @SubscribeEvent(priority = EventPriority.LOW)
     public static void registerContainers(RegisterEvent event) {
         event.register(Registries.MENU, helper -> {
-            for (TETier tier : TETier.values()) {
+            for (TETier tier : MTECompatEnumUtils.THERMAL_EVAPORATION_TIERS) {
                 if (tier.isModLoaded()) {
                     if (!tier.isCompactOnly()) {
                         ClientRegistrationUtil.registerScreen(MoreThermalEvaporationCompatContainerTypes.getContainerType(tier), GuiTieredThermalEvaporationController::new);

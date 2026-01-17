@@ -6,6 +6,7 @@ import fr.iglee42.evolvedmekanism.registries.EMItems;
 import io.github.masyumero.morethermalevaporationcompat.MoreThermalEvaporationCompat;
 import io.github.masyumero.morethermalevaporationcompat.api.datagen.recipe.builder.AstralCraftingRecipeBuilder;
 import io.github.masyumero.morethermalevaporationcompat.common.tier.TETier;
+import io.github.masyumero.morethermalevaporationcompat.common.util.MTECompatEnumUtils;
 import io.github.masyumero.morethermalevaporationcompat.datagen.common.recipe.builder.ExtendedShapedRecipeBuilder;
 import io.github.masyumero.morethermalevaporationcompat.datagen.common.recipe.pattern.Pattern;
 import io.github.masyumero.morethermalevaporationcompat.datagen.common.recipe.pattern.RecipePattern;
@@ -47,7 +48,7 @@ public class CompactRecipeProvider extends CompatRecipeProvider {
     }
 
     private static void tieredController(Consumer<FinishedRecipe> consumer, String basePath) {
-        for (TETier tier : TETier.values()) {
+        for (TETier tier : MTECompatEnumUtils.THERMAL_EVAPORATION_TIERS) {
             switch (tier) {
                 case BASIC -> ExtendedShapedRecipeBuilder.shapedRecipe(tier.getCompactBlock()).pattern(PATTERN).key(Pattern.PREVIOUS, tier.getControllerBlock()).key(Pattern.ALLOY, MekanismTags.Items.ALLOYS_BASIC).key(Pattern.CONSTANT, tier.getCasingBlock()).build(consumer, MoreThermalEvaporationCompat.rl(basePath + tier.getLowerName() + "/compact"));
                 case ADVANCED -> ExtendedShapedRecipeBuilder.shapedRecipe(tier.getCompactBlock()).pattern(PATTERN).key(Pattern.PREVIOUS, tier.getControllerBlock()).key(Pattern.ALLOY, MekanismTags.Items.ALLOYS_ADVANCED).key(Pattern.CONSTANT, tier.getCasingBlock()).build(consumer, MoreThermalEvaporationCompat.rl(basePath + tier.getLowerName() + "/compact"));

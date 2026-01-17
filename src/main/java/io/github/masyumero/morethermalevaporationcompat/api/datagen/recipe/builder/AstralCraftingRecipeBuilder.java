@@ -2,8 +2,8 @@ package io.github.masyumero.morethermalevaporationcompat.api.datagen.recipe.buil
 
 import astral_mekanism.AstralMekanismID;
 import com.google.gson.JsonObject;
+import io.github.masyumero.morethermalevaporationcompat.common.util.ChemicalUtils;
 import io.github.masyumero.morethermalevaporationcompat.common.util.ItemUtils;
-import io.github.masyumero.morethermalevaporationcompat.mixin.accessor.AccessorAstralMekanismGases;
 import mekanism.api.JsonConstants;
 import mekanism.api.SerializerHelper;
 import mekanism.api.datagen.recipe.MekanismRecipeBuilder;
@@ -67,7 +67,7 @@ public class AstralCraftingRecipeBuilder extends MekanismRecipeBuilder<AstralCra
                         IngredientCreatorAccess.item().from(SPECTRUM_ALLOY, 64) , IngredientCreatorAccess.item().from(STARDUST_ALLOY),IngredientCreatorAccess.item().from(ILLUSION_CONTROL_CIRCUIT),IngredientCreatorAccess.item().from(STARDUST_ALLOY),IngredientCreatorAccess.item().from(SPECTRUM_ALLOY, 64),
                         IngredientCreatorAccess.item().from(ELASTIC_ALLOY, 64) , IngredientCreatorAccess.item().from(EXOVERSAL_ALLOY, 64),IngredientCreatorAccess.item().from(ItemUtils.getItem("ae2:singularity"), 64),IngredientCreatorAccess.item().from(EXOVERSAL_ALLOY, 64),IngredientCreatorAccess.item().from(ELASTIC_ALLOY, 64),
                 },IngredientCreatorAccess.fluid().from(Fluids.LAVA, 10000),
-                IngredientCreatorAccess.gas().from(AccessorAstralMekanismGases.getAstralEther().get(), 10000),
+                IngredientCreatorAccess.gas().from(ChemicalUtils.getGas("astral_mekanism:astral_ether"), 10000),
                 output);
     }
 

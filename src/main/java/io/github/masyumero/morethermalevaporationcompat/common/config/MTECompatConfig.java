@@ -2,6 +2,7 @@ package io.github.masyumero.morethermalevaporationcompat.common.config;
 
 import io.github.masyumero.morethermalevaporationcompat.common.tier.TETier;
 import mekanism.common.config.BaseMekanismConfig;
+import mekanism.common.config.value.CachedBooleanValue;
 import mekanism.common.config.value.CachedIntValue;
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.fml.config.ModConfig;
@@ -41,10 +42,17 @@ public class MTECompatConfig extends BaseMekanismConfig {
     public final CachedIntValue cosmicDenseOutputTankCapacity;
     public final CachedIntValue infiniteMultiversalOutputTankCapacity;
 
+    public final CachedBooleanValue upgradeable;
+
     public MTECompatConfig() {
         ForgeConfigSpec.Builder builder = new ForgeConfigSpec.Builder();
 
         builder.comment("More Thermal Evaporation Compat Settings");
+        builder.push("Common");
+        upgradeable = CachedBooleanValue.wrap(this, builder
+                .comment("Specifies whether Compact Thermal Evaporation can be upgraded using the Tier Installer.")
+                .define("Upgradeable", false));
+
         builder.push("Tier");
         builder.push("Absolute");
         builder.comment("Settings for the Absolute Tier");
