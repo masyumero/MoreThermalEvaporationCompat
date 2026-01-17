@@ -151,7 +151,9 @@ dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
 
     compileOnly(annotationProcessor("io.github.llamalad7:mixinextras-common:0.5.3"))
-    implementation(jarJar("io.github.llamalad7:mixinextras-forge:0.5.3"))
+    implementation(jarJar("io.github.llamalad7:mixinextras-forge:0.5.3")) {
+        jarJar.ranged(it, "[0.5.3,)")
+    }
 
     implementation fg.deobf("mekanism:Mekanism:1.20.1-${mekanism_version}")
     implementation fg.deobf("mekanism:Mekanism:1.20.1-${mekanism_version}:generators")
@@ -163,8 +165,8 @@ dependencies {
     implementation fg.deobf("curse.maven:evolved-mekanism-extras-1268159:7471169")
     implementation fg.deobf("curse.maven:compact-mekanism-machines-1161015:7388773")
     implementation fg.deobf("curse.maven:just-enough-mekanism-multiblocks-898746:7176443")
-    implementation fg.deobf("dev.lapis256:MekanismEmpowered-1.20.1:20.1.1.2.1")
-//    implementation fg.deobf("curse.maven:mekanism-empowered-1256390:7373726")
+//    implementation fg.deobf("dev.lapis256:MekanismEmpowered-1.20.1:20.1.1.2.1")
+    implementation fg.deobf("curse.maven:mekanism-empowered-1256390:7373726")
     implementation fg.deobf("curse.maven:mekanism-empowered-core-1256399:7373727")
 
     runtimeOnly fg.deobf("curse.maven:iglee-library-541199:6987117")
