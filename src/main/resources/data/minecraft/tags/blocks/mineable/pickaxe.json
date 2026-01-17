@@ -1,0 +1,265 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "morethermalevaporationcompat:basic_compact_thermal_evaporation",
+      "required": false
+    },
+    {
+      "id": "morethermalevaporationcompat:advanced_compact_thermal_evaporation",
+      "required": false
+    },
+    {
+      "id": "morethermalevaporationcompat:elite_compact_thermal_evaporation",
+      "required": false
+    },
+    {
+      "id": "morethermalevaporationcompat:ultimate_compact_thermal_evaporation",
+      "required": false
+    },
+    {
+      "id": "morethermalevaporationcompat:creative_compact_thermal_evaporation",
+      "required": false
+    },
+    {
+      "id": "morethermalevaporationcompat:absolute_thermal_evaporation_block",
+      "required": false
+    },
+    {
+      "id": "morethermalevaporationcompat:absolute_thermal_evaporation_valve",
+      "required": false
+    },
+    {
+      "id": "morethermalevaporationcompat:absolute_thermal_evaporation_controller",
+      "required": false
+    },
+    {
+      "id": "morethermalevaporationcompat:absolute_compact_thermal_evaporation",
+      "required": false
+    },
+    {
+      "id": "morethermalevaporationcompat:supreme_thermal_evaporation_block",
+      "required": false
+    },
+    {
+      "id": "morethermalevaporationcompat:supreme_thermal_evaporation_valve",
+      "required": false
+    },
+    {
+      "id": "morethermalevaporationcompat:supreme_thermal_evaporation_controller",
+      "required": false
+    },
+    {
+      "id": "morethermalevaporationcompat:supreme_compact_thermal_evaporation",
+      "required": false
+    },
+    {
+      "id": "morethermalevaporationcompat:cosmic_thermal_evaporation_block",
+      "required": false
+    },
+    {
+      "id": "morethermalevaporationcompat:cosmic_thermal_evaporation_valve",
+      "required": false
+    },
+    {
+      "id": "morethermalevaporationcompat:cosmic_thermal_evaporation_controller",
+      "required": false
+    },
+    {
+      "id": "morethermalevaporationcompat:cosmic_compact_thermal_evaporation",
+      "required": false
+    },
+    {
+      "id": "morethermalevaporationcompat:infinite_thermal_evaporation_block",
+      "required": false
+    },
+    {
+      "id": "morethermalevaporationcompat:infinite_thermal_evaporation_valve",
+      "required": false
+    },
+    {
+      "id": "morethermalevaporationcompat:infinite_thermal_evaporation_controller",
+      "required": false
+    },
+    {
+      "id": "morethermalevaporationcompat:infinite_compact_thermal_evaporation",
+      "required": false
+    },
+    {
+      "id": "morethermalevaporationcompat:overclocked_thermal_evaporation_block",
+      "required": false
+    },
+    {
+      "id": "morethermalevaporationcompat:overclocked_thermal_evaporation_valve",
+      "required": false
+    },
+    {
+      "id": "morethermalevaporationcompat:overclocked_thermal_evaporation_controller",
+      "required": false
+    },
+    {
+      "id": "morethermalevaporationcompat:overclocked_compact_thermal_evaporation",
+      "required": false
+    },
+    {
+      "id": "morethermalevaporationcompat:quantum_thermal_evaporation_block",
+      "required": false
+    },
+    {
+      "id": "morethermalevaporationcompat:quantum_thermal_evaporation_valve",
+      "required": false
+    },
+    {
+      "id": "morethermalevaporationcompat:quantum_thermal_evaporation_controller",
+      "required": false
+    },
+    {
+      "id": "morethermalevaporationcompat:quantum_compact_thermal_evaporation",
+      "required": false
+    },
+    {
+      "id": "morethermalevaporationcompat:dense_thermal_evaporation_block",
+      "required": false
+    },
+    {
+      "id": "morethermalevaporationcompat:dense_thermal_evaporation_valve",
+      "required": false
+    },
+    {
+      "id": "morethermalevaporationcompat:dense_thermal_evaporation_controller",
+      "required": false
+    },
+    {
+      "id": "morethermalevaporationcompat:dense_compact_thermal_evaporation",
+      "required": false
+    },
+    {
+      "id": "morethermalevaporationcompat:multiversal_thermal_evaporation_block",
+      "required": false
+    },
+    {
+      "id": "morethermalevaporationcompat:multiversal_thermal_evaporation_valve",
+      "required": false
+    },
+    {
+      "id": "morethermalevaporationcompat:multiversal_thermal_evaporation_controller",
+      "required": false
+    },
+    {
+      "id": "morethermalevaporationcompat:multiversal_compact_thermal_evaporation",
+      "required": false
+    },
+    {
+      "id": "morethermalevaporationcompat:vibration_thermal_evaporation_block",
+      "required": false
+    },
+    {
+      "id": "morethermalevaporationcompat:vibration_thermal_evaporation_valve",
+      "required": false
+    },
+    {
+      "id": "morethermalevaporationcompat:vibration_thermal_evaporation_controller",
+      "required": false
+    },
+    {
+      "id": "morethermalevaporationcompat:vibration_compact_thermal_evaporation",
+      "required": false
+    },
+    {
+      "id": "morethermalevaporationcompat:resonance_thermal_evaporation_block",
+      "required": false
+    },
+    {
+      "id": "morethermalevaporationcompat:resonance_thermal_evaporation_valve",
+      "required": false
+    },
+    {
+      "id": "morethermalevaporationcompat:resonance_thermal_evaporation_controller",
+      "required": false
+    },
+    {
+      "id": "morethermalevaporationcompat:resonance_compact_thermal_evaporation",
+      "required": false
+    },
+    {
+      "id": "morethermalevaporationcompat:illusion_thermal_evaporation_block",
+      "required": false
+    },
+    {
+      "id": "morethermalevaporationcompat:illusion_thermal_evaporation_valve",
+      "required": false
+    },
+    {
+      "id": "morethermalevaporationcompat:illusion_thermal_evaporation_controller",
+      "required": false
+    },
+    {
+      "id": "morethermalevaporationcompat:illusion_compact_thermal_evaporation",
+      "required": false
+    },
+    {
+      "id": "morethermalevaporationcompat:absolute_overclocked_thermal_evaporation_block",
+      "required": false
+    },
+    {
+      "id": "morethermalevaporationcompat:absolute_overclocked_thermal_evaporation_valve",
+      "required": false
+    },
+    {
+      "id": "morethermalevaporationcompat:absolute_overclocked_thermal_evaporation_controller",
+      "required": false
+    },
+    {
+      "id": "morethermalevaporationcompat:absolute_overclocked_compact_thermal_evaporation",
+      "required": false
+    },
+    {
+      "id": "morethermalevaporationcompat:supreme_quantum_thermal_evaporation_block",
+      "required": false
+    },
+    {
+      "id": "morethermalevaporationcompat:supreme_quantum_thermal_evaporation_valve",
+      "required": false
+    },
+    {
+      "id": "morethermalevaporationcompat:supreme_quantum_thermal_evaporation_controller",
+      "required": false
+    },
+    {
+      "id": "morethermalevaporationcompat:supreme_quantum_compact_thermal_evaporation",
+      "required": false
+    },
+    {
+      "id": "morethermalevaporationcompat:cosmic_dense_thermal_evaporation_block",
+      "required": false
+    },
+    {
+      "id": "morethermalevaporationcompat:cosmic_dense_thermal_evaporation_valve",
+      "required": false
+    },
+    {
+      "id": "morethermalevaporationcompat:cosmic_dense_thermal_evaporation_controller",
+      "required": false
+    },
+    {
+      "id": "morethermalevaporationcompat:cosmic_dense_compact_thermal_evaporation",
+      "required": false
+    },
+    {
+      "id": "morethermalevaporationcompat:infinite_multiversal_thermal_evaporation_block",
+      "required": false
+    },
+    {
+      "id": "morethermalevaporationcompat:infinite_multiversal_thermal_evaporation_valve",
+      "required": false
+    },
+    {
+      "id": "morethermalevaporationcompat:infinite_multiversal_thermal_evaporation_controller",
+      "required": false
+    },
+    {
+      "id": "morethermalevaporationcompat:infinite_multiversal_compact_thermal_evaporation",
+      "required": false
+    }
+  ]
+}
