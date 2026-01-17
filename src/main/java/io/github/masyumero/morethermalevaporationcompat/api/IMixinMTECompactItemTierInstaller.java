@@ -26,10 +26,15 @@ public interface IMixinMTECompactItemTierInstaller {
 
     TETier mteCompat$getToTier();
 
-    default InteractionResult mteCompat$useOn(UseOnContext ctx, Block block, BlockState state, BlockPos pos, Level world, Player player) {
+    default InteractionResult mteCompat$useOn(UseOnContext ctx) {
         if (!LoadConfig.MTE_COMPAT_CONFIG.upgradeable.get()) {
             return InteractionResult.PASS;
         }
+        Player player = ctx.getPlayer();
+        Level world = ctx.getLevel();
+        BlockPos pos = ctx.getClickedPos();
+        BlockState state = world.getBlockState(pos);
+        Block block = state.getBlock();
         MTECompatAttributeUpgradeable upgradeableBlock = Attribute.get(block, MTECompatAttributeUpgradeable.class);
         if (upgradeableBlock != null) {
             TETier baseTier = MTECompatAttribute.getTier(block);

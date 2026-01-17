@@ -1,19 +1,13 @@
 package io.github.masyumero.morethermalevaporationcompat.mixin;
 
-import com.llamalad7.mixinextras.sugar.Local;
 import io.github.masyumero.emextras.api.tier.EMExtraTier;
 import io.github.masyumero.emextras.common.item.EMExtraItemTierInstaller;
 import io.github.masyumero.morethermalevaporationcompat.api.IMixinMTECompactItemTierInstaller;
 import io.github.masyumero.morethermalevaporationcompat.common.tier.TETier;
 import io.github.masyumero.morethermalevaporationcompat.common.util.TierUtils;
-import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.context.UseOnContext;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.state.BlockState;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Mutable;
@@ -44,15 +38,8 @@ public abstract class MixinEMExtraItemTierInstaller implements IMixinMTECompactI
     }
 
     @Inject(method = "useOn", at = @At(value = "TAIL"), remap = true, cancellable = true)
-    private void useOnInject(
-            UseOnContext context,
-            CallbackInfoReturnable<InteractionResult> cir,
-            @Local(name = "block") Block block,
-            @Local(name = "state") BlockState state,
-            @Local(name = "pos") BlockPos pos,
-            @Local(name = "world") Level world,
-            @Local(name = "player") Player player) {
-        cir.setReturnValue(mteCompat$useOn(context, block, state, pos, world, player));
+    private void useOnInject(UseOnContext context, CallbackInfoReturnable<InteractionResult> cir) {
+        cir.setReturnValue(mteCompat$useOn(context));
     }
 
     @Override
