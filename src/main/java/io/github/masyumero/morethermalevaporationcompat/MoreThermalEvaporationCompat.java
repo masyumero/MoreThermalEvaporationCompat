@@ -28,6 +28,7 @@ public class MoreThermalEvaporationCompat {
     public static final String MOD_NAME = "MoreThermalEvaporationCompat";
     public static final Logger LOGGER = LogUtils.getLogger();
     public static final boolean JEI_MEK_LOADED = ModList.get().isLoaded("jei_mekanism_multiblocks");
+    public static final boolean MEK_EMP_LOADED = ModList.get().isLoaded("mekanism_empowered");
 
     @SuppressWarnings("removal")
     public static ResourceLocation rl(String id) {

@@ -131,9 +131,9 @@ repositories {
 
     // If you have mod jar dependencies in ./libs, you can declare them as a repository like so.
     // See https://docs.gradle.org/current/userguide/declaring_repositories.html#sub:flat_dir_resolver
-    // flatDir {
-    //     dir 'libs'
-    // }
+    flatDir {
+        dir 'libs'
+    }
     maven { url 'https://modmaven.dev/' }
     maven {
         url "https://cursemaven.com"
@@ -159,10 +159,13 @@ dependencies {
     implementation fg.deobf("mezz.jei:jei-${minecraft_version}-forge:${jei_version}")
     implementation fg.deobf("curse.maven:astral-mekanism-1415150:7411577")
     implementation fg.deobf("curse.maven:mekanism-extras-1026040:6936409")
-    implementation fg.deobf("curse.maven:morethermalevaporation-1406469:7441029")
+    implementation fg.deobf("curse.maven:morethermalevaporation-1406469:7472289")
     implementation fg.deobf("curse.maven:evolved-mekanism-extras-1268159:7471169")
     implementation fg.deobf("curse.maven:compact-mekanism-machines-1161015:7388773")
     implementation fg.deobf("curse.maven:just-enough-mekanism-multiblocks-898746:7176443")
+    implementation fg.deobf("dev.lapis256:MekanismEmpowered-1.20.1:20.1.1.2.1")
+//    implementation fg.deobf("curse.maven:mekanism-empowered-1256390:7373726")
+    implementation fg.deobf("curse.maven:mekanism-empowered-core-1256399:7373727")
 
     runtimeOnly fg.deobf("curse.maven:iglee-library-541199:6987117")
     runtimeOnly fg.deobf("mekanism:Mekanism:1.20.1-${mekanism_version}:tools")
@@ -171,6 +174,7 @@ dependencies {
     runtimeOnly fg.deobf("curse.maven:applied-mekanistics-574300:4842281")
     runtimeOnly fg.deobf("curse.maven:botany-pots-353928:6348581")
     runtimeOnly fg.deobf("curse.maven:bookshelf-228525:5423987")
+    runtimeOnly fg.deobf("curse.maven:kotlin-for-forge-351264:7291067")
 
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 

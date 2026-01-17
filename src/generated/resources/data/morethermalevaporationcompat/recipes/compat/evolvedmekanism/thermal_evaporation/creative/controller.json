@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "morethermalevaporation:creative_thermal_evaporation_block"
+    },
+    "C": {
+      "item": "evolvedmekanism:creative_control_circuit"
+    },
+    "G": {
+      "tag": "forge:glass_panes"
+    },
+    "O": {
+      "item": "morethermalevaporationcompat:multiversal_thermal_evaporation_controller"
+    }
+  },
+  "pattern": [
+    "CGC",
+    "#O#",
+    "###"
+  ],
+  "result": {
+    "item": "morethermalevaporation:creative_thermal_evaporation_controller"
+  }
+}

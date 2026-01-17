@@ -77,6 +77,7 @@ public class TieredThermalEvaporationMultiblockData extends MultiblockData imple
     private final BooleanSupplier recheckAllRecipeErrors;
     @ContainerSync
     private final boolean[] trackedErrors = new boolean[TRACKED_ERROR_TYPES.size()];
+    private final TETier tier;
     private final Int2ObjectMap<NonNullConsumer<LazyOptional<IEvaporationSolar>>> cachedSolarListeners = new Int2ObjectArrayMap<>(4);
     private final Int2ObjectMap<LazyOptional<IEvaporationSolar>> cachedSolar = new Int2ObjectArrayMap<>(4);
     private final IOutputHandler<@NotNull FluidStack> outputHandler;
@@ -104,6 +105,7 @@ public class TieredThermalEvaporationMultiblockData extends MultiblockData imple
 
     public TieredThermalEvaporationMultiblockData(TileEntityTieredThermalEvaporationBlock tile, TETier tier) {
         super(tile);
+        this.tier = tier;
         recipeCacheLookupMonitor = new RecipeCacheLookupMonitor<>(this);
         recheckAllRecipeErrors = TileEntityRecipeMachine.shouldRecheckAllErrors(tile);
         biomeAmbientTemp = HeatAPI.getAmbientTemp(tile.getLevel(), tile.getTilePos());
@@ -196,7 +198,7 @@ public class TieredThermalEvaporationMultiblockData extends MultiblockData imple
         if (getVolume() != volume) {
             super.setVolume(volume);
             //Note: We only count the inner volume for the tank capacity for the evap tower
-            inputTankCapacity = (volume / 4) * MekanismConfig.general.evaporationFluidPerTank.get();
+            inputTankCapacity = (volume / 4) * tier.getInputTankCapacity();
         }
     }
 

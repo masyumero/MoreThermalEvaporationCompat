@@ -115,7 +115,7 @@ public class TileEntityTieredCompactThermalEvaporation extends TileEntityConfigu
 
         FluidTankHelper builder = FluidTankHelper.forSideWithConfig(this::getDirection,this::getConfig);
 
-        builder.addTank(inputTank = new FluidTank(() -> tier.getOutputTankCapacity() * 2, ConstantPredicates.internalOnly(), ConstantPredicates.alwaysTrueBi(), this::containsRecipe, createSaveAndComparator()));
+        builder.addTank(inputTank = new FluidTank(() -> (tier.getHeight() / 4) * tier.getInputTankCapacity(), ConstantPredicates.internalOnly(), ConstantPredicates.alwaysTrueBi(), this::containsRecipe, createSaveAndComparator()));
         builder.addTank(outputTank = new FluidTank(tier::getOutputTankCapacity, ConstantPredicates.alwaysTrueBi(), ConstantPredicates.internalOnly(), (fluidStack -> true), this));
         return builder.build();
     }

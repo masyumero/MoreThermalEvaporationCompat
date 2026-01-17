@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "morethermalevaporationcompat:multiversal_thermal_evaporation_block"
+    },
+    "A": {
+      "item": "evolvedmekanism:alloy_creative"
+    },
+    "C": {
+      "item": "evolvedmekanism:creative_control_circuit"
+    }
+  },
+  "pattern": [
+    "A#A",
+    "#C#",
+    "A#A"
+  ],
+  "result": {
+    "count": 4,
+    "item": "morethermalevaporation:creative_thermal_evaporation_block"
+  }
+}
