@@ -1,9 +1,9 @@
 package io.github.masyumero.morethermalevaporationcompat.common.tile;
 
-import fr.iglee42.evolvedmekanism.registries.EMUpgrades;
 import io.github.masyumero.morethermalevaporationcompat.common.block.attribute.MTECompatAttribute;
 import io.github.masyumero.morethermalevaporationcompat.common.tier.TETier;
 import io.github.masyumero.morethermalevaporationcompat.common.upgrade.TieredCompactThermalEvaporationUpgradeData;
+import io.github.masyumero.morethermalevaporationcompat.common.util.UpgradeUtils;
 import mekanism.api.AutomationType;
 import mekanism.api.IContentsListener;
 import mekanism.api.RelativeSide;
@@ -270,7 +270,7 @@ public class TileEntityTieredCompactThermalEvaporation extends TileEntityConfigu
     @Override
     public void recalculateUpgrades(Upgrade upgrade) {
         super.recalculateUpgrades(upgrade);
-        if (upgrade == EMUpgrades.SOLAR_UPGRADE) {
+        if (UpgradeUtils.isSolarUpgrade(upgrade)) {
             upgradeCount = upgradeComponent.getUpgrades(upgrade);
         }
     }

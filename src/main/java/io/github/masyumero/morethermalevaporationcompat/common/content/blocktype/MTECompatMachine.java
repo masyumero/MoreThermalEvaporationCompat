@@ -1,5 +1,7 @@
 package io.github.masyumero.morethermalevaporationcompat.common.content.blocktype;
 
+import fr.iglee42.evolvedmekanism.registries.EMUpgrades;
+import io.github.masyumero.morethermalevaporationcompat.EvolvedModule;
 import io.github.masyumero.morethermalevaporationcompat.common.block.attribute.MTECompatAttributeUpgradeable;
 import io.github.masyumero.morethermalevaporationcompat.common.registries.MoreThermalEvaporationCompatBlocks;
 import io.github.masyumero.morethermalevaporationcompat.common.tier.TETier;
@@ -27,7 +29,11 @@ public class MTECompatMachine<TILE extends TileEntityMekanism> extends MTECompat
                 .add(ParticleTypes.SMOKE, rand -> new Pos3D(rand.nextFloat() * 0.6F - 0.3F, rand.nextFloat() * 6.0F / 16.0F, 0.52))
                 .add(DustParticleOptions.REDSTONE, rand -> new Pos3D(rand.nextFloat() * 0.6F - 0.3F, rand.nextFloat() * 6.0F / 16.0F, 0.52)));
         add(Attributes.ACTIVE_LIGHT, new AttributeStateFacing(), Attributes.INVENTORY, Attributes.SECURITY, Attributes.REDSTONE, Attributes.COMPARATOR);
-        add(new AttributeUpgradeSupport(EnumSet.of(Upgrade.SPEED, Upgrade.ENERGY, Upgrade.MUFFLING)));
+        if (EvolvedModule.EvolvedLoaded) {
+            add(new AttributeUpgradeSupport(EnumSet.of(Upgrade.SPEED, Upgrade.ENERGY, Upgrade.MUFFLING, EMUpgrades.SOLAR_UPGRADE)));
+        } else {
+            add(new AttributeUpgradeSupport(EnumSet.of(Upgrade.SPEED, Upgrade.ENERGY, Upgrade.MUFFLING)));
+        }
 
         if (!(tier == TETier.INFINITE || tier == TETier.MULTIVERSAL || tier == TETier.ILLUSION || tier == TETier.INFINITE_MULTIVERSAL)) {
             add(new MTECompatAttributeUpgradeable(() -> MoreThermalEvaporationCompatBlocks.getCompactBlock(MTECompatEnumUtils.THERMAL_EVAPORATION_TIERS[tier.ordinal() + 1])));

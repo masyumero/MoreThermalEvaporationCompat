@@ -14,6 +14,6 @@ public class MixinMoreThermalEvaporationBlockTypes {
 
     @ModifyArg(method = "createMoreThermalEvaporationController", at = @At(value = "INVOKE", target = "Lmekanism/common/content/blocktype/BlockTypeTile$BlockTileBuilder;withSupportedUpgrades(Ljava/util/Set;)Lmekanism/common/content/blocktype/BlockTypeTile$BlockTileBuilder;", ordinal = 0))
     private static Set<Upgrade> supportUpgradesModify(Set<Upgrade> upgrades) {
-        return UpgradeUtils.getUpgrades();
+        return UpgradeUtils.addUpgrades(upgrades);
     }
 }
