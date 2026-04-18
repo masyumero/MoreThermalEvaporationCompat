@@ -11,9 +11,9 @@ import net.minecraft.world.level.block.state.BlockState;
 import org.spongepowered.asm.mixin.Mixin;
 
 @Mixin(value = TileEntityMoreThermalEvaporationController.class, remap = false)
-public abstract class MixinTileEntityAdvancedThermalEvaporationController extends TileEntityMoreThermalEvaporationBlock {
+public abstract class MixinTileEntityMoreThermalEvaporationController extends TileEntityMoreThermalEvaporationBlock {
 
-    public MixinTileEntityAdvancedThermalEvaporationController(MoreThermalEvaporationTier tier, BlockPos pos, BlockState state) {
+    public MixinTileEntityMoreThermalEvaporationController(MoreThermalEvaporationTier tier, BlockPos pos, BlockState state) {
         super(tier, pos, state);
     }
 

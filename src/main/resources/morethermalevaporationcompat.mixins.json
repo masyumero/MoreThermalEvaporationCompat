@@ -5,12 +5,12 @@
   "compatibilityLevel": "JAVA_17",
   "refmap": "morethermalevaporationcompat.refmap.json",
   "mixins": [
-    "MixinAdvancedThermalEvaporationMultiblockData",
     "MixinEMExtraItemTierInstaller",
     "MixinExtraItemTierInstaller",
     "MixinItemTierInstaller",
     "MixinMoreThermalEvaporationBlockTypes",
-    "MixinTileEntityAdvancedThermalEvaporationController"
+    "MixinMoreThermalEvaporationMultiblockData",
+    "MixinTileEntityMoreThermalEvaporationController"
   ],
   "client": [
   ],

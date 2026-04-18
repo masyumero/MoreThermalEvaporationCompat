@@ -1,4 +1,4 @@
-package io.github.masyumero.morethermalevaporationcompat.client.tileentity;
+package io.github.masyumero.morethermalevaporationcompat.client.render.tileentity;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;

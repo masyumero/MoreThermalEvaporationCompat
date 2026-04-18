@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
 
 @Mixin(value = MoreThermalEvaporationMultiblockData.class, remap = false)
-public abstract class MixinAdvancedThermalEvaporationMultiblockData implements IThermalEvaporationMultiblockData {
+public abstract class MixinMoreThermalEvaporationMultiblockData implements IThermalEvaporationMultiblockData {
 
     @Shadow
     abstract int getActiveSolars();

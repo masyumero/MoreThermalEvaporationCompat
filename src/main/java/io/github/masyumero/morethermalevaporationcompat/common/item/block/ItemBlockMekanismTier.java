@@ -23,10 +23,6 @@ public class ItemBlockMekanismTier<BLOCK extends Block & IHasDescription> extend
         this(block, properties, tier.getColor().getValue());
     }
 
-    public ItemBlockMekanismTier(BLOCK block, Properties properties, BaseTier tier) {
-        this(block, properties, tier.getColor().getValue());
-    }
-
     @Override
     public @NotNull Component getName(@NotNull ItemStack stack) {
         return TextComponentUtil.color(super.getName(stack).copy(), color);

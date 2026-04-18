@@ -35,27 +35,25 @@ public class MTECompatConfig extends BaseMekanismConfig {
 
         builder.push("Tier");
         for (TETier tier : MTECompatEnumUtils.THERMAL_EVAPORATION_TIERS) {
-            if (!tier.isCompactOnly()) {
-                builder.push(tier.getSimpleName().formatted(tier.getLowerName().replace("_", "")));
-                builder.comment("Settings for the %s Tier".formatted(tier.getSimpleName()));
-                var outputTankCapacity = CachedIntValue.wrap(this, builder
-                                .comment("Amount of output fluid (mB) that the %s Evaporation Plant can store.".formatted(tier.getSimpleName().replace("_", " ")))
-                                .defineInRange("%sEvaporationOutputTankCapacity".formatted(tier.getLowerName().replace("_", "")), tier.getBaseOutputTankCapacity(), 1, Integer.MAX_VALUE));
-                var inputTankCapacity = CachedIntValue.wrap(this, builder
-                        .comment("Amount of fluid (mB) that each block of the %s Thermal Evaporation Plant contributes to the input tank capacity. Max = volume * fluidPerTank".formatted(tier.getSimpleName().replace("_", " ")))
-                        .defineInRange("%sThermalEvaporationInputTankCapacity".formatted(tier.getLowerName().replace("_", "")), tier.getBaseInputTankCapacity(), 1, 29826161));
-                var height = CachedIntValue.wrap(this, builder
-                        .comment("Buildable Height (in blocks) for the %s Evaporation Plant.".formatted(tier.getSimpleName().replace("_", " ")))
-                        .defineInRange("%sEvaporationPlantHeight".formatted(tier.getLowerName().replace("_", "")), 18, 18, tier.getBaseHeight()));
-                var maxMultiplierTemp = CachedDoubleValue.wrap(this, builder.
-                        comment("Maximum temperature capping the temperature multiplier for the %s Thermal Evaporation Plant.".formatted(tier.getSimpleName().replace("_", " ")))
-                        .defineInRange("%sThermalEvaporationMultiplierTempCap".formatted(tier.getLowerName().replace("_", "")), tier.getBaseMaxMultiplierTemp(), 3000, 2147483646));
-                outputTankCapacityConfig.put(tier, outputTankCapacity);
-                inputTankCapacityConfig.put(tier, inputTankCapacity);
-                heightConfig.put(tier, height);
-                maxMultiplierTempConfig.put(tier, maxMultiplierTemp);
-                builder.pop();
-            }
+            builder.push(tier.getSimpleName().formatted(tier.getLowerName().replace("_", "")));
+            builder.comment("Settings for the %s Tier".formatted(tier.getSimpleName()));
+            var outputTankCapacity = CachedIntValue.wrap(this, builder
+                    .comment("Amount of output fluid (mB) that the %s Evaporation Plant can store.".formatted(tier.getSimpleName().replace("_", " ")))
+                    .defineInRange("%sEvaporationOutputTankCapacity".formatted(tier.getLowerName().replace("_", "")), tier.getBaseOutputTankCapacity(), 1, Integer.MAX_VALUE));
+            var inputTankCapacity = CachedIntValue.wrap(this, builder
+                    .comment("Amount of fluid (mB) that each block of the %s Thermal Evaporation Plant contributes to the input tank capacity. Max = volume * fluidPerTank".formatted(tier.getSimpleName().replace("_", " ")))
+                    .defineInRange("%sThermalEvaporationInputTankCapacity".formatted(tier.getLowerName().replace("_", "")), tier.getBaseInputTankCapacity(), 1, 29826161));
+            var height = CachedIntValue.wrap(this, builder
+                    .comment("Buildable Height (in blocks) for the %s Evaporation Plant.".formatted(tier.getSimpleName().replace("_", " ")))
+                    .defineInRange("%sEvaporationPlantHeight".formatted(tier.getLowerName().replace("_", "")), 18, 18, tier.getBaseHeight()));
+            var maxMultiplierTemp = CachedDoubleValue.wrap(this, builder.
+                    comment("Maximum temperature capping the temperature multiplier for the %s Thermal Evaporation Plant.".formatted(tier.getSimpleName().replace("_", " ")))
+                    .defineInRange("%sThermalEvaporationMultiplierTempCap".formatted(tier.getLowerName().replace("_", "")), tier.getBaseMaxMultiplierTemp(), 3000, 2147483646));
+            outputTankCapacityConfig.put(tier, outputTankCapacity);
+            inputTankCapacityConfig.put(tier, inputTankCapacity);
+            heightConfig.put(tier, height);
+            maxMultiplierTempConfig.put(tier, maxMultiplierTemp);
+            builder.pop();
         }
         builder.pop();
         this.configSpec = builder.build();
@@ -90,10 +88,5 @@ public class MTECompatConfig extends BaseMekanismConfig {
     @Override
     public ModConfig.Type getConfigType() {
         return ModConfig.Type.COMMON;
-    }
-
-    @Override
-    public boolean addToContainer() {
-        return false;
     }
 }

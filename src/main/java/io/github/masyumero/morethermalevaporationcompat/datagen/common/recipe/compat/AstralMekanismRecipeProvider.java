@@ -11,13 +11,14 @@ import io.github.masyumero.morethermalevaporationcompat.datagen.common.recipe.pa
 import mekanism.api.annotations.NothingNullByDefault;
 import mekanism.api.recipes.ingredients.creator.IngredientCreatorAccess;
 import morethermalevaporation.common.registries.MoreThermalEvaporationBlocks;
+import morethermalevaporation.common.tier.MoreThermalEvaporationTier;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.common.Tags;
 
 import java.util.function.Consumer;
 
-import static astral_mekanism.registries.AstralMekanismItems.*;
+import static astral_mekanism.registries.AMEItems.*;
 
 @NothingNullByDefault
 public class AstralMekanismRecipeProvider extends CompatRecipeProvider{
@@ -41,17 +42,17 @@ public class AstralMekanismRecipeProvider extends CompatRecipeProvider{
     }
 
     private static void tieredBlock(Consumer<FinishedRecipe> consumer, String basePath) {
-        ExtendedShapedRecipeBuilder.shapedRecipe(MoreThermalEvaporationCompatBlocks.getCasingBlock(TETier.VIBRATION), 4).blockPattern().key(Pattern.ALLOY, ELASTIC_ALLOY).key(Pattern.CIRCUIT, VIBRATION_CONTROL_CIRCUIT).key(Pattern.CONSTANT, MoreThermalEvaporationBlocks.ULTIMATE_THERMAL_EVAPORATION_BLOCK).build(consumer, MoreThermalEvaporationCompat.rl(basePath+ "resonance/block"));
+        ExtendedShapedRecipeBuilder.shapedRecipe(MoreThermalEvaporationCompatBlocks.getCasingBlock(TETier.VIBRATION), 4).blockPattern().key(Pattern.ALLOY, ELASTIC_ALLOY).key(Pattern.CIRCUIT, VIBRATION_CONTROL_CIRCUIT).key(Pattern.CONSTANT, MoreThermalEvaporationBlocks.BLOCKS.get(MoreThermalEvaporationTier.ULTIMATE)).build(consumer, MoreThermalEvaporationCompat.rl(basePath+ "resonance/block"));
         ExtendedShapedRecipeBuilder.shapedRecipe(MoreThermalEvaporationCompatBlocks.getCasingBlock(TETier.RESONANCE), 4).blockPattern().key(Pattern.ALLOY, CONVERGENT_ALLOY).key(Pattern.CIRCUIT, RESONANCE_CONTROL_CIRCUIT).key(Pattern.CONSTANT, MoreThermalEvaporationCompatBlocks.getCasingBlock(TETier.VIBRATION)).build(consumer, MoreThermalEvaporationCompat.rl(basePath+ "vibration/block"));
     }
 
     private static void tieredController(Consumer<FinishedRecipe> consumer, String basePath) {
-        ExtendedShapedRecipeBuilder.shapedRecipe(MoreThermalEvaporationCompatBlocks.getControllerBlock(TETier.VIBRATION)).controllerPattern().key(Pattern.CIRCUIT, VIBRATION_CONTROL_CIRCUIT).key(Pattern.OTHER, MoreThermalEvaporationBlocks.ULTIMATE_THERMAL_EVAPORATION_CONTROLLER).key(Pattern.CONSTANT, MoreThermalEvaporationCompatBlocks.getCasingBlock(TETier.VIBRATION)).key(MTECompatRecipeProvider.GLASS_CHAR, Tags.Items.GLASS_PANES).build(consumer, MoreThermalEvaporationCompat.rl(basePath+ "resonance/controller"));
+        ExtendedShapedRecipeBuilder.shapedRecipe(MoreThermalEvaporationCompatBlocks.getControllerBlock(TETier.VIBRATION)).controllerPattern().key(Pattern.CIRCUIT, VIBRATION_CONTROL_CIRCUIT).key(Pattern.OTHER, MoreThermalEvaporationBlocks.CONTROLLERS.get(MoreThermalEvaporationTier.ULTIMATE)).key(Pattern.CONSTANT, MoreThermalEvaporationCompatBlocks.getCasingBlock(TETier.VIBRATION)).key(MTECompatRecipeProvider.GLASS_CHAR, Tags.Items.GLASS_PANES).build(consumer, MoreThermalEvaporationCompat.rl(basePath+ "resonance/controller"));
         ExtendedShapedRecipeBuilder.shapedRecipe(MoreThermalEvaporationCompatBlocks.getControllerBlock(TETier.RESONANCE)).controllerPattern().key(Pattern.CIRCUIT, RESONANCE_CONTROL_CIRCUIT).key(Pattern.OTHER, MoreThermalEvaporationCompatBlocks.getControllerBlock(TETier.VIBRATION)).key(Pattern.CONSTANT, MoreThermalEvaporationCompatBlocks.getCasingBlock(TETier.RESONANCE)).key(MTECompatRecipeProvider.GLASS_CHAR, Tags.Items.GLASS_PANES).build(consumer, MoreThermalEvaporationCompat.rl(basePath+ "vibration/controller"));
     }
 
     private static void tieredValve(Consumer<FinishedRecipe> consumer, String basePath) {
-        ExtendedShapedRecipeBuilder.shapedRecipe(MoreThermalEvaporationCompatBlocks.getValveBlock(TETier.VIBRATION)).valvePattern().key(Pattern.CONSTANT, MoreThermalEvaporationCompatBlocks.getCasingBlock(TETier.VIBRATION)).key(Pattern.OTHER, MoreThermalEvaporationBlocks.ULTIMATE_THERMAL_EVAPORATION_VALVE).build(consumer, MoreThermalEvaporationCompat.rl(basePath+ "resonance/valve"));
+        ExtendedShapedRecipeBuilder.shapedRecipe(MoreThermalEvaporationCompatBlocks.getValveBlock(TETier.VIBRATION)).valvePattern().key(Pattern.CONSTANT, MoreThermalEvaporationCompatBlocks.getCasingBlock(TETier.VIBRATION)).key(Pattern.OTHER, MoreThermalEvaporationBlocks.VALVES.get(MoreThermalEvaporationTier.ULTIMATE)).build(consumer, MoreThermalEvaporationCompat.rl(basePath+ "resonance/valve"));
         ExtendedShapedRecipeBuilder.shapedRecipe(MoreThermalEvaporationCompatBlocks.getValveBlock(TETier.RESONANCE)).valvePattern().key(Pattern.CONSTANT, MoreThermalEvaporationCompatBlocks.getCasingBlock(TETier.RESONANCE)).key(Pattern.OTHER, MoreThermalEvaporationCompatBlocks.getValveBlock(TETier.VIBRATION)).build(consumer, MoreThermalEvaporationCompat.rl(basePath+ "vibration/valve"));
     }
 }

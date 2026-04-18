@@ -1,6 +1,6 @@
 package io.github.masyumero.morethermalevaporationcompat.api.datagen.recipe.builder;
 
-import astral_mekanism.AstralMekanismID;
+import astral_mekanism.AMEConstants;
 import com.google.gson.JsonObject;
 import io.github.masyumero.morethermalevaporationcompat.common.util.ChemicalUtils;
 import io.github.masyumero.morethermalevaporationcompat.common.util.ItemUtils;
@@ -20,10 +20,10 @@ import net.minecraft.world.level.material.Fluids;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.function.Consumer;
 
-import static astral_mekanism.registries.AstralMekanismItems.ELASTIC_ALLOY;
-import static astral_mekanism.registries.AstralMekanismItems.ILLUSION_CONTROL_CIRCUIT;
-import static astral_mekanism.registries.AstralMekanismItems.SPACETIME_MODULATION_CORE;
-import static astral_mekanism.registries.AstralMekanismItems.STARDUST_ALLOY;
+import static astral_mekanism.registries.AMEItems.ELASTIC_ALLOY;
+import static astral_mekanism.registries.AMEItems.ILLUSION_CONTROL_CIRCUIT;
+import static astral_mekanism.registries.AMEItems.SPACETIME_MODULATION_CORE;
+import static astral_mekanism.registries.AMEItems.STARDUST_ALLOY;
 import static com.jerry.mekanism_extras.common.registry.ExtraItem.SPECTRUM_ALLOY;
 import static fr.iglee42.evolvedmekanism.registries.EMItems.EXOVERSAL_ALLOY;
 import static io.github.masyumero.emextras.common.registry.EMExtrasItem.INFINITE_MULTIVERSAL_CONTROL_CIRCUIT;
@@ -48,7 +48,7 @@ public class AstralCraftingRecipeBuilder extends MekanismRecipeBuilder<AstralCra
     private final ItemStack output;
 
     protected AstralCraftingRecipeBuilder(ItemStackIngredient[] inputItems, FluidStackIngredient inputFluid, ChemicalStackIngredient.GasStackIngredient inputGas, ItemStack output) {
-        super(AstralMekanismID.rl("astral_crafting"));
+        super(AMEConstants.rl("astral_crafting"));
         this.inputItems = new ItemStackIngredient[SLOT_COUNT];
         for (int i = 0; i < SLOT_COUNT; i++) {
             this.inputItems[i] = inputItems[i % inputItems.length];

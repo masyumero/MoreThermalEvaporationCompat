@@ -15,7 +15,7 @@ public class TierUtils {
         } else if (tierObject instanceof EMExtraTier tier) {
             return getTETier(tier.getLowerName());
         } else {
-            return TETier.BASIC;
+            return TETier.ABSOLUTE;
         }
     }
 
@@ -25,6 +25,6 @@ public class TierUtils {
                 return tier;
             }
         }
-        return TETier.BASIC;
+        return TETier.ABSOLUTE;
     }
 }

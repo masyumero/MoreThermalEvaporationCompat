@@ -2,7 +2,6 @@ package io.github.masyumero.morethermalevaporationcompat.common.registries;
 
 import com.google.common.collect.HashBasedTable;
 import com.google.common.collect.Table;
-import io.github.masyumero.morethermalevaporationcompat.CompactModule;
 import io.github.masyumero.morethermalevaporationcompat.MoreThermalEvaporationCompat;
 import io.github.masyumero.morethermalevaporationcompat.common.content.blocktype.MTECompatMultiPartType;
 import io.github.masyumero.morethermalevaporationcompat.common.item.block.ItemBlockMekanismTier;
@@ -29,14 +28,10 @@ public class MoreThermalEvaporationCompatBlocks {
     static {
         for (TETier tier : MTECompatEnumUtils.THERMAL_EVAPORATION_TIERS) {
             if (tier.isModLoaded()) {
-                if (!tier.isCompactOnly()) {
-                    BLOCK_TABLE.put(tier, MTECompatMultiPartType.BLOCK, MoreThermalEvaporationCompatBlocks.registerBlock(tier.getLowerName() + "_thermal_evaporation_block", () -> new BlockBasicMultiblock<>(MoreThermalEvaporationCompatBlockTypes.getBlockType(tier, MTECompatMultiPartType.BLOCK), properties -> properties.mapColor(tier.getMapColor())), tier));
-                    BLOCK_TABLE.put(tier, MTECompatMultiPartType.VALVE, MoreThermalEvaporationCompatBlocks.registerBlock(tier.getLowerName() + "_thermal_evaporation_valve", () -> new BlockBasicMultiblock<>(MoreThermalEvaporationCompatBlockTypes.getBlockType(tier, MTECompatMultiPartType.VALVE), properties -> properties.mapColor(tier.getMapColor())), tier));
-                    BLOCK_TABLE.put(tier, MTECompatMultiPartType.CONTROLLER, MoreThermalEvaporationCompatBlocks.registerBlock(tier.getLowerName() + "_thermal_evaporation_controller", () -> new BlockBasicMultiblock<>(MoreThermalEvaporationCompatBlockTypes.getBlockType(tier, MTECompatMultiPartType.CONTROLLER), properties -> properties.mapColor(tier.getMapColor())), tier));
-                }
-                if (CompactModule.CompactLoaded) {
-                    COMPACT_BLOCK_TABLE.put(tier, MoreThermalEvaporationCompatBlocks.registerBlock(tier.getLowerName() + "_compact_thermal_evaporation", () -> new BlockTile.BlockTileModel<>(MoreThermalEvaporationCompatBlockTypes.getCompactBlockType(tier), properties -> properties.mapColor(tier.getMapColor())), tier));
-                }
+                BLOCK_TABLE.put(tier, MTECompatMultiPartType.BLOCK, MoreThermalEvaporationCompatBlocks.registerBlock(tier.getLowerName() + "_thermal_evaporation_block", () -> new BlockBasicMultiblock<>(MoreThermalEvaporationCompatBlockTypes.getBlockType(tier, MTECompatMultiPartType.BLOCK), properties -> properties.mapColor(tier.getMapColor())), tier));
+                BLOCK_TABLE.put(tier, MTECompatMultiPartType.VALVE, MoreThermalEvaporationCompatBlocks.registerBlock(tier.getLowerName() + "_thermal_evaporation_valve", () -> new BlockBasicMultiblock<>(MoreThermalEvaporationCompatBlockTypes.getBlockType(tier, MTECompatMultiPartType.VALVE), properties -> properties.mapColor(tier.getMapColor())), tier));
+                BLOCK_TABLE.put(tier, MTECompatMultiPartType.CONTROLLER, MoreThermalEvaporationCompatBlocks.registerBlock(tier.getLowerName() + "_thermal_evaporation_controller", () -> new BlockBasicMultiblock<>(MoreThermalEvaporationCompatBlockTypes.getBlockType(tier, MTECompatMultiPartType.CONTROLLER), properties -> properties.mapColor(tier.getMapColor())), tier));
+                COMPACT_BLOCK_TABLE.put(tier, MoreThermalEvaporationCompatBlocks.registerBlock(tier.getLowerName() + "_compact_thermal_evaporation", () -> new BlockTile.BlockTileModel<>(MoreThermalEvaporationCompatBlockTypes.getCompactBlockType(tier), properties -> properties.mapColor(tier.getMapColor())), tier));
             }
         }
     }

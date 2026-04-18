@@ -1,6 +1,6 @@
 package io.github.masyumero.morethermalevaporationcompat.datagen.common.recipe.compat;
 
-import astral_mekanism.registries.AstralMekanismItems;
+import astral_mekanism.registries.AMEItems;
 import com.jerry.mekanism_extras.common.registry.ExtraItem;
 import fr.iglee42.evolvedmekanism.registries.EMItems;
 import io.github.masyumero.morethermalevaporationcompat.MoreThermalEvaporationCompat;
@@ -12,7 +12,6 @@ import io.github.masyumero.morethermalevaporationcompat.datagen.common.recipe.pa
 import io.github.masyumero.morethermalevaporationcompat.datagen.common.recipe.pattern.RecipePattern;
 import mekanism.api.annotations.NothingNullByDefault;
 import mekanism.api.recipes.ingredients.creator.IngredientCreatorAccess;
-import mekanism.common.tags.MekanismTags;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.world.item.ItemStack;
 
@@ -50,10 +49,6 @@ public class CompactRecipeProvider extends CompatRecipeProvider {
     private static void tieredController(Consumer<FinishedRecipe> consumer, String basePath) {
         for (TETier tier : MTECompatEnumUtils.THERMAL_EVAPORATION_TIERS) {
             switch (tier) {
-                case BASIC -> ExtendedShapedRecipeBuilder.shapedRecipe(tier.getCompactBlock()).pattern(PATTERN).key(Pattern.PREVIOUS, tier.getControllerBlock()).key(Pattern.ALLOY, MekanismTags.Items.ALLOYS_BASIC).key(Pattern.CONSTANT, tier.getCasingBlock()).build(consumer, MoreThermalEvaporationCompat.rl(basePath + tier.getLowerName() + "/compact"));
-                case ADVANCED -> ExtendedShapedRecipeBuilder.shapedRecipe(tier.getCompactBlock()).pattern(PATTERN).key(Pattern.PREVIOUS, tier.getControllerBlock()).key(Pattern.ALLOY, MekanismTags.Items.ALLOYS_ADVANCED).key(Pattern.CONSTANT, tier.getCasingBlock()).build(consumer, MoreThermalEvaporationCompat.rl(basePath + tier.getLowerName() + "/compact"));
-                case ELITE ->  ExtendedShapedRecipeBuilder.shapedRecipe(tier.getCompactBlock()).pattern(PATTERN).key(Pattern.PREVIOUS, tier.getControllerBlock()).key(Pattern.ALLOY, MekanismTags.Items.ALLOYS_ELITE).key(Pattern.CONSTANT, tier.getCasingBlock()).build(consumer, MoreThermalEvaporationCompat.rl(basePath + tier.getLowerName() + "/compact"));
-                case ULTIMATE -> ExtendedShapedRecipeBuilder.shapedRecipe(tier.getCompactBlock()).pattern(PATTERN).key(Pattern.PREVIOUS, tier.getControllerBlock()).key(Pattern.ALLOY, MekanismTags.Items.ALLOYS_ULTIMATE).key(Pattern.CONSTANT, tier.getCasingBlock()).build(consumer, MoreThermalEvaporationCompat.rl(basePath + tier.getLowerName() + "/compact"));
                 case ABSOLUTE -> ExtendedShapedRecipeBuilder.shapedRecipe(tier.getCompactBlock()).pattern(PATTERN).key(Pattern.PREVIOUS, tier.getControllerBlock()).key(Pattern.ALLOY, ExtraItem.RADIANCE_ALLOY).key(Pattern.CONSTANT, tier.getCasingBlock()).build(consumer, MoreThermalEvaporationCompat.rl(basePath + tier.getLowerName() + "/compact"));
                 case SUPREME -> ExtendedShapedRecipeBuilder.shapedRecipe(tier.getCompactBlock()).pattern(PATTERN).key(Pattern.PREVIOUS, tier.getControllerBlock()).key(Pattern.ALLOY, ExtraItem.THERMONUCLEAR_ALLOY).key(Pattern.CONSTANT, tier.getCasingBlock()).build(consumer, MoreThermalEvaporationCompat.rl(basePath + tier.getLowerName() + "/compact"));
                 case COSMIC -> ExtendedShapedRecipeBuilder.shapedRecipe(tier.getCompactBlock()).pattern(PATTERN).key(Pattern.PREVIOUS, tier.getControllerBlock()).key(Pattern.ALLOY, ExtraItem.SHINING_ALLOY).key(Pattern.CONSTANT, tier.getCasingBlock()).build(consumer, MoreThermalEvaporationCompat.rl(basePath + tier.getLowerName() + "/compact"));
@@ -62,9 +57,8 @@ public class CompactRecipeProvider extends CompatRecipeProvider {
                 case QUANTUM -> ExtendedShapedRecipeBuilder.shapedRecipe(tier.getCompactBlock()).pattern(PATTERN).key(Pattern.PREVIOUS, tier.getControllerBlock()).key(Pattern.ALLOY, EMItems.SUBATOMIC_ALLOY).key(Pattern.CONSTANT, tier.getCasingBlock()).build(consumer, MoreThermalEvaporationCompat.rl(basePath + tier.getLowerName() + "/compact"));
                 case DENSE -> ExtendedShapedRecipeBuilder.shapedRecipe(tier.getCompactBlock()).pattern(PATTERN).key(Pattern.PREVIOUS, tier.getControllerBlock()).key(Pattern.ALLOY, EMItems.SINGULAR_ALLOY).key(Pattern.CONSTANT, tier.getCasingBlock()).build(consumer, MoreThermalEvaporationCompat.rl(basePath + tier.getLowerName() + "/compact"));
                 case MULTIVERSAL -> ExtendedShapedRecipeBuilder.shapedRecipe(tier.getCompactBlock()).pattern(PATTERN).key(Pattern.PREVIOUS, tier.getControllerBlock()).key(Pattern.ALLOY, EMItems.EXOVERSAL_ALLOY).key(Pattern.CONSTANT, tier.getCasingBlock()).build(consumer, MoreThermalEvaporationCompat.rl(basePath + tier.getLowerName() + "/compact"));
-                case CREATIVE -> ExtendedShapedRecipeBuilder.shapedRecipe(tier.getCompactBlock()).pattern(PATTERN).key(Pattern.PREVIOUS, tier.getControllerBlock()).key(Pattern.ALLOY, EMItems.CREATIVE_ALLOY).key(Pattern.CONSTANT, tier.getCasingBlock()).build(consumer, MoreThermalEvaporationCompat.rl(basePath + tier.getLowerName() + "/compact"));
-                case VIBRATION -> ExtendedShapedRecipeBuilder.shapedRecipe(tier.getCompactBlock()).pattern(PATTERN).key(Pattern.PREVIOUS, tier.getControllerBlock()).key(Pattern.ALLOY, AstralMekanismItems.ELASTIC_ALLOY).key(Pattern.CONSTANT, tier.getCasingBlock()).build(consumer, MoreThermalEvaporationCompat.rl(basePath + tier.getLowerName() + "/compact"));
-                case RESONANCE -> ExtendedShapedRecipeBuilder.shapedRecipe(tier.getCompactBlock()).pattern(PATTERN).key(Pattern.PREVIOUS, tier.getControllerBlock()).key(Pattern.ALLOY, AstralMekanismItems.CONVERGENT_ALLOY).key(Pattern.CONSTANT, tier.getCasingBlock()).build(consumer, MoreThermalEvaporationCompat.rl(basePath + tier.getLowerName() + "/compact"));
+                case VIBRATION -> ExtendedShapedRecipeBuilder.shapedRecipe(tier.getCompactBlock()).pattern(PATTERN).key(Pattern.PREVIOUS, tier.getControllerBlock()).key(Pattern.ALLOY, AMEItems.ELASTIC_ALLOY).key(Pattern.CONSTANT, tier.getCasingBlock()).build(consumer, MoreThermalEvaporationCompat.rl(basePath + tier.getLowerName() + "/compact"));
+                case RESONANCE -> ExtendedShapedRecipeBuilder.shapedRecipe(tier.getCompactBlock()).pattern(PATTERN).key(Pattern.PREVIOUS, tier.getControllerBlock()).key(Pattern.ALLOY, AMEItems.CONVERGENT_ALLOY).key(Pattern.CONSTANT, tier.getCasingBlock()).build(consumer, MoreThermalEvaporationCompat.rl(basePath + tier.getLowerName() + "/compact"));
                 case ABSOLUTE_OVERCLOCKED -> ExtendedShapedRecipeBuilder.shapedRecipe(tier.getCompactBlock()).pattern(EMEXTRA_PATTERN).key(Pattern.PREVIOUS, tier.getControllerBlock()).key(Pattern.ALLOY, ExtraItem.RADIANCE_ALLOY).key(Pattern.ALLOY1, EMItems.HYPERCHARGED_ALLOY).key(Pattern.CONSTANT, tier.getCasingBlock()).build(consumer, MoreThermalEvaporationCompat.rl(basePath + tier.getLowerName() + "/compact"));
                 case SUPREME_QUANTUM -> ExtendedShapedRecipeBuilder.shapedRecipe(tier.getCompactBlock()).pattern(EMEXTRA_PATTERN).key(Pattern.PREVIOUS, tier.getControllerBlock()).key(Pattern.ALLOY, ExtraItem.THERMONUCLEAR_ALLOY).key(Pattern.ALLOY1, EMItems.SUBATOMIC_ALLOY).key(Pattern.CONSTANT, tier.getCasingBlock()).build(consumer, MoreThermalEvaporationCompat.rl(basePath + tier.getLowerName() + "/compact"));
                 case COSMIC_DENSE -> ExtendedShapedRecipeBuilder.shapedRecipe(tier.getCompactBlock()).pattern(EMEXTRA_PATTERN).key(Pattern.PREVIOUS, tier.getControllerBlock()).key(Pattern.ALLOY, ExtraItem.SHINING_ALLOY).key(Pattern.ALLOY1, EMItems.SINGULAR_ALLOY).key(Pattern.CONSTANT, tier.getCasingBlock()).build(consumer, MoreThermalEvaporationCompat.rl(basePath + tier.getLowerName() + "/compact"));

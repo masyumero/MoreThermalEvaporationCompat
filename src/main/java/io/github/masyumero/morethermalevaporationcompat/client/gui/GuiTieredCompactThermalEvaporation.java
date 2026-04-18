@@ -5,6 +5,7 @@ import io.github.masyumero.morethermalevaporationcompat.common.tile.TileEntityTi
 import mekanism.api.recipes.cache.CachedRecipe;
 import mekanism.client.gui.GuiConfigurableTile;
 import mekanism.client.gui.element.GuiDownArrow;
+import mekanism.client.gui.element.GuiDumpButton;
 import mekanism.client.gui.element.GuiInnerScreen;
 import mekanism.client.gui.element.bar.GuiBar;
 import mekanism.client.gui.element.bar.GuiHorizontalRateBar;
@@ -42,12 +43,13 @@ public class GuiTieredCompactThermalEvaporation extends GuiConfigurableTile<Tile
 
     @Override
     protected void addGuiElements() {
+
         super.addGuiElements();
-        addRenderableWidget(new GuiInnerScreen(this, 48, 19, 80, 40, () ->
-                List.of(MekanismLang.MULTIBLOCK_FORMED.translate(), MekanismLang.EVAPORATION_HEIGHT.translate(18),
-                        MekanismLang.TEMPERATURE.translate(MekanismUtils.getTemperatureDisplay(tile.getTemperature(), UnitDisplayUtils.TemperatureUnit.KELVIN, true)),
-                        MekanismLang.FLUID_PRODUCTION.translate(Math.round(tile.lastGain * 100D) / 100D))).spacing(1)
-                .jeiCategories(MekanismJEIRecipeType.EVAPORATING));
+        addRenderableWidget(new GuiInnerScreen(this, 48, 19, 80, 40, () -> List.of(
+                MekanismLang.TEMPERATURE.translate(MekanismUtils.getTemperatureDisplay(tile.getTemperature(), UnitDisplayUtils.TemperatureUnit.KELVIN, true)),
+                MekanismLang.FLUID_PRODUCTION.translate(Math.round(tile.lastGain * 100D) / 100D))).spacing(1)
+                .jeiCategories(MekanismJEIRecipeType.EVAPORATING)
+        );
         addRenderableWidget(new GuiDownArrow(this, 32, 39));
         addRenderableWidget(new GuiDownArrow(this, 136, 39));
         addRenderableWidget(new GuiHorizontalRateBar(this, new GuiBar.IBarInfoHandler() {
@@ -71,6 +73,7 @@ public class GuiTieredCompactThermalEvaporation extends GuiConfigurableTile<Tile
             Component environment = MekanismUtils.getTemperatureDisplay(tile.lastEnvironmentLoss, UnitDisplayUtils.TemperatureUnit.KELVIN, false);
             return Collections.singletonList(MekanismLang.DISSIPATED_RATE.translate(environment));
         }));
+        addRenderableWidget(new GuiDumpButton<>(this, tile, 130, 71));
     }
 
     private BooleanSupplier getWarningCheck(CachedRecipe.OperationTracker.RecipeError error) {

@@ -1,6 +1,5 @@
 package io.github.masyumero.morethermalevaporationcompat.common.registries;
 
-import io.github.masyumero.morethermalevaporationcompat.CompactModule;
 import io.github.masyumero.morethermalevaporationcompat.MoreThermalEvaporationCompat;
 import io.github.masyumero.morethermalevaporationcompat.common.tier.TETier;
 import io.github.masyumero.morethermalevaporationcompat.common.tile.TileEntityTieredCompactThermalEvaporation;
@@ -24,14 +23,10 @@ public class MoreThermalEvaporationCompatTileEntityTypes {
     static {
         for (TETier tier : MTECompatEnumUtils.THERMAL_EVAPORATION_TIERS) {
             if (tier.isModLoaded()) {
-                if (!tier.isCompactOnly()) {
-                    BLOCKTILEENTITYTYPE_MAP.put(tier, TILE_ENTITY_TYPES.register(MoreThermalEvaporationCompatBlocks.getCasingBlock(tier), (pos, state) -> new TileEntityTieredThermalEvaporationBlock(pos, state, tier), TileEntityMekanism::tickServer, TileEntityMekanism::tickClient));
-                    VALVETILEENTITYTYPE_MAP.put(tier, TILE_ENTITY_TYPES.register(MoreThermalEvaporationCompatBlocks.getValveBlock(tier), (pos, state) -> new TileEntityTieredThermalEvaporationValve(pos, state, tier), TileEntityMekanism::tickServer, TileEntityMekanism::tickClient));
-                    CONTROLLERTILEENTITYTYPE_MAP.put(tier, TILE_ENTITY_TYPES.register(MoreThermalEvaporationCompatBlocks.getControllerBlock(tier), (pos, state) -> new TileEntityTieredThermalEvaporationController(pos, state, tier), TileEntityMekanism::tickServer, TileEntityMekanism::tickClient));
-                }
-                if (CompactModule.CompactLoaded) {
-                    COMPACTTILEENTITYTYPE_MAP.put(tier, TILE_ENTITY_TYPES.register(MoreThermalEvaporationCompatBlocks.getCompactBlock(tier), (pos, state) -> new TileEntityTieredCompactThermalEvaporation(pos, state, tier), TileEntityMekanism::tickServer, TileEntityMekanism::tickClient));
-                }
+                BLOCKTILEENTITYTYPE_MAP.put(tier, TILE_ENTITY_TYPES.register(MoreThermalEvaporationCompatBlocks.getCasingBlock(tier), (pos, state) -> new TileEntityTieredThermalEvaporationBlock(pos, state, tier), TileEntityMekanism::tickServer, TileEntityMekanism::tickClient));
+                VALVETILEENTITYTYPE_MAP.put(tier, TILE_ENTITY_TYPES.register(MoreThermalEvaporationCompatBlocks.getValveBlock(tier), (pos, state) -> new TileEntityTieredThermalEvaporationValve(pos, state, tier), TileEntityMekanism::tickServer, TileEntityMekanism::tickClient));
+                CONTROLLERTILEENTITYTYPE_MAP.put(tier, TILE_ENTITY_TYPES.register(MoreThermalEvaporationCompatBlocks.getControllerBlock(tier), (pos, state) -> new TileEntityTieredThermalEvaporationController(pos, state, tier), TileEntityMekanism::tickServer, TileEntityMekanism::tickClient));
+                COMPACTTILEENTITYTYPE_MAP.put(tier, TILE_ENTITY_TYPES.register(MoreThermalEvaporationCompatBlocks.getCompactBlock(tier), (pos, state) -> new TileEntityTieredCompactThermalEvaporation(pos, state, tier), TileEntityMekanism::tickServer, TileEntityMekanism::tickClient));
             }
         }
     }

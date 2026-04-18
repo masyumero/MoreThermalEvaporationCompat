@@ -123,15 +123,6 @@ public enum MTECompatLang implements ILangEntry {
     }
 
     public static ILangEntry getCompactLang(TETier tier) {
-        if (tier.isCompactOnly()) {
-            return switch (tier) {
-                case BASIC -> MoreThermalEvaporationLang.DESCRIPTION_BASIC_THERMAL_EVAPORATION_CONTROLLER;
-                case ADVANCED -> MoreThermalEvaporationLang.DESCRIPTION_ADVANCED_THERMAL_EVAPORATION_CONTROLLER;
-                case ELITE -> MoreThermalEvaporationLang.DESCRIPTION_ELITE_THERMAL_EVAPORATION_CONTROLLER;
-                case ULTIMATE -> MoreThermalEvaporationLang.DESCRIPTION_ULTIMATE_THERMAL_EVAPORATION_CONTROLLER;
-                default -> MoreThermalEvaporationLang.DESCRIPTION_CREATIVE_THERMAL_EVAPORATION_CONTROLLER;
-            };
-        }
         return getLang(tier, MTECompatLangType.DESC_CONTROLLER);
     }
 

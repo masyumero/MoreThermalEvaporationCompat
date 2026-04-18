@@ -2,7 +2,6 @@ package io.github.masyumero.morethermalevaporationcompat.common.registries;
 
 import com.google.common.collect.HashBasedTable;
 import com.google.common.collect.Table;
-import io.github.masyumero.morethermalevaporationcompat.CompactModule;
 import io.github.masyumero.morethermalevaporationcompat.MTECompatLang;
 import io.github.masyumero.morethermalevaporationcompat.api.lang.MTECompatLangType;
 import io.github.masyumero.morethermalevaporationcompat.common.content.blocktype.MTECompatBlockTypeTile;
@@ -26,14 +25,10 @@ public class MoreThermalEvaporationCompatBlockTypes {
     static {
         for (TETier tier : MTECompatEnumUtils.THERMAL_EVAPORATION_TIERS) {
             if (tier.isModLoaded()) {
-                if (!tier.isCompactOnly()) {
-                    BLOCKTYPE_TABLE.put(tier, MTECompatMultiPartType.BLOCK, MTECompatBlockTypeTile.MTECompatBlockTileBuilder.createBlock(() -> MoreThermalEvaporationCompatTileEntityTypes.getBlockTileEntityType(tier), MTECompatLang.getLang(tier, MTECompatLangType.DESC_BLOCK), tier).with(new Attributes.AttributeCustomResistance(9)).externalMultiblock().build());
-                    BLOCKTYPE_TABLE.put(tier, MTECompatMultiPartType.VALVE, MTECompatBlockTypeTile.MTECompatBlockTileBuilder.createBlock(() -> MoreThermalEvaporationCompatTileEntityTypes.getValveTileEntityType(tier), MTECompatLang.getLang(tier, MTECompatLangType.DESC_VALVE), tier).with(Attributes.COMPARATOR, new Attributes.AttributeCustomResistance(9)).externalMultiblock().withComputerSupport(tier.getSimpleName() + "ThermalEvaporationValve").build());
-                    BLOCKTYPE_TABLE.put(tier, MTECompatMultiPartType.CONTROLLER, MTECompatBlockTypeTile.MTECompatBlockTileBuilder.createBlock(() -> MoreThermalEvaporationCompatTileEntityTypes.getControllerTileEntityType(tier), MTECompatLang.getLang(tier, MTECompatLangType.DESC_CONTROLLER), tier).withGui(() -> MoreThermalEvaporationCompatContainerTypes.getContainerType(tier), MTECompatLang.getLang(tier, MTECompatLangType.TITLE)).withSupportedUpgrades(UpgradeUtils.getUpgrades()).with(Attributes.INVENTORY, Attributes.ACTIVE, new AttributeStateFacing(), new Attributes.AttributeCustomResistance(9)).externalMultiblock().withComputerSupport(tier.getSimpleName() + "ThermalEvaporationController").build());
-                }
-                if (CompactModule.CompactLoaded) {
-                    COMPACT_BLOCKTYPE_TABLE.put(tier, MTECompatMachine.MTECompatMachineBuilder.createMachine(() -> MoreThermalEvaporationCompatTileEntityTypes.getCompactTileEntityType(tier), MTECompatLang.getCompactLang(tier), tier).withGui(() -> MoreThermalEvaporationCompatContainerTypes.getCompactContainerType(tier)).withSupportedUpgrades(UpgradeUtils.getCompactUpgrades()).with(AttributeCustomSelectionBox.JSON).withComputerSupport("compactthermalevaporation").build());
-                }
+                BLOCKTYPE_TABLE.put(tier, MTECompatMultiPartType.BLOCK, MTECompatBlockTypeTile.MTECompatBlockTileBuilder.createBlock(() -> MoreThermalEvaporationCompatTileEntityTypes.getBlockTileEntityType(tier), MTECompatLang.getLang(tier, MTECompatLangType.DESC_BLOCK), tier).with(new Attributes.AttributeCustomResistance(9)).externalMultiblock().build());
+                BLOCKTYPE_TABLE.put(tier, MTECompatMultiPartType.VALVE, MTECompatBlockTypeTile.MTECompatBlockTileBuilder.createBlock(() -> MoreThermalEvaporationCompatTileEntityTypes.getValveTileEntityType(tier), MTECompatLang.getLang(tier, MTECompatLangType.DESC_VALVE), tier).with(Attributes.COMPARATOR, new Attributes.AttributeCustomResistance(9)).externalMultiblock().withComputerSupport(tier.getSimpleName() + "ThermalEvaporationValve").build());
+                BLOCKTYPE_TABLE.put(tier, MTECompatMultiPartType.CONTROLLER, MTECompatBlockTypeTile.MTECompatBlockTileBuilder.createBlock(() -> MoreThermalEvaporationCompatTileEntityTypes.getControllerTileEntityType(tier), MTECompatLang.getLang(tier, MTECompatLangType.DESC_CONTROLLER), tier).withGui(() -> MoreThermalEvaporationCompatContainerTypes.getContainerType(tier), MTECompatLang.getLang(tier, MTECompatLangType.TITLE)).withSupportedUpgrades(UpgradeUtils.getUpgrades()).with(Attributes.INVENTORY, Attributes.ACTIVE, new AttributeStateFacing(), new Attributes.AttributeCustomResistance(9)).externalMultiblock().withComputerSupport(tier.getSimpleName() + "ThermalEvaporationController").build());
+                COMPACT_BLOCKTYPE_TABLE.put(tier, MTECompatMachine.MTECompatMachineBuilder.createMachine(() -> MoreThermalEvaporationCompatTileEntityTypes.getCompactTileEntityType(tier), MTECompatLang.getCompactLang(tier), tier).withGui(() -> MoreThermalEvaporationCompatContainerTypes.getCompactContainerType(tier)).withSupportedUpgrades(UpgradeUtils.getCompactUpgrades()).with(AttributeCustomSelectionBox.JSON).withComputerSupport("compactthermalevaporation").build());
             }
         }
     }

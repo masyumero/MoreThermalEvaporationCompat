@@ -13,7 +13,12 @@ import java.util.Set;
 public class MixinMoreThermalEvaporationBlockTypes {
 
     @ModifyArg(method = "createMoreThermalEvaporationController", at = @At(value = "INVOKE", target = "Lmekanism/common/content/blocktype/BlockTypeTile$BlockTileBuilder;withSupportedUpgrades(Ljava/util/Set;)Lmekanism/common/content/blocktype/BlockTypeTile$BlockTileBuilder;", ordinal = 0))
-    private static Set<Upgrade> supportUpgradesModify(Set<Upgrade> upgrades) {
+    private static Set<Upgrade> controllerSupportUpgradesModify(Set<Upgrade> upgrades) {
+        return UpgradeUtils.addUpgrades(upgrades);
+    }
+
+    @ModifyArg(method = "createMoreThermalEvaporationCompact", at = @At(value = "INVOKE", target = "Lmorethermalevaporation/common/content/blocktype/MoreThermalEvaporationMachine$MoreThermalEvaporationMachineBuilder;withSupportedUpgrades(Ljava/util/Set;)Lmekanism/common/content/blocktype/BlockTypeTile$BlockTileBuilder;", ordinal = 0))
+    private static Set<Upgrade> compactSupportUpgradesModify(Set<Upgrade> upgrades) {
         return UpgradeUtils.addUpgrades(upgrades);
     }
 }

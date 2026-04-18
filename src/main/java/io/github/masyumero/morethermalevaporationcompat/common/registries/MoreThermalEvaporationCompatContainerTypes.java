@@ -1,6 +1,5 @@
 package io.github.masyumero.morethermalevaporationcompat.common.registries;
 
-import io.github.masyumero.morethermalevaporationcompat.CompactModule;
 import io.github.masyumero.morethermalevaporationcompat.MoreThermalEvaporationCompat;
 import io.github.masyumero.morethermalevaporationcompat.common.tier.TETier;
 import io.github.masyumero.morethermalevaporationcompat.common.tile.TileEntityTieredCompactThermalEvaporation;
@@ -22,12 +21,8 @@ public class MoreThermalEvaporationCompatContainerTypes {
     static {
         for (TETier tier : MTECompatEnumUtils.THERMAL_EVAPORATION_TIERS) {
             if (tier.isModLoaded()) {
-                if (!tier.isCompactOnly()) {
-                    CONTAINERTYPE_MAP.put(tier, CONTAINER_TYPES.register(MoreThermalEvaporationCompatBlocks.getControllerBlock(tier), TileEntityTieredThermalEvaporationController.class));
-                }
-                if (CompactModule.CompactLoaded) {
-                    COMPACT_CONTAINERTYPE_MAP.put(tier, CONTAINER_TYPES.register(MoreThermalEvaporationCompatBlocks.getCompactBlock(tier), TileEntityTieredCompactThermalEvaporation.class));
-                }
+                CONTAINERTYPE_MAP.put(tier, CONTAINER_TYPES.register(MoreThermalEvaporationCompatBlocks.getControllerBlock(tier), TileEntityTieredThermalEvaporationController.class));
+                COMPACT_CONTAINERTYPE_MAP.put(tier, CONTAINER_TYPES.register(MoreThermalEvaporationCompatBlocks.getCompactBlock(tier), TileEntityTieredCompactThermalEvaporation.class));
             }
         }
     }

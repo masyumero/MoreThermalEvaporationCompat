@@ -50,11 +50,9 @@ public class MTECompatJEI implements IModPlugin {
     public void registerRecipeCatalysts(IRecipeCatalystRegistration registry) {
         for (TETier tier : MTECompatEnumUtils.THERMAL_EVAPORATION_TIERS) {
             for (MTECompatMultiPartType type : MTECompatMultiPartType.values()) {
-                if (tier.isModLoaded() && !tier.isCompactOnly()) CatalystRegistryHelper.register(registry, MekanismJEIRecipeType.EVAPORATING, MoreThermalEvaporationCompatBlocks.getBlock(tier, type));
+                if (tier.isModLoaded()) CatalystRegistryHelper.register(registry, MekanismJEIRecipeType.EVAPORATING, MoreThermalEvaporationCompatBlocks.getBlock(tier, type));
             }
-            if (CompactModule.CompactLoaded) {
-                CatalystRegistryHelper.register(registry, MekanismJEIRecipeType.EVAPORATING, MoreThermalEvaporationCompatBlocks.getCompactBlock(tier));
-            }
+            CatalystRegistryHelper.register(registry, MekanismJEIRecipeType.EVAPORATING, MoreThermalEvaporationCompatBlocks.getCompactBlock(tier));
         }
 
         for (MultiblockCategory<?> category : this.getCategories()) {

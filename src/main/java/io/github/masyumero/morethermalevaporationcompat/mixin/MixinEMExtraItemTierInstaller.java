@@ -29,11 +29,7 @@ public abstract class MixinEMExtraItemTierInstaller implements IMixinMTECompactI
 
     @Inject(method = "<init>", at = @At("TAIL"))
     private void initInject(EMExtraTier fromTier, EMExtraTier toTier, Item.Properties properties, CallbackInfo ci) {
-        if (fromTier == null) {
-            this.mteCompat$fromTier = TETier.ULTIMATE;
-        } else {
-            this.mteCompat$fromTier = TierUtils.getTETier(fromTier);
-        }
+        this.mteCompat$fromTier = TierUtils.getTETier(fromTier);
         this.mteCompat$toTier = TierUtils.getTETier(toTier);
     }
 

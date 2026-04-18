@@ -1,10 +1,10 @@
 package io.github.masyumero.morethermalevaporationcompat.client;
 
-import io.github.masyumero.morethermalevaporationcompat.CompactModule;
 import io.github.masyumero.morethermalevaporationcompat.MoreThermalEvaporationCompat;
 import io.github.masyumero.morethermalevaporationcompat.client.gui.GuiTieredCompactThermalEvaporation;
 import io.github.masyumero.morethermalevaporationcompat.client.gui.GuiTieredThermalEvaporationController;
-import io.github.masyumero.morethermalevaporationcompat.client.tileentity.RenderTieredThermalEvaporationPlant;
+import io.github.masyumero.morethermalevaporationcompat.client.render.tileentity.RenderTieredCompactThermalEvaporationPlant;
+import io.github.masyumero.morethermalevaporationcompat.client.render.tileentity.RenderTieredThermalEvaporationPlant;
 import io.github.masyumero.morethermalevaporationcompat.common.registries.MoreThermalEvaporationCompatContainerTypes;
 import io.github.masyumero.morethermalevaporationcompat.common.registries.MoreThermalEvaporationCompatTileEntityTypes;
 import io.github.masyumero.morethermalevaporationcompat.common.tier.TETier;
@@ -25,9 +25,8 @@ public class ClientRegistration {
     public static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
         for (TETier tier : MTECompatEnumUtils.THERMAL_EVAPORATION_TIERS) {
             if (tier.isModLoaded()) {
-                if (!tier.isCompactOnly()) {
-                    event.registerBlockEntityRenderer(MoreThermalEvaporationCompatTileEntityTypes.getControllerTileEntityType(tier).get(), ctx ->  new RenderTieredThermalEvaporationPlant(tier, ctx));
-                }
+                event.registerBlockEntityRenderer(MoreThermalEvaporationCompatTileEntityTypes.getControllerTileEntityType(tier).get(), ctx -> new RenderTieredThermalEvaporationPlant(tier, ctx));
+                event.registerBlockEntityRenderer(MoreThermalEvaporationCompatTileEntityTypes.getCompactTileEntityType(tier).get(), ctx -> new RenderTieredCompactThermalEvaporationPlant(tier, ctx));
             }
         }
     }
@@ -37,12 +36,8 @@ public class ClientRegistration {
         event.register(Registries.MENU, helper -> {
             for (TETier tier : MTECompatEnumUtils.THERMAL_EVAPORATION_TIERS) {
                 if (tier.isModLoaded()) {
-                    if (!tier.isCompactOnly()) {
-                        ClientRegistrationUtil.registerScreen(MoreThermalEvaporationCompatContainerTypes.getContainerType(tier), GuiTieredThermalEvaporationController::new);
-                    }
-                    if (CompactModule.CompactLoaded) {
-                        ClientRegistrationUtil.registerScreen(MoreThermalEvaporationCompatContainerTypes.getCompactContainerType(tier), GuiTieredCompactThermalEvaporation::new);
-                    }
+                    ClientRegistrationUtil.registerScreen(MoreThermalEvaporationCompatContainerTypes.getContainerType(tier), GuiTieredThermalEvaporationController::new);
+                    ClientRegistrationUtil.registerScreen(MoreThermalEvaporationCompatContainerTypes.getCompactContainerType(tier), GuiTieredCompactThermalEvaporation::new);
                 }
             }
         });
