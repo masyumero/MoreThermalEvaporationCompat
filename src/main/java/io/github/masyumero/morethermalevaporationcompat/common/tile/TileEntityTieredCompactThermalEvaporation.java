@@ -1,8 +1,10 @@
 package io.github.masyumero.morethermalevaporationcompat.common.tile;
 
+import fr.iglee42.evolvedmekanism.registries.EMUpgrades;
 import io.github.masyumero.morethermalevaporationcompat.common.block.attribute.MTECompatAttribute;
 import io.github.masyumero.morethermalevaporationcompat.common.registries.MoreThermalEvaporationCompatBlocks;
 import io.github.masyumero.morethermalevaporationcompat.common.tier.TETier;
+import io.github.masyumero.morethermalevaporationcompat.common.util.UpgradeUtils;
 import mekanism.api.*;
 import mekanism.api.heat.HeatAPI;
 import mekanism.api.recipes.FluidToFluidRecipe;
@@ -31,12 +33,14 @@ import mekanism.common.inventory.container.slot.ContainerSlotType;
 import mekanism.common.inventory.container.sync.dynamic.ContainerSync;
 import mekanism.common.inventory.slot.FluidInventorySlot;
 import mekanism.common.inventory.slot.OutputInventorySlot;
+import mekanism.common.lib.chunkloading.IChunkLoader;
 import mekanism.common.lib.transmitter.TransmissionType;
 import mekanism.common.recipe.IMekanismRecipeTypeProvider;
 import mekanism.common.recipe.MekanismRecipeType;
 import mekanism.common.recipe.lookup.ISingleRecipeLookupHandler;
 import mekanism.common.recipe.lookup.cache.InputRecipeCache;
 import mekanism.common.tile.component.ITileComponent;
+import mekanism.common.tile.component.TileComponentChunkLoader;
 import mekanism.common.tile.component.TileComponentConfig;
 import mekanism.common.tile.component.TileComponentEjector;
 import mekanism.common.tile.component.config.ConfigInfo;
@@ -52,15 +56,18 @@ import mekanism.common.util.WorldUtils;
 import morethermalevaporation.common.upgrade.MoreThermalEvaporationCompactUpgradeData;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.fluids.FluidStack;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
+import java.util.Set;
 
-public class TileEntityTieredCompactThermalEvaporation extends TileEntityRecipeMachine<FluidToFluidRecipe> implements ISingleRecipeLookupHandler.FluidRecipeLookupHandler<FluidToFluidRecipe>, IHasDumpButton {
+public class TileEntityTieredCompactThermalEvaporation extends TileEntityRecipeMachine<FluidToFluidRecipe> implements ISingleRecipeLookupHandler.FluidRecipeLookupHandler<FluidToFluidRecipe>, IChunkLoader, IHasDumpButton {
     public static final int MAX_HEIGHT = 18;
     private static final List<CachedRecipe.OperationTracker.RecipeError> TRACKED_ERROR_TYPES = List.of(
             CachedRecipe.OperationTracker.RecipeError.NOT_ENOUGH_INPUT,
@@ -100,6 +107,7 @@ public class TileEntityTieredCompactThermalEvaporation extends TileEntityRecipeM
     private int inputTankCapacity;
     private boolean needsPacket;
     private boolean updateClientLight = false;
+    private final TileComponentChunkLoader<TileEntityTieredCompactThermalEvaporation> chunkLoaderComponent = new TileComponentChunkLoader<>(this);
 
     public TileEntityTieredCompactThermalEvaporation(BlockPos pos, BlockState state, TETier tier) {
         super(MoreThermalEvaporationCompatBlocks.getCompactBlock(tier), pos, state, TRACKED_ERROR_TYPES);
@@ -210,7 +218,7 @@ public class TileEntityTieredCompactThermalEvaporation extends TileEntityRecipeM
         double currentTemperature = getTemperature();
         double heatCapacity = heatCapacitor.getHeatCapacity();
         if (Math.abs(currentTemperature - biomeAmbientTemp) < 0.001) {
-            heatCapacitor.handleHeat(biomeAmbientTemp * heatCapacity - heatCapacitor.getHeat());
+            heatCapacitor.handleHeat(upgradeComponent.getUpgrades(EMUpgrades.SOLAR_UPGRADE) + 1 * biomeAmbientTemp * heatCapacity - heatCapacitor.getHeat());
         } else {
             double incr = MekanismConfig.general.evaporationHeatDissipation.get() * Math.sqrt(Math.abs(currentTemperature - biomeAmbientTemp));
             if (currentTemperature > biomeAmbientTemp) {
@@ -348,5 +356,15 @@ public class TileEntityTieredCompactThermalEvaporation extends TileEntityRecipeM
     public void dump() {
         inputTank.setEmpty();
         outputTank.setEmpty();
+    }
+
+    @Override
+    public TileComponentChunkLoader<TileEntityTieredCompactThermalEvaporation> getChunkLoader() {
+        return chunkLoaderComponent;
+    }
+
+    @Override
+    public Set<ChunkPos> getChunkSet() {
+        return Collections.singleton(new ChunkPos(getBlockPos()));
     }
 }
