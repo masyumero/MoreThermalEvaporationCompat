@@ -1,7 +1,9 @@
 package io.github.masyumero.morethermalevaporationcompat.common.util;
 
+import astral_mekanism.enumexpansion.AMEUpgrade;
 import dev.lapis256.mekanism_empowered.common.init.MekEmpUpgrades;
 import fr.iglee42.evolvedmekanism.registries.EMUpgrades;
+import io.github.masyumero.morethermalevaporationcompat.AstralModule;
 import io.github.masyumero.morethermalevaporationcompat.EvolvedModule;
 import io.github.masyumero.morethermalevaporationcompat.MoreThermalEvaporationCompat;
 import mekanism.api.Upgrade;
@@ -21,10 +23,14 @@ public class UpgradeUtils {
     }
 
     public static Set<Upgrade> getUpgrades() {
+        var upgrade = new HashSet<>(Set.of(Upgrade.ANCHOR));
         if (EvolvedModule.EvolvedLoaded) {
-            return Set.of(Upgrade.ANCHOR, EMUpgrades.SOLAR_UPGRADE);
+            upgrade.add(EMUpgrades.SOLAR_UPGRADE);
         }
-        return Set.of(Upgrade.ANCHOR);
+        if (AstralModule.AstralLoaded) {
+            upgrade.add(AMEUpgrade.WATER_SUPPLY.getValue());
+        }
+        return upgrade;
     }
 
     public static Set<Upgrade> getCompactUpgrades() {
