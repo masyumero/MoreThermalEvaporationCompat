@@ -9,6 +9,7 @@
     "MixinExtraItemTierInstaller",
     "MixinItemTierInstaller",
     "MixinMoreThermalEvaporationBlockTypes",
+    "MixinMoreThermalEvaporationMachine",
     "MixinMoreThermalEvaporationMultiblockData",
     "MixinTileEntityMoreThermalEvaporationController"
   ],
