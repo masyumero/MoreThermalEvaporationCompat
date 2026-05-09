@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:overlay/cube_bottom_top",
+  "render_type":"minecraft:cutout",
+  "elements": [
+    {
+      "name": "top",
+      "from": [0, 14, 2],
+      "to": [16, 16, 16],
+      "rotation": {"angle": 0, "axis": "y", "origin": [16, 0, 16]},
+      "faces": {
+        "up": {"uv": [16, 14, 0, 0], "texture": "#overlay"},
+        "down": {"uv": [16, 0, 0, 14], "texture": "#overlay"}
+      }
+    },
+    {
+      "name": "bottom",
+      "from": [0, 0, 2],
+      "to": [16, 2, 16],
+      "rotation": {"angle": 0, "axis": "y", "origin": [16, 0, 16]},
+      "faces": {
+        "up": {"uv": [16, 14, 0, 0], "texture": "#overlay"},
+        "down": {"uv": [16, 0, 0, 14], "texture": "#overlay"}
+      }
+    },
+    {
+      "name": "front",
+      "from": [0, 0, 0],
+      "to": [16, 16, 2],
+      "rotation": {"angle": 0, "axis": "y", "origin": [16, 1, 2]},
+      "faces": {
+        "south": {"uv": [0, 0, 16, 16], "texture": "#overlay"}
+      }
+    }
+  ]
+}

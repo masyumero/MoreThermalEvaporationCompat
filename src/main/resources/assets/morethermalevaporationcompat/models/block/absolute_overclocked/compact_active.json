@@ -1,0 +1,6 @@
+{
+  "parent": "morethermalevaporation:block/basic/compact_active",
+  "textures": {
+    "block": "morethermalevaporationcompat:block/absolute_overclocked/absolute_overclocked_thermal_evaporation_block"
+  }
+}

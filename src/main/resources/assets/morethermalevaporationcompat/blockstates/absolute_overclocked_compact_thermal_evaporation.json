@@ -1,33 +1,33 @@
 {
   "variants": {
     "facing=north,active=false": {
-      "model": "morethermalevaporationcompat:block/absolute_overclocked/controller"
+      "model": "morethermalevaporationcompat:block/absolute_overclocked/compact"
     },
     "facing=south,active=false": {
-      "model": "morethermalevaporationcompat:block/absolute_overclocked/controller",
+      "model": "morethermalevaporationcompat:block/absolute_overclocked/compact",
       "y": 180
     },
     "facing=east,active=false": {
-      "model": "morethermalevaporationcompat:block/absolute_overclocked/controller",
+      "model": "morethermalevaporationcompat:block/absolute_overclocked/compact",
       "y": 90
     },
     "facing=west,active=false": {
-      "model": "morethermalevaporationcompat:block/absolute_overclocked/controller",
+      "model": "morethermalevaporationcompat:block/absolute_overclocked/compact",
       "y": -90
     },
     "facing=north,active=true": {
-      "model": "morethermalevaporationcompat:block/absolute_overclocked/controller_active"
+      "model": "morethermalevaporationcompat:block/absolute_overclocked/compact_active"
     },
     "facing=south,active=true": {
-      "model": "morethermalevaporationcompat:block/absolute_overclocked/controller_active",
+      "model": "morethermalevaporationcompat:block/absolute_overclocked/compact_active",
       "y": 180
     },
     "facing=east,active=true": {
-      "model": "morethermalevaporationcompat:block/absolute_overclocked/controller_active",
+      "model": "morethermalevaporationcompat:block/absolute_overclocked/compact_active",
       "y": 90
     },
     "facing=west,active=true": {
-      "model": "morethermalevaporationcompat:block/absolute_overclocked/controller_active",
+      "model": "morethermalevaporationcompat:block/absolute_overclocked/compact_active",
       "y": -90
     }
   }

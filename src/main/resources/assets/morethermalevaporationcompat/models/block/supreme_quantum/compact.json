@@ -1,0 +1,21 @@
+{
+  "parent": "minecraft:block/block",
+  "loader": "forge:composite",
+  "textures": {
+    "particle": "morethermalevaporationcompat:block/supreme_quantum/supreme_quantum_thermal_evaporation_block"
+  },
+  "children": {
+    "base": {
+      "parent": "morethermalevaporation:block/basic/compact",
+      "textures": {
+        "block": "morethermalevaporationcompat:block/supreme_quantum/supreme_quantum_thermal_evaporation_block"
+      }
+    },
+    "overlay": {
+      "parent": "morethermalevaporationcompat:block/base/compact_overlay",
+      "textures": {
+        "overlay": "morethermalevaporationcompat:block/quantum/overlay"
+      }
+    }
+  }
+}

@@ -1,33 +1,33 @@
 {
   "variants": {
     "facing=north,active=false": {
-      "model": "morethermalevaporationcompat:block/cosmic_dense/controller"
+      "model": "morethermalevaporationcompat:block/cosmic_dense/compact"
     },
     "facing=south,active=false": {
-      "model": "morethermalevaporationcompat:block/cosmic_dense/controller",
+      "model": "morethermalevaporationcompat:block/cosmic_dense/compact",
       "y": 180
     },
     "facing=east,active=false": {
-      "model": "morethermalevaporationcompat:block/cosmic_dense/controller",
+      "model": "morethermalevaporationcompat:block/cosmic_dense/compact",
       "y": 90
     },
     "facing=west,active=false": {
-      "model": "morethermalevaporationcompat:block/cosmic_dense/controller",
+      "model": "morethermalevaporationcompat:block/cosmic_dense/compact",
       "y": -90
     },
     "facing=north,active=true": {
-      "model": "morethermalevaporationcompat:block/cosmic_dense/controller_active"
+      "model": "morethermalevaporationcompat:block/cosmic_dense/compact_active"
     },
     "facing=south,active=true": {
-      "model": "morethermalevaporationcompat:block/cosmic_dense/controller_active",
+      "model": "morethermalevaporationcompat:block/cosmic_dense/compact_active",
       "y": 180
     },
     "facing=east,active=true": {
-      "model": "morethermalevaporationcompat:block/cosmic_dense/controller_active",
+      "model": "morethermalevaporationcompat:block/cosmic_dense/compact_active",
       "y": 90
     },
     "facing=west,active=true": {
-      "model": "morethermalevaporationcompat:block/cosmic_dense/controller_active",
+      "model": "morethermalevaporationcompat:block/cosmic_dense/compact_active",
       "y": -90
     }
   }
