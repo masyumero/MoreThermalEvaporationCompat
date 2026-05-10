@@ -154,13 +154,13 @@ dependencies {
     implementation fg.deobf("mekanism:Mekanism:1.20.1-${mekanism_version}:generators")
     implementation fg.deobf("curse.maven:evolved-mekanism-1230085:7321385")
     implementation fg.deobf("mezz.jei:jei-${minecraft_version}-forge:${jei_version}")
-    implementation fg.deobf("curse.maven:astral-mekanism-1415150:7943253")
+    implementation fg.deobf("curse.maven:astral-mekanism-1415150:8068466")
     implementation fg.deobf("curse.maven:mekanism-extras-1026040:6936409")
     implementation fg.deobf("curse.maven:morethermalevaporation-1406469:7914615")
     implementation fg.deobf("curse.maven:evolved-mekanism-extras-1268159:7939645")
     implementation fg.deobf("curse.maven:just-enough-mekanism-multiblocks-898746:7176443")
-    implementation fg.deobf("curse.maven:mekanism-empowered-1256390:7545276")
-    implementation fg.deobf("curse.maven:mekanism-empowered-core-1256399:7545277")
+    implementation fg.deobf("curse.maven:mekanism-empowered-1256390:8064675")
+    implementation fg.deobf("curse.maven:mekanism-empowered-core-1256399:8064676")
 
     runtimeOnly fg.deobf("curse.maven:iglee-library-541199:6987117")
     runtimeOnly fg.deobf("mekanism:Mekanism:1.20.1-${mekanism_version}:tools")
@@ -178,6 +178,8 @@ dependencies {
     runtimeOnly fg.deobf("curse.maven:stack-upgrade-integration-1510741:7915901")
     runtimeOnly fg.deobf("curse.maven:cloth-config-348521:5729105")
     runtimeOnly fg.deobf("curse.maven:geckolib-388172:7553267")
+    runtimeOnly fg.deobf("curse.maven:applied-flux-965012:7651647")
+    runtimeOnly fg.deobf("curse.maven:glodium-957920:5226922")
 
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 

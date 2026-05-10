@@ -1,6 +1,6 @@
 package io.github.masyumero.morethermalevaporationcompat.common.util;
 
-import astral_mekanism.enumexpansion.AMEUpgrade;
+import astral_mekanism.enums.AMEUpgrade;
 import dev.lapis256.mekanism_empowered.common.init.MekEmpUpgrades;
 import fr.iglee42.evolvedmekanism.registries.EMUpgrades;
 import io.github.masyumero.morethermalevaporationcompat.AstralModule;
@@ -35,9 +35,9 @@ public class UpgradeUtils {
 
     public static Set<Upgrade> getCompactUpgrades() {
         var upgrade = new HashSet<>(getUpgrades());
-        upgrade.addAll(EnumSet.of(Upgrade.ENERGY, Upgrade.SPEED, Upgrade.MUFFLING));
+        upgrade.addAll(EnumSet.of(Upgrade.MUFFLING));
         if (MoreThermalEvaporationCompat.MEK_EMP_LOADED) {
-            upgrade.addAll(List.of(MekEmpUpgrades.INSTANCE.getMACHINE_UPGRADES()));
+            upgrade.addAll(List.of(MekEmpUpgrades.INSTANCE.getITEM_IN_OUT_MACHINE_UPGRADES()));
         }
         return upgrade;
     }
