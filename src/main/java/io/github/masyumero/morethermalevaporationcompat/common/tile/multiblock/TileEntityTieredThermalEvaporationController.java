@@ -1,8 +1,11 @@
 package io.github.masyumero.morethermalevaporationcompat.common.tile.multiblock;
 
+import astral_mekanism.enums.AMEUpgrade;
 import io.github.masyumero.morethermalevaporationcompat.common.content.evaporation.TieredThermalEvaporationMultiblockData;
 import io.github.masyumero.morethermalevaporationcompat.common.tier.TETier;
 import io.github.masyumero.morethermalevaporationcompat.common.util.UpgradeUtils;
+import mekanism.api.Action;
+import mekanism.api.AutomationType;
 import mekanism.api.Upgrade;
 import mekanism.common.lib.chunkloading.IChunkLoader;
 import mekanism.common.tile.component.TileComponentChunkLoader;
@@ -13,9 +16,11 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
+import net.minecraftforge.fluids.FluidStack;
 import org.apache.commons.lang3.ArrayUtils;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -36,6 +41,9 @@ public class TileEntityTieredThermalEvaporationController extends TileEntityTier
     @Override
     protected boolean onUpdateServer(TieredThermalEvaporationMultiblockData multiblock) {
         boolean needsPacket = super.onUpdateServer(multiblock);
+        if (upgradeComponent.isUpgradeInstalled(AMEUpgrade.WATER_SUPPLY.getValue())) {
+            getMultiblock().inputTank.insert(new FluidStack(Fluids.WATER, Integer.MAX_VALUE), Action.EXECUTE, AutomationType.EXTERNAL);
+        }
         setActive(multiblock.isFormed());
         return needsPacket;
     }
@@ -48,7 +56,6 @@ public class TileEntityTieredThermalEvaporationController extends TileEntityTier
             getMultiblock().mteCompat$setUpgradeCount(upgradeCount);
         }
     }
-
 
     @Override
     public boolean canBeMaster() {
@@ -78,7 +85,8 @@ public class TileEntityTieredThermalEvaporationController extends TileEntityTier
 
     @Override
     public void dump() {
-        getMultiblock().getFluidInTank(0).setAmount(0); // InputTank
-        getMultiblock().getFluidInTank(1).setAmount(0); // OutputTank
+        TieredThermalEvaporationMultiblockData multiblock = getMultiblock();
+        multiblock.inputTank.setEmpty();
+        multiblock.outputTank.setEmpty();
     }
 }
