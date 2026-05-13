@@ -13,7 +13,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class UpgradeUtils {
+public class MTECompatUpgradeUtils {
 
     public static Set<Upgrade> addUpgrades(Set<Upgrade> original) {
         if (EvolvedModule.EvolvedLoaded) {

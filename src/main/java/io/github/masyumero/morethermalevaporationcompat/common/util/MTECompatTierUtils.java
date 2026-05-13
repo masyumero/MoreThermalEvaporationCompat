@@ -5,7 +5,7 @@ import io.github.masyumero.emextras.api.tier.EMExtraTier;
 import io.github.masyumero.morethermalevaporationcompat.common.tier.TETier;
 import mekanism.api.tier.BaseTier;
 
-public class TierUtils {
+public class MTECompatTierUtils {
 
     public static TETier getTETier(Object tierObject) {
         if (tierObject instanceof BaseTier tier) {

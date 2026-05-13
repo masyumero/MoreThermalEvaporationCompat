@@ -1,7 +1,7 @@
 package io.github.masyumero.morethermalevaporationcompat.mixin;
 
 import io.github.masyumero.morethermalevaporationcompat.api.IThermalEvaporationMultiblockData;
-import io.github.masyumero.morethermalevaporationcompat.common.util.UpgradeUtils;
+import io.github.masyumero.morethermalevaporationcompat.common.util.MTECompatUpgradeUtils;
 import mekanism.api.Upgrade;
 import morethermalevaporation.common.tier.MoreThermalEvaporationTier;
 import morethermalevaporation.common.tile.multiblock.TileEntityMoreThermalEvaporationBlock;
@@ -20,7 +20,7 @@ public abstract class MixinTileEntityMoreThermalEvaporationController extends Ti
     @Override
     public void recalculateUpgrades(Upgrade upgrade) {
         super.recalculateUpgrades(upgrade);
-        if (UpgradeUtils.isSolarUpgrade(upgrade)) {
+        if (MTECompatUpgradeUtils.isSolarUpgrade(upgrade)) {
             int upgradeCount = upgradeComponent.getUpgrades(upgrade);
             ((IThermalEvaporationMultiblockData) getMultiblock()).mteCompat$setUpgradeCount(upgradeCount);
         }

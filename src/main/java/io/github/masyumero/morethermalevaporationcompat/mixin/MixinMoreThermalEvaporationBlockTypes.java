@@ -1,6 +1,6 @@
 package io.github.masyumero.morethermalevaporationcompat.mixin;
 
-import io.github.masyumero.morethermalevaporationcompat.common.util.UpgradeUtils;
+import io.github.masyumero.morethermalevaporationcompat.common.util.MTECompatUpgradeUtils;
 import mekanism.api.Upgrade;
 import morethermalevaporation.common.registries.MoreThermalEvaporationBlockTypes;
 import org.spongepowered.asm.mixin.Mixin;
@@ -14,11 +14,11 @@ public class MixinMoreThermalEvaporationBlockTypes {
 
     @ModifyArg(method = "createMoreThermalEvaporationController", at = @At(value = "INVOKE", target = "Lmekanism/common/content/blocktype/BlockTypeTile$BlockTileBuilder;withSupportedUpgrades(Ljava/util/Set;)Lmekanism/common/content/blocktype/BlockTypeTile$BlockTileBuilder;", ordinal = 0))
     private static Set<Upgrade> controllerSupportUpgradesModify(Set<Upgrade> upgrades) {
-        return UpgradeUtils.addUpgrades(upgrades);
+        return MTECompatUpgradeUtils.addUpgrades(upgrades);
     }
 
     @ModifyArg(method = "createMoreThermalEvaporationCompact", at = @At(value = "INVOKE", target = "Lmorethermalevaporation/common/content/blocktype/MoreThermalEvaporationMachine$MoreThermalEvaporationMachineBuilder;withSupportedUpgrades(Ljava/util/Set;)Lmekanism/common/content/blocktype/BlockTypeTile$BlockTileBuilder;", ordinal = 0))
     private static Set<Upgrade> compactSupportUpgradesModify(Set<Upgrade> upgrades) {
-        return UpgradeUtils.addUpgrades(upgrades);
+        return MTECompatUpgradeUtils.addUpgrades(upgrades);
     }
 }

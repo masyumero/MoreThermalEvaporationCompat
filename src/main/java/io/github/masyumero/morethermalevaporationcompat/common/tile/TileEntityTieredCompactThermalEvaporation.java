@@ -4,7 +4,6 @@ import fr.iglee42.evolvedmekanism.registries.EMUpgrades;
 import io.github.masyumero.morethermalevaporationcompat.common.block.attribute.MTECompatAttribute;
 import io.github.masyumero.morethermalevaporationcompat.common.registries.MoreThermalEvaporationCompatBlocks;
 import io.github.masyumero.morethermalevaporationcompat.common.tier.TETier;
-import io.github.masyumero.morethermalevaporationcompat.common.util.UpgradeUtils;
 import mekanism.api.*;
 import mekanism.api.heat.HeatAPI;
 import mekanism.api.recipes.FluidToFluidRecipe;

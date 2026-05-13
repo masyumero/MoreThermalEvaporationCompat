@@ -5,7 +5,7 @@ import net.minecraft.world.item.Item;
 import net.minecraftforge.registries.ForgeRegistries;
 
 @SuppressWarnings("removal")
-public class ItemUtils {
+public class MTECompatItemUtils {
 
     public static Item getItem(ResourceLocation resourceLocation) {
         return ForgeRegistries.ITEMS.getValue(resourceLocation);
@@ -16,7 +16,6 @@ public class ItemUtils {
         if (id.contains("{") && id.endsWith("}")) {
             resourceId = id.substring(0, id.indexOf("{"));
         }
-
         return getItem(new ResourceLocation(resourceId));
     }
 }

@@ -3,7 +3,7 @@ package io.github.masyumero.morethermalevaporationcompat.common.tile.multiblock;
 import astral_mekanism.enums.AMEUpgrade;
 import io.github.masyumero.morethermalevaporationcompat.common.content.evaporation.TieredThermalEvaporationMultiblockData;
 import io.github.masyumero.morethermalevaporationcompat.common.tier.TETier;
-import io.github.masyumero.morethermalevaporationcompat.common.util.UpgradeUtils;
+import io.github.masyumero.morethermalevaporationcompat.common.util.MTECompatUpgradeUtils;
 import mekanism.api.Action;
 import mekanism.api.AutomationType;
 import mekanism.api.Upgrade;
@@ -51,7 +51,7 @@ public class TileEntityTieredThermalEvaporationController extends TileEntityTier
     @Override
     public void recalculateUpgrades(Upgrade upgrade) {
         super.recalculateUpgrades(upgrade);
-        if (UpgradeUtils.isSolarUpgrade(upgrade)) {
+        if (MTECompatUpgradeUtils.isSolarUpgrade(upgrade)) {
             int upgradeCount = upgradeComponent.getUpgrades(upgrade);
             getMultiblock().mteCompat$setUpgradeCount(upgradeCount);
         }

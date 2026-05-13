@@ -2,7 +2,7 @@ package io.github.masyumero.morethermalevaporationcompat.mixin;
 
 import io.github.masyumero.morethermalevaporationcompat.api.IMixinMTECompactItemTierInstaller;
 import io.github.masyumero.morethermalevaporationcompat.common.tier.TETier;
-import io.github.masyumero.morethermalevaporationcompat.common.util.TierUtils;
+import io.github.masyumero.morethermalevaporationcompat.common.util.MTECompatTierUtils;
 import mekanism.api.tier.BaseTier;
 import mekanism.common.item.ItemTierInstaller;
 import net.minecraft.world.InteractionResult;
@@ -26,8 +26,8 @@ public abstract class MixinItemTierInstaller implements IMixinMTECompactItemTier
 
     @Inject(method = "<init>", at = @At("TAIL"))
     private void initInject(BaseTier fromTier, BaseTier toTier, Item.Properties properties, CallbackInfo ci) {
-        this.mteCompat$fromTier = TierUtils.getTETier(fromTier);
-        this.mteCompat$toTier = TierUtils.getTETier(toTier);
+        this.mteCompat$fromTier = MTECompatTierUtils.getTETier(fromTier);
+        this.mteCompat$toTier = MTECompatTierUtils.getTETier(toTier);
     }
 
     @Inject(method = "useOn", at = @At(value = "TAIL"), remap = true, cancellable = true)

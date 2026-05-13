@@ -4,7 +4,7 @@ import io.github.masyumero.emextras.api.tier.EMExtraTier;
 import io.github.masyumero.emextras.common.item.EMExtraItemTierInstaller;
 import io.github.masyumero.morethermalevaporationcompat.api.IMixinMTECompactItemTierInstaller;
 import io.github.masyumero.morethermalevaporationcompat.common.tier.TETier;
-import io.github.masyumero.morethermalevaporationcompat.common.util.TierUtils;
+import io.github.masyumero.morethermalevaporationcompat.common.util.MTECompatTierUtils;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.context.UseOnContext;
@@ -29,8 +29,8 @@ public abstract class MixinEMExtraItemTierInstaller implements IMixinMTECompactI
 
     @Inject(method = "<init>", at = @At("TAIL"))
     private void initInject(EMExtraTier fromTier, EMExtraTier toTier, Item.Properties properties, CallbackInfo ci) {
-        this.mteCompat$fromTier = TierUtils.getTETier(fromTier);
-        this.mteCompat$toTier = TierUtils.getTETier(toTier);
+        this.mteCompat$fromTier = MTECompatTierUtils.getTETier(fromTier);
+        this.mteCompat$toTier = MTECompatTierUtils.getTETier(toTier);
     }
 
     @Inject(method = "useOn", at = @At(value = "TAIL"), remap = true, cancellable = true)

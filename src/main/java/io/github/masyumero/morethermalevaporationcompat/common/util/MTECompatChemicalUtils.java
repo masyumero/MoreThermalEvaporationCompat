@@ -5,7 +5,7 @@ import mekanism.api.chemical.gas.Gas;
 import net.minecraft.resources.ResourceLocation;
 
 @SuppressWarnings("removal")
-public class ChemicalUtils {
+public class MTECompatChemicalUtils {
 
     public static Gas getGas(ResourceLocation resourceLocation) {
         return MekanismAPI.gasRegistry().getValue(resourceLocation);
