@@ -7,6 +7,7 @@ import io.github.masyumero.morethermalevaporationcompat.AstralModule;
 import io.github.masyumero.morethermalevaporationcompat.EvolvedModule;
 import io.github.masyumero.morethermalevaporationcompat.MoreThermalEvaporationCompat;
 import mekanism.api.Upgrade;
+import morethermalevaporation.common.upgrade.MoreThermalEvaporationUpgrade;
 
 import java.util.EnumSet;
 import java.util.HashSet;
@@ -22,7 +23,7 @@ public class MTECompatUpgradeUtils {
         return original;
     }
 
-    public static Set<Upgrade> getUpgrades() {
+    public static Set<Upgrade> getBaseUpgrades() {
         var upgrade = new HashSet<>(Set.of(Upgrade.ANCHOR));
         if (EvolvedModule.EvolvedLoaded) {
             upgrade.add(EMUpgrades.SOLAR_UPGRADE);
@@ -33,8 +34,14 @@ public class MTECompatUpgradeUtils {
         return upgrade;
     }
 
+    public static Set<Upgrade> getUpgrades() {
+        var upgrade = new HashSet<>(getBaseUpgrades());
+        upgrade.add(MoreThermalEvaporationUpgrade.STRUCTURE);
+        return upgrade;
+    }
+
     public static Set<Upgrade> getCompactUpgrades() {
-        var upgrade = new HashSet<>(getUpgrades());
+        var upgrade = new HashSet<>(getBaseUpgrades());
         upgrade.addAll(EnumSet.of(Upgrade.MUFFLING));
         if (MoreThermalEvaporationCompat.MEK_EMP_LOADED) {
             upgrade.addAll(List.of(MekEmpUpgrade.getIO_CAPACITY(),

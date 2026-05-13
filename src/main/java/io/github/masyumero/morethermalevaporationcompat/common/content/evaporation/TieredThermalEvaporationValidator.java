@@ -14,6 +14,7 @@ import mekanism.common.lib.multiblock.FormationProtocol.CasingType;
 import mekanism.common.lib.multiblock.FormationProtocol.FormationResult;
 import mekanism.common.lib.multiblock.FormationProtocol.StructureRequirement;
 import mekanism.common.lib.multiblock.StructureHelper;
+import morethermalevaporation.common.upgrade.MoreThermalEvaporationUpgrade;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
@@ -73,7 +74,7 @@ public class TieredThermalEvaporationValidator extends CuboidStructureValidator<
     @Override
     public boolean precheck() {
         cuboid = StructureHelper.fetchCuboid(structure, MIN_CUBOID,
-                new VoxelCuboid(4, tier.getHeight(), 4),
+                new VoxelCuboid(4, this.tier.getHeight() + MoreThermalEvaporationUpgrade.STRUCTURE.getMax(), 4),
                 EnumSet.complementOf(EnumSet.of(CuboidSide.TOP)), 8);
         return cuboid != null;
     }
@@ -82,6 +83,9 @@ public class TieredThermalEvaporationValidator extends CuboidStructureValidator<
     public FormationResult postcheck(TieredThermalEvaporationMultiblockData structure, Long2ObjectMap<ChunkAccess> chunkMap) {
         if (!foundController) {
             return FormationResult.fail(MekanismLang.MULTIBLOCK_INVALID_NO_CONTROLLER);
+        }
+        if (structure.height() > structure.getAllowedHeight()) {
+            return FormationResult.FAIL;
         }
         return FormationResult.SUCCESS;
     }

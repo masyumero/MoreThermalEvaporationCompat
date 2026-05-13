@@ -156,7 +156,7 @@ dependencies {
     implementation fg.deobf("mezz.jei:jei-${minecraft_version}-forge:${jei_version}")
     implementation fg.deobf("curse.maven:astral-mekanism-1415150:8068466")
     implementation fg.deobf("curse.maven:mekanism-extras-1026040:6936409")
-    implementation fg.deobf("curse.maven:morethermalevaporation-1406469:7914615")
+    implementation fg.deobf("curse.maven:morethermalevaporation-1406469:8077595")
     implementation fg.deobf("curse.maven:evolved-mekanism-extras-1268159:7939645")
     implementation fg.deobf("curse.maven:just-enough-mekanism-multiblocks-898746:7176443")
     implementation fg.deobf("curse.maven:mekanism-empowered-1256390:8064675")

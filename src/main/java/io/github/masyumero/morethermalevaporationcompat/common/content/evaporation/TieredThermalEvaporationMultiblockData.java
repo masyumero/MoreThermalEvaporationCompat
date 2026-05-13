@@ -102,10 +102,12 @@ public class TieredThermalEvaporationMultiblockData extends MultiblockData imple
     public final double maxMultiplierTemp;
     private int inputTankCapacity;
     private int upgradeCount;
+    private int allowedHeight;
 
     public TieredThermalEvaporationMultiblockData(TileEntityTieredThermalEvaporationBlock tile, TETier tier) {
         super(tile);
         this.tier = tier;
+        allowedHeight = tile.getAllowedHeight();
         recipeCacheLookupMonitor = new RecipeCacheLookupMonitor<>(this);
         recheckAllRecipeErrors = TileEntityRecipeMachine.shouldRecheckAllErrors(tile);
         biomeAmbientTemp = HeatAPI.getAmbientTemp(tile.getLevel(), tile.getTilePos());
@@ -325,6 +327,10 @@ public class TieredThermalEvaporationMultiblockData extends MultiblockData imple
     @Override
     public void mteCompat$setUpgradeCount(int count) {
         upgradeCount = count;
+    }
+
+    public int getAllowedHeight() {
+        return allowedHeight;
     }
 
     private static class RefreshListener implements NonNullConsumer<LazyOptional<IEvaporationSolar>> {
