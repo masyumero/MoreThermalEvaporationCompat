@@ -24,7 +24,7 @@ import static astral_mekanism.registries.AMEItems.ELASTIC_ALLOY;
 import static astral_mekanism.registries.AMEItems.ILLUSION_CONTROL_CIRCUIT;
 import static astral_mekanism.registries.AMEItems.SPACETIME_MODULATION_CORE;
 import static astral_mekanism.registries.AMEItems.STARDUST_ALLOY;
-import static com.jerry.mekanism_extras.common.registry.ExtraItem.SPECTRUM_ALLOY;
+import static com.jerry.mekanism_extras.common.registries.ExtraItems.SPECTRUM_ALLOY;
 import static fr.iglee42.evolvedmekanism.registries.EMItems.EXOVERSAL_ALLOY;
 import static io.github.masyumero.emextras.common.registry.EMExtrasItem.INFINITE_MULTIVERSAL_CONTROL_CIRCUIT;
 
